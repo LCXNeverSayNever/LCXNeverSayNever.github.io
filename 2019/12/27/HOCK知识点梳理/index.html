@@ -448,7 +448,7 @@
   <h1 id="对React-Hook-的整理"><a href="#对React-Hook-的整理" class="headerlink" title="对React Hook 的整理"></a>对React Hook 的整理</h1><h3 id="一、什么是-React-Hook"><a href="#一、什么是-React-Hook" class="headerlink" title="一、什么是 React Hook"></a>一、什么是 React Hook</h3><p><strong>官方回答：Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</strong></p>
 <p><strong>从官网的这句话中，我们可以明确的知道，Hook增加了函数式组件中state的使用，我们可以轻松的在函数式组件中维护我们的状态，不需要更改为class组件。</strong></p>
 <p>React16.8 加入 hooks，让 React 函数式组件更加灵活React16.8 ，之前的hock存在的问题，如下：<br><span style="color:red">在组件间复用状态逻辑很难</span><br><span style="color:red">复杂组件变得难以理解，高阶组件和函数组件的嵌套过深。（嵌套地狱）</span><br><span style="color:red">难以记忆的生命周期 </span><br>React16.8，为解决这些问题，提供以下几种方法，如下：<br><span style="color:blue">useState 返回有状态值，以及更新这个状态值的函数 </span><br><span style="color:blue">useEffect 接受包含命令式，可能有副作用代码的函数。</span><br><span style="color:blue">useContext 接受上下文对象（从 React.createContext 返回的值）并返回当前上下文值. </span><br><span style="color:blue">useReducer useState 的替代方案。接受类型为(state，action) =&gt; newState 的 reducer，并返回与 dispatch 方法配对的当前状态。</span><br><strong>useCallback</strong>              返回一个回忆的 memoized 版本，该版本仅在其中一个输入发生更改时才会更改。纯函数的输入输出确定性<br><strong>useMemo</strong>                  纯的一个记忆函数<br><strong>useRef</strong>                   返回一个可变的 ref 对象，其.current 属性被初始化为传递的参数<br><strong>useImperativeMethods</strong>     自定义使用 ref 时公开给父组件的实例值<br><strong>useMutationEffect</strong>        更新兄弟组件之前，它在 React 执行其 DOM 改变的同一阶段同步触发<br><strong>useLayoutEffect DOM</strong>      改变后同步触发。使用它来从 DOM 读取布局并同步重新渲染</p>
-<h3 id="二、函数组件使用hock之后生命周期与类组件中生命周期的区别"><a href="#二、函数组件使用hock之后生命周期与类组件中生命周期的区别" class="headerlink" title="二、函数组件使用hock之后生命周期与类组件中生命周期的区别"></a>二、函数组件使用hock之后生命周期与类组件中生命周期的区别</h3><p><img src="https://img2020.cnblogs.com/blog/2186517/202012/2186517-20201217114018019-1891212607.png" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/2186517/202012/2186517-20201217114018019-1891212607.png" srcset="data:image/png;base64,666" alt="img"></p>
+<h3 id="二、函数组件使用hock之后生命周期与类组件中生命周期的区别"><a href="#二、函数组件使用hock之后生命周期与类组件中生命周期的区别" class="headerlink" title="二、函数组件使用hock之后生命周期与类组件中生命周期的区别"></a>二、函数组件使用hock之后生命周期与类组件中生命周期的区别</h3><p><img src="%22../image/hock.png%22" class="lazyload" data-srcset="%22../image/hock.png%22" srcset="data:image/png;base64,666" alt="img"></p>
 
   
   
@@ -483,7 +483,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-27T19:22:29+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-27T19:26:49+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Dec 27, 2020</p>
@@ -665,7 +665,7 @@
       
     
       
-        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
@@ -677,9 +677,9 @@
       
     
       
-        本站使用
+        Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename">Volantis</a>
-        作为主题
+        as theme
       
     
       
