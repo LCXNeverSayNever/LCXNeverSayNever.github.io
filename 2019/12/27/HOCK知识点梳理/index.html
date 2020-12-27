@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive: 2020 - 刘晨曦的个人博客</title>
+  <title>HOCK知识点梳理 - 刘晨曦的个人博客</title>
   
 
   
@@ -56,7 +54,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -309,7 +307,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -387,71 +385,210 @@
         
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
-      
+    
+    
+      <h1 class="title">
+        HOCK知识点梳理
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>刘晨曦</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
+          
+            
+
+          
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/">
-        Dec 27, 2020
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 27, 2019</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-        对React Hook 的整理一、什么是 React Hook官方回答：Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
-从官网的这句话中，我们可以明确的知道，Hook增加了函数式组件中state的使用，我们可以轻松的在函数式组件中维护我们的状态，不需要更改为class组件。
-React16.8 加入 h...
-      
-    
+      <div id="lc-pv" data-title="HOCK知识点梳理" data-path="/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-27</time>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <h1 id="对React-Hook-的整理"><a href="#对React-Hook-的整理" class="headerlink" title="对React Hook 的整理"></a>对React Hook 的整理</h1><h3 id="一、什么是-React-Hook"><a href="#一、什么是-React-Hook" class="headerlink" title="一、什么是 React Hook"></a>一、什么是 React Hook</h3><p><strong>官方回答：Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</strong></p>
+<p><strong>从官网的这句话中，我们可以明确的知道，Hook增加了函数式组件中state的使用，我们可以轻松的在函数式组件中维护我们的状态，不需要更改为class组件。</strong></p>
+<p>React16.8 加入 hooks，让 React 函数式组件更加灵活React16.8 ，之前的hock存在的问题，如下：<br><span style="color:red">在组件间复用状态逻辑很难</span><br><span style="color:red">复杂组件变得难以理解，高阶组件和函数组件的嵌套过深。（嵌套地狱）</span><br><span style="color:red">难以记忆的生命周期 </span><br>React16.8，为解决这些问题，提供以下几种方法，如下：<br><span style="color:blue">useState 返回有状态值，以及更新这个状态值的函数 </span><br><span style="color:blue">useEffect 接受包含命令式，可能有副作用代码的函数。</span><br><span style="color:blue">useContext 接受上下文对象（从 React.createContext 返回的值）并返回当前上下文值. </span><br><span style="color:blue">useReducer useState 的替代方案。接受类型为(state，action) =&gt; newState 的 reducer，并返回与 dispatch 方法配对的当前状态。</span><br><strong>useCallback</strong> 返回一个回忆的 memoized 版本，该版本仅在其中一个输入发生更改时才会更改。纯函数的输入输出确定性<br><strong>useMemo</strong>     纯的一个记忆函数<br><strong>useRef</strong>          返回一个可变的 ref 对象，其.current 属性被初始化为传递的参数<br><strong>useImperativeMethods</strong>     自定义使用 ref 时公开给父组件的实例值<br><strong>useMutationEffect</strong>              更新兄弟组件之前，它在 React 执行其 DOM 改变的同一阶段同步触发<br><strong>useLayoutEffect DOM</strong>        改变后同步触发。使用它来从 DOM 读取布局并同步重新渲染</p>
+<h3 id="二、函数组件使用hock之后生命周期与类组件中生命周期的区别"><a href="#二、函数组件使用hock之后生命周期与类组件中生命周期的区别" class="headerlink" title="二、函数组件使用hock之后生命周期与类组件中生命周期的区别"></a>二、函数组件使用hock之后生命周期与类组件中生命周期的区别</h3><p><img src="https://img2020.cnblogs.com/blog/2186517/202012/2186517-20201217114018019-1891212607.jpg" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/2186517/202012/2186517-20201217114018019-1891212607.jpg" srcset="data:image/png;base64,666" alt="img"></p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/>http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-27T19:01:05+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Dec 27, 2020</p>
+  </a>
 </div>
 
-          </div>
         
       
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-  </section>
-  
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/&title=HOCK知识点梳理 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
     
-  
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/&title=HOCK知识点梳理 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/&title=HOCK知识点梳理 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
 
 
-	
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2019/12/26/%E9%98%90%E8%BF%B0%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/'>
+          <p class='title'>阐述深浅拷贝<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[我对js数据类型的理解和深浅(copy)的应用场景]
+一、js 数据类型　　 javaScritp的数据类型有：数值类型、字符串类型、布尔类型、空、undefined、对象(数组、正则表达式、...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -459,103 +596,28 @@ React16.8 加入 h...
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">刘晨曦的个人博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px; color: #999">前端</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-React-Hook"><span class="toc-text">一、什么是 React Hook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8hock%E4%B9%8B%E5%90%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%8E%E7%B1%BB%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">二、函数组件使用hock之后生命周期与类组件中生命周期的区别</span></a></li></ol>
     </div>
   </section>
 
 
   
 
-  
-
 
 </aside>
+
 
 
         
@@ -565,14 +627,14 @@ React16.8 加入 h...
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="HOCK知识点梳理";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 
