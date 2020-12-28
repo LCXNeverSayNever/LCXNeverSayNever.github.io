@@ -19,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>HOCK知识点梳理 - 刘晨曦的个人博客</title>
+  <title>ES6：class从了解到使用 - 刘晨曦的个人博客</title>
   
 
   
@@ -391,7 +391,7 @@
     
     
       <h1 class="title">
-        HOCK知识点梳理
+        ES6：class从了解到使用
       </h1>
       <div class='new-meta-box'>
         
@@ -415,7 +415,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2019-12-27</p>
+    <p>发布于：2019-12-28</p>
   </a>
 </div>
 
@@ -426,7 +426,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="HOCK知识点梳理" data-path="/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/">
+      <div id="lc-pv" data-title="ES6：class从了解到使用" data-path="/2019/12/28/ES6%EF%BC%9Aclass%E4%BB%8E%E4%BA%86%E8%A7%A3%E5%88%B0%E4%BD%BF%E7%94%A8/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -443,34 +443,34 @@
 
 
   
-  <h1 id="对React-Hook-的整理"><a href="#对React-Hook-的整理" class="headerlink" title="对React Hook 的整理"></a>对React Hook 的整理</h1><h3 id="一、什么是-React-Hook"><a href="#一、什么是-React-Hook" class="headerlink" title="一、什么是 React Hook"></a>一、什么是 React Hook</h3><p><strong>官方回答：Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</strong></p>
-<p><strong>从官网的这句话中，我们可以明确的知道，Hook增加了函数式组件中state的使用，我们可以轻松的在函数式组件中维护我们的状态，不需要更改为class组件。</strong></p>
-<p>React16.8 加入 hooks，让 React 函数式组件更加灵活React16.8 ，之前的hock存在的问题，如下：<br><span style="color:red">在组件间复用状态逻辑很难</span><br><span style="color:red">复杂组件变得难以理解，高阶组件和函数组件的嵌套过深。（嵌套地狱）</span><br><span style="color:red">难以记忆的生命周期 </span><br>React16.8，为解决这些问题，提供以下几种方法，如下：<br><span style="color:blue">useState 返回有状态值，以及更新这个状态值的函数 </span><br><span style="color:blue">useEffect 接受包含命令式，可能有副作用代码的函数。</span><br><span style="color:blue">useContext 接受上下文对象（从 React.createContext 返回的值）并返回当前上下文值. </span><br><span style="color:blue">useReducer useState 的替代方案。接受类型为(state，action) =&gt; newState 的 reducer，并返回与 dispatch 方法配对的当前状态。</span><br><strong>useCallback</strong>              返回一个回忆的 memoized 版本，该版本仅在其中一个输入发生更改时才会更改。纯函数的输入输出确定性<br><strong>useMemo</strong>                  纯的一个记忆函数<br><strong>useRef</strong>                   返回一个可变的 ref 对象，其.current 属性被初始化为传递的参数<br><strong>useImperativeMethods</strong>     自定义使用 ref 时公开给父组件的实例值<br><strong>useMutationEffect</strong>        更新兄弟组件之前，它在 React 执行其 DOM 改变的同一阶段同步触发<br><strong>useLayoutEffect DOM</strong>      改变后同步触发。使用它来从 DOM 读取布局并同步重新渲染</p>
-<h3 id="二、函数组件使用hock之后生命周期与类组件中生命周期的区别"><a href="#二、函数组件使用hock之后生命周期与类组件中生命周期的区别" class="headerlink" title="二、函数组件使用hock之后生命周期与类组件中生命周期的区别"></a>二、函数组件使用hock之后生命周期与类组件中生命周期的区别</h3><p><strong>class 组件</strong>                    </p>
-<ol>
-    <li>constructor</li>
-    <li>getDerivedStateFromProps</li>
-    <li>shouldComponentUpdate</li>
-    <li>render</li>
-    <li>componentDidMount</li>
-    <li>componentDidUpdate </li>
-    <li>componentWillUnmount </li>             
-</ol>            
+  <h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要:"></a>前情提要:</h1><p>JavaScript 语言中，在使用类之前，生成实例对象的传统方法是通过使用构造函数。</p>
+<h2 id="一、构造函数："><a href="#一、构造函数：" class="headerlink" title="一、构造函数："></a>一、构造函数：</h2><p>定义：通过  new 函数名  来实例化对象的函数叫构造函数。<br>主要功能：为初始化对象，特点是和new 一起使用。new就是在创建对象，从无到有，构造函数就是在为初始化的对象添加属性和方法。<br>注意：任何的函数都可以作为构造函数存在，构造函数定义时首字母大写（规范）。<br>对new的理解：new 申请内存, 创建对象,当调用new时，后台会隐式执行new Object()创建对象。所以，通过new创建的字符串、数字是引用类型，而是非值类型。</p>
+<h3 id="1、常用的构造函数："><a href="#1、常用的构造函数：" class="headerlink" title="1、常用的构造函数："></a>1、常用的构造函数：</h3><p>var arr = []；为 var arr = new Array()的语法糖<br>var obj = {}； 为 var obj = new Object()的语法糖<br>var date = new date()<br>当然还有很多，这里就不一 一列举了。</p>
+<h3 id="2、执行一个构造函数："><a href="#2、执行一个构造函数：" class="headerlink" title="2、执行一个构造函数："></a>2、执行一个构造函数：</h3><p>function A(name,age){ 　　this.name = name; 　　this.age = age; }<br>A.prototype.info = function(){<br>　　return “姓名”+ “” + this.name + “年龄” + this.age<br>}<br>let a = new A(“张三”,22)//实例化a<br>//打印 a结果<br>A{<br>　　name:”张三”,<br>　　age:22<br>}<br>//打印 a.info() 结果为 “姓名张三年龄22”</p>
+<h2 id="二、class-类"><a href="#二、class-类" class="headerlink" title="二、class 类"></a>二、class 类</h2><p>　　  由来：因为上面构造函数的写法跟传统的面向对象语言差异很大，给很多程序员造成很多困惑，所以ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概念，作为对象的模板。<br>通过class关键字，可以定义类。</p>
+<h3 id="1、class类基本语法的使用"><a href="#1、class类基本语法的使用" class="headerlink" title="1、class类基本语法的使用"></a>1、class类基本语法的使用</h3><p>class A{<br>　　constructor(){<br>　　　　//成员属性<br>　　　　this.name = name<br>　　　　this.age = age<br>　　}<br>　　//静态方法 如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。A.nihao()<br>　　static nihao(){<br>　　　　console.log(“你好”)<br>　　}<br>　　//成员方法<br>　　info(){<br>　　　　return “姓名”+ “” + this.name + “年龄” + this.age<br>　　}<br>}<br>与上面的构造函数相比之言，新的class写法让对象原型的写法更加清晰、更像面向对象编程的语法。<br>注意：定义info()方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了，方法与方法之间不需要逗号分隔，加了会报错。</p>
+<p>添加静态属性：静态属性指的是 Class 本身的属性，即Class.propName，而不是定义在实例对象（this）上的属性。<br><strong>老式写法：</strong><br>class A{}<br>A.props=1 //A.props= 1   props就是A的静态属性 </p>
+<p><strong>新式写法：</strong><br>class A{<br>   static props = 1<br>}<br>新写法是显式声明（declarative），而不是赋值处理，语义更好。</p>
+<p><strong>私有方法和私有属性：</strong><br>私有方法两种写法：　　　　<br>function bar(name){<br>    return　this.name = name<br>}<br>class A{</p>
+<pre><code>foo(name)&#123;
 
-<p><strong>Hooks组件</strong></p>
-<ol>
-    <li>useState</li>
-    <li>useState里面update函数</li>
-    <li>useMemo</li>
-    <li>函数本身</li>
-    <li>useEffect</li>
-    <li>useEffect</li>
-    <li>useEffect里面返回的函数</li>                   
-</ol> 
-
-
-
-
+    bar.call(this,name)
+&#125;</code></pre>
+<p>}<br>这样写的原因是类内部的所有方法都是对外可见的。foo是公开方法，内部调用了bar.call(this, baz)。这使得bar()实际上成为了当前类的私有方法。</p>
+<p><strong>还有一种方法是利用Symbol值的唯一性，将私有方法的名字命名为一个Symbol值。</strong><br>const bar = Symbol(‘bar’)<br>const  name = Symbol(‘name’)<br>class A{<br>    //公有方法<br>    foo(){<br>　　　　this<a href="name">bra</a><br>　　}<br>　　//私有方法<br>    <a href="name">bar</a>{<br>        return this[name] = name<br>　　}<br>}</p>
+<p><strong>私有属性</strong><br>第一种方法是在属性名之前，使用#表示。<br>class A{<br>　　#count = 0<br>}<br>注意：#count就是私有属性，只能在类的内部使用（this.#count）。如果在类的外部使用，就会报错。</p>
+<p>这种写法不仅可以写私有属性，还可以用来写私有方法。<br>私有属性也可以设置 getter 和 setter 方法。</p>
+<p>class Foo {<br>    #a;<br>    #b;<br>    #xVal = 0; constructor(a, b) { this.#a = a; this.#b = b; } #sum() { return this.#a + this.#b; } printSum() { console.log(this.#sum()); }<br>    get #x() { return #xValue; }<br>    set #x(value) {<br>        this.#xValue = value;<br>    }<br>}<br>私有属性不限于从this引用，只要是在类的内部，实例也可以引用私有属性。<br>私有属性和私有方法前面，也可以加上static关键字，表示这是一个静态的私有属性或私有方法。</p>
+<h4 id="2、深入介绍class类和class继承"><a href="#2、深入介绍class类和class继承" class="headerlink" title="2、深入介绍class类和class继承"></a>2、深入介绍class类和class继承</h4><p>&lt;1&gt;<br>ES6 的类，完全可以看作构造函数的另一种写法。<br>class A{}  typeof A //function  A === A.prototype.constructor // ture 可以看出，类的数据类型就是函数，类本身就指向构造函数。<br>使用的时候，也是直接对类使用new命令，跟构造函数的用法完全一致。</p>
+<p>&lt;2&gt;<br>class A{<br>　　constructor(){}<br>　　info(){}<br>　　toString(){}<br>　　toVal(){}<br>}<br>等同于<br>A.prototype={<br>    info(){},<br>    toString(){},<br>    toVal(){},<br>};<br>构造函数的prototype属性，在类里面也存在，类的所有方法都定义在类的prototype属性上面.<br>因此，在类的实例上面调用方法，其实就是调用原型上的方法。</p>
+<p>&lt;3&gt;<br>Object.assign()  方法可以很方便地一次向类添加多个方法。如下：<br>Object.assign(A.prototype,{<br>    toString(){},<br>    toVal(){},<br>})</p>
+<p>&lt;4&gt;<br>类的内部所有定义的方法，都是不可枚举的，如下：<br>class A{ constructor(x, y) { // … } toString() { // … } } Object.keys(A.prototype) // []</p>
+<p>&lt;5&gt;<br>类内部可以忽略不写constructor，因为JavaScript 引擎会自动为它添加一个空的constructor()方法。如下：<br>class A{} === class A{constructor(){}} //true</p>
+<p>&lt;6&gt;<br>constructor()方法默认返回实例对象（即this），完全可以指定返回另外一个对象。</p>
+<p>&lt;7&gt;<br>类必须使用new调用，否则会报错。这是它跟普通构造函数的一个主要区别，后者不用new也可以执行。</p>
+<h2 id="三、class继承："><a href="#三、class继承：" class="headerlink" title="三、class继承："></a>三、class继承：</h2><p>&lt;1&gt;class 通过extends关键字实现继承，这样的继承方式非常清晰和方便<br>class A{}<br>class B extends A{<br>    constructor(){<br>　　　super() //关键字，super作为函数调用时，代表父类的构造函数<br>    }<br>} //B类继承了A类的所有属性和方法<br>&lt;2&gt;Object.getPrototypeof(B)=== A //true 方法可以用来从子类上获取父类 ,因此，可以使用这个方法判断，一个类是否继承了另一个类。</p>
+<p>　　　　</p>
+<p>　　　　　　　　</p>
 
   
   
@@ -488,7 +488,7 @@
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/>http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2019/12/28/ES6%EF%BC%9Aclass%E4%BB%8E%E4%BA%86%E8%A7%A3%E5%88%B0%E4%BD%BF%E7%94%A8/>http://example.com/2019/12/28/ES6%EF%BC%9Aclass%E4%BB%8E%E4%BA%86%E8%A7%A3%E5%88%B0%E4%BD%BF%E7%94%A8/</a></p>
               
             
           </blockquote>
@@ -505,10 +505,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-27T19:47:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-28T21:27:20+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020-12-27</p>
+    <p>更新于：2020-12-28</p>
   </a>
 </div>
 
@@ -527,7 +527,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/&title=HOCK知识点梳理 - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/12/28/ES6%EF%BC%9Aclass%E4%BB%8E%E4%BA%86%E8%A7%A3%E5%88%B0%E4%BD%BF%E7%94%A8/&title=ES6：class从了解到使用 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -539,7 +539,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/&title=HOCK知识点梳理 - 刘晨曦的个人博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2019/12/28/ES6%EF%BC%9Aclass%E4%BB%8E%E4%BA%86%E8%A7%A3%E5%88%B0%E4%BD%BF%E7%94%A8/&title=ES6：class从了解到使用 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -551,7 +551,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/&title=HOCK知识点梳理 - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/12/28/ES6%EF%BC%9Aclass%E4%BB%8E%E4%BA%86%E8%A7%A3%E5%88%B0%E4%BD%BF%E7%94%A8/&title=ES6：class从了解到使用 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -581,17 +581,10 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/2019/12/28/ES6%EF%BC%9Aclass%E4%BB%8E%E4%BA%86%E8%A7%A3%E5%88%B0%E4%BD%BF%E7%94%A8/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>ES6：class从了解到使用</p>
-          <p class='content'>前情提要:JavaScript 语言中，在使用类之前，生成实例对象的传统方法是通过使用构造函数。
-一、构造函数：定义：通过  new 函数名  来实例化对象的函数叫构造函数。主要功能：为初始化对...</p>
-        </a>
       
-      
-        <a class='next' href='/2019/12/26/%E9%98%90%E8%BF%B0%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/'>
-          <p class='title'>阐述深浅拷贝<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>[我对js数据类型的理解和深浅(copy)的应用场景]
-一、js 数据类型　　 javaScritp的数据类型有：数值类型、字符串类型、布尔类型、空、undefined、对象(数组、正则表达式、...</p>
+        <a class='next' href='/2019/12/27/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/'>
+          <p class='title'>HOCK知识点梳理<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>对React Hook 的整理一、什么是 React Hook官方回答：Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 Re...</p>
         </a>
       
     </div>
@@ -634,7 +627,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-React-Hook"><span class="toc-text">一、什么是 React Hook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8hock%E4%B9%8B%E5%90%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%8E%E7%B1%BB%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">二、函数组件使用hock之后生命周期与类组件中生命周期的区别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-text">一、构造函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%B8%B8%E7%94%A8%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-text">1、常用的构造函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%89%A7%E8%A1%8C%E4%B8%80%E4%B8%AA%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-text">2、执行一个构造函数：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81class-%E7%B1%BB"><span class="toc-text">二、class 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81class%E7%B1%BB%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">1、class类基本语法的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E6%B7%B1%E5%85%A5%E4%BB%8B%E7%BB%8Dclass%E7%B1%BB%E5%92%8Cclass%E7%BB%A7%E6%89%BF"><span class="toc-text">2、深入介绍class类和class继承</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81class%E7%BB%A7%E6%89%BF%EF%BC%9A"><span class="toc-text">三、class继承：</span></a></li></ol>
     </div>
   </section>
 
@@ -654,7 +647,7 @@
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="HOCK知识点梳理";
+  pdata.postTitle="ES6：class从了解到使用";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
