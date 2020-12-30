@@ -353,7 +353,7 @@
 
 
   
-  <h1 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h1><p>使用 “use strict” 指令<br>“use strict” 指令在 JavaScript 1.8.5 (ECMAScript5) 中新增。</p>
+  <h2 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h2><p>使用 “use strict” 指令<br>“use strict” 指令在 JavaScript 1.8.5 (ECMAScript5) 中新增。</p>
 <p>它不是一条语句，但是是一个字面量表达式，在 JavaScript 旧版本中会被忽略。</p>
 <p>“use strict” 的目的是指定代码在严格条件下执行。</p>
 <p>严格模式下你不能使用未声明的变量。</p>
@@ -405,7 +405,7 @@
 <p>function f(){<br>    “use strict”;<br>    return !this;<br>}<br>// 返回true，因为严格模式下，this的值为undefined，所以”!this”为true。<br>因此，使用构造函数时，如果忘了加new，this不再指向全局对象，而是报错。</p>
 <p>function f(){<br>    “use strict”;<br>    this.a = 1;<br>};<br>f();// 报错，this未定义<br>保留关键字<br>为了向将来Javascript的新版本过渡，严格模式新增了一些保留关键字：</p>
 <p>implements<br>interface<br>let<br>package<br>private<br>protected<br>public<br>static<br>yield<br>“use strict”;<br>var public = 1500;      // 报错</p>
-<h1 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h1><p>JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。</p>
+<h2 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h2><p>JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。</p>
 <p>JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。</p>
 <p>以下两个实例将获得相同的结果：</p>
 <p>实例 1<br>x = 5; // 变量 x 设置为 5</p>
@@ -465,7 +465,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-30T21:11:54+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-30T21:13:11+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020-12-30</p>
@@ -597,7 +597,7 @@ let isDone: boolean =...</p>
 
 
     <div class='content'>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F"><span class="toc-text">严格模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="toc-text">变量提升</span></a></li></ol>
     </div>
   </section>
 
