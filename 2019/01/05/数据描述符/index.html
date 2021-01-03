@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2019/10 - 刘晨曦的个人博客</title>
+  <title>数据描述符详解 - 刘晨曦的个人博客</title>
+  
+    <meta name="keywords" content="JavaScript">
   
 
   
@@ -56,7 +56,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -243,7 +243,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -291,118 +291,229 @@
         
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
-      
+    
+    
+      <h1 class="title">
+        数据描述符详解
+      </h1>
+      <div class='new-meta-box'>
         
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://pic1.zhimg.com/v2-b1071ec78f7e34d3a62213a67afc6aed_r.jpg?source=1940ef5c">
+    <p>刘晨曦</p>
+  </a>
+</div>
+
           
         
           
+            
+
+          
         
-      
-    
-    
-      
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019-01-05</p>
+  </a>
+</div>
+
+          
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/10/31/TypeScript-%E6%8E%A5%E5%8F%A3%E5%92%8C%E7%B1%BB/">
-        TypeScript-接口和类
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-        接口介绍TypeScript的核心原则之一是对值所具有的结构进行类型检查。 它有时被称做“鸭式辨型法”或“结构性子类型化”。 在TypeScript里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。
-接口初探下面通过一个简单示例来观察接口是如何工作的：
-function printLabel(labelledObj: { label: string }) {  console...
-      
-    
+      <div id="lc-pv" data-title="数据描述符详解" data-path="/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-10-31</time>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><p><span style="font-size:18px;font-weight:800;">Obeject.assgin()(数据描述符)是Object构造函数的方法</span><br><span style="font-size:18px;font-weight:800;"><br>它是一个浅拷贝，针对深拷贝，需要使用JSON.parse(JSON.stringfy(obj))深拷贝，因为 Object.assign()拷贝的是（可枚举）属性值。假如源值是一个对象的引用，它仅仅会复制其引用值。<br></span></p>
+<h2 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.assgin(target,...sources)</span><br></pre></td></tr></table></figure>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>target</code><br><strong>目标对象</strong><br><code>source</code><br><strong>源对象</strong></p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p><strong>目标对象</strong></p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p><span style="font-size:18px;font-weight:800;">用于将所有可枚举属性的值从一个或多个源对象分配到目标对象。</span><br><span style="color:red;font-size:18px;">它将返回目标对象</span></p>
+<h3 id="详细描述"><a href="#详细描述" class="headerlink" title="详细描述"></a>详细描述</h3><p><strong>如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性。</strong><br>以下代码是证明这句话的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const target &#x3D; &#123; a: 1, b: 2 &#125;;</span><br><span class="line">const source &#x3D; &#123; b: 4, c: 5 &#125;;</span><br><span class="line">const returnedTarget &#x3D; Object.assign(target, source);</span><br><span class="line">console.log(target);</span><br><span class="line">&#x2F;&#x2F; expected output: Object &#123; a: 1, b: 4, c: 5 &#125;</span><br><span class="line">console.log(returnedTarget);</span><br><span class="line">&#x2F;&#x2F; expected output: Object &#123; a: 1, b: 4, c: 5 &#125;</span><br></pre></td></tr></table></figure>
+<p>Object.assign 方法只会拷贝源对象自身的并且可枚举的属性到目标对象。该方法使用源对象的[[Get]]和目标对象的[[Set]]，所以它会调用相关 getter 和 setter。因此，它分配属性，而不仅仅是复制或定义新的属性。如果合并源包含getter，这可能使其不适合将新属性合并到原型中。为了将属性定义（包括其可枚举性）复制到原型，应使用<code>Object.getOwnPropertyDescriptor()</code>和<code>Object.defineProperty()</code>。<br><strong>String类型和 Symbol 类型的属性都会被拷贝。</strong><br><span style="color:red;font-size:18px;">在出现错误的情况下，例如，如果属性不可写，会引发TypeError，如果在引发错误之前添加了任何属性，则可以更改target对象。</span></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="合并对象"><a href="#合并对象" class="headerlink" title="合并对象"></a>合并对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const o1 &#x3D; &#123; a: 1 &#125;;</span><br><span class="line">const o2 &#x3D; &#123; b: 2 &#125;;</span><br><span class="line">const o3 &#x3D; &#123; c: 3 &#125;;</span><br><span class="line"></span><br><span class="line">const obj &#x3D; Object.assign(o1, o2, o3);</span><br><span class="line">console.log(obj); &#x2F;&#x2F; &#123; a: 1, b: 2, c: 3 &#125;</span><br><span class="line">console.log(o1);  &#x2F;&#x2F; &#123; a: 1, b: 2, c: 3 &#125;, 注意目标对象自身也会改变。</span><br></pre></td></tr></table></figure>
+<h3 id="合并具有相同属性的对象"><a href="#合并具有相同属性的对象" class="headerlink" title="合并具有相同属性的对象"></a>合并具有相同属性的对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const o1 &#x3D; &#123; a: 1, b: 1, c: 1 &#125;;</span><br><span class="line">const o2 &#x3D; &#123; b: 2, c: 2 &#125;;</span><br><span class="line">const o3 &#x3D; &#123; c: 3 &#125;;</span><br><span class="line"></span><br><span class="line">const obj &#x3D; Object.assign(&#123;&#125;, o1, o2, o3);</span><br><span class="line">console.log(obj); &#x2F;&#x2F; &#123; a: 1, b: 2, c: 3 &#125;</span><br></pre></td></tr></table></figure>
+<p><span style="color:red;">属性被后续参数中具有相同属性的其他对象覆盖。</span></p>
+<h3 id="继承属性和不可枚举属性是不能拷贝的"><a href="#继承属性和不可枚举属性是不能拷贝的" class="headerlink" title="继承属性和不可枚举属性是不能拷贝的"></a>继承属性和不可枚举属性是不能拷贝的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; Object.create(&#123;foo: 1&#125;, &#123; &#x2F;&#x2F; foo 是个继承属性。</span><br><span class="line">    bar: &#123;</span><br><span class="line">        value: 2  &#x2F;&#x2F; bar 是个不可枚举属性。</span><br><span class="line">    &#125;,</span><br><span class="line">    baz: &#123;</span><br><span class="line">        value: 3,</span><br><span class="line">        enumerable: true  &#x2F;&#x2F; baz 是个自身可枚举属性。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const copy &#x3D; Object.assign(&#123;&#125;, obj);</span><br><span class="line">console.log(copy); &#x2F;&#x2F; &#123; baz: 3 &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="原始类型会包装为对象"><a href="#原始类型会包装为对象" class="headerlink" title="原始类型会包装为对象"></a>原始类型会包装为对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const v1 &#x3D; &quot;abc&quot;;</span><br><span class="line">const v2 &#x3D; true;</span><br><span class="line">const v3 &#x3D; 10;</span><br><span class="line">const v4 &#x3D; Symbol(&quot;foo&quot;)</span><br><span class="line">const obj &#x3D; Object.assign(&#123;&#125;, v1, null, v2, undefined, v3, v4);</span><br><span class="line">&#x2F;&#x2F; 原始类型会被包装，null 和 undefined 会被忽略。</span><br><span class="line">&#x2F;&#x2F; 注意，只有字符串的包装对象才可能有自身可枚举属性。</span><br><span class="line">console.log(obj); &#x2F;&#x2F; &#123; &quot;0&quot;: &quot;a&quot;, &quot;1&quot;: &quot;b&quot;, &quot;2&quot;: &quot;c&quot; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="异常会打断后续拷贝任务"><a href="#异常会打断后续拷贝任务" class="headerlink" title="异常会打断后续拷贝任务"></a>异常会打断后续拷贝任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const target &#x3D; Object.defineProperty(&#123;&#125;, &quot;foo&quot;, &#123;</span><br><span class="line">    value: 1,</span><br><span class="line">    writable: false</span><br><span class="line">&#125;); &#x2F;&#x2F; target 的 foo 属性是个只读属性。</span><br><span class="line">Object.assign(target, &#123;bar: 2&#125;, &#123;foo2: 3, foo: 3, foo3: 3&#125;, &#123;baz: 4&#125;);</span><br><span class="line">&#x2F;&#x2F; TypeError: &quot;foo&quot; is read-only</span><br><span class="line">&#x2F;&#x2F; 注意这个异常是在拷贝第二个源对象的第二个属性时发生的。</span><br><span class="line"></span><br><span class="line">console.log(target.bar);  &#x2F;&#x2F; 2，说明第一个源对象拷贝成功了。</span><br><span class="line">console.log(target.foo2); &#x2F;&#x2F; 3，说明第二个源对象的第一个属性也拷贝成功了。</span><br><span class="line">console.log(target.foo);  &#x2F;&#x2F; 1，只读属性不能被覆盖，所以第二个源对象的第二个属性拷贝失败了。</span><br><span class="line">console.log(target.foo3); &#x2F;&#x2F; undefined，异常之后 assign 方法就退出了，第三个属性是不会被拷贝到的。</span><br><span class="line">console.log(target.baz);  &#x2F;&#x2F; undefined，第三个源对象更是不会被拷贝到的。</span><br></pre></td></tr></table></figure>
+<h3 id="拷贝访问器"><a href="#拷贝访问器" class="headerlink" title="拷贝访问器"></a>拷贝访问器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123;</span><br><span class="line">  foo: 1,</span><br><span class="line">  get bar() &#123;</span><br><span class="line">    return 2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let copy &#x3D; Object.assign(&#123;&#125;, obj);</span><br><span class="line">console.log(copy); &#x2F;&#x2F; &#123; foo: 1, bar: 2 &#125; copy.bar的值来自obj.bar的getter函数的返回值</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 下面这个函数会拷贝所有自有属性的属性描述符</span><br><span class="line">function completeAssign(target, ...sources) &#123;</span><br><span class="line">  sources.forEach(source &#x3D;&gt; &#123;</span><br><span class="line">    let descriptors &#x3D; Object.keys(source).reduce((descriptors, key) &#x3D;&gt; &#123;</span><br><span class="line">      descriptors[key] &#x3D; Object.getOwnPropertyDescriptor(source, key);</span><br><span class="line">      return descriptors;</span><br><span class="line">    &#125;, &#123;&#125;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; Object.assign 默认也会拷贝可枚举的Symbols</span><br><span class="line">    Object.getOwnPropertySymbols(source).forEach(sym &#x3D;&gt; &#123;</span><br><span class="line">      let descriptor &#x3D; Object.getOwnPropertyDescriptor(source, sym);</span><br><span class="line">      if (descriptor.enumerable) &#123;</span><br><span class="line">        descriptors[sym] &#x3D; descriptor;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    Object.defineProperties(target, descriptors);</span><br><span class="line">  &#125;);</span><br><span class="line">  return target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">copy &#x3D; completeAssign(&#123;&#125;, obj);</span><br><span class="line">console.log(copy);</span><br><span class="line">&#x2F;&#x2F; &#123; foo:1, get bar() &#123; return 2 &#125; &#125;</span><br></pre></td></tr></table></figure>
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2019/10/31/TypeScript-%E6%8E%A5%E5%8F%A3%E5%92%8C%E7%B1%BB/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/>http://example.com/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-03T19:40:42+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021-01-03</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/10/29/TypeScript-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/">
-        TypeScript-基础类型和变量声明
-      </a>
-    </h2>
-  
-  <div class='md'>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JavaScript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JavaScript</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        基础类型布尔值最基本的数据类型就是简单的true/false值，在JavaScript和TypeScript里叫做boolean（其它语言中也一样）。
-let isDone: boolean = false;
-数字和JavaScript一样，TypeScript里的所有数字都是浮点数。 这些浮点数的类型是 number。 除了支持十进制和十六进制字面量，TypeScript还支持ECMASc...
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/&title=数据描述符详解 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/&title=数据描述符详解 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/&title=数据描述符详解 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2019-10-29</time>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2019/10/29/TypeScript-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/'>
-            阅读全文
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2019/01/10/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>HOCK知识点梳理</p>
+          <p class='content'>对React Hook 的整理hook简介Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
+useStat...</p>
+        </a>
+      
+      
+        <a class='next' href='/2019/01/03/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3class%E7%B1%BB%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%B1%BB/'>
+          <p class='title'>深入了解class类并使用类<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>前情提要:JavaScript 语言中，在使用类之前，生成实例对象的传统方法是通过使用构造函数。
+一、构造函数：定义：通过  new 函数名  来实例化对象的函数叫构造函数。主要功能：为初始化对...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-	
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -410,103 +521,28 @@ let isDone: boolean = false;
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">刘晨曦的个人博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/JavaScript/" style="font-size: 24px; color: #555">JavaScript</a> <a href="/tags/React/" style="font-size: 14px; color: #999">React</a> <a href="/tags/TypeScript/" style="font-size: 19px; color: #777">TypeScript</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%EF%BC%9F"><span class="toc-text">如何使用？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E6%8F%8F%E8%BF%B0"><span class="toc-text">详细描述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%AF%B9%E8%B1%A1"><span class="toc-text">合并对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%85%B7%E6%9C%89%E7%9B%B8%E5%90%8C%E5%B1%9E%E6%80%A7%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-text">合并具有相同属性的对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E5%B1%9E%E6%80%A7%E5%92%8C%E4%B8%8D%E5%8F%AF%E6%9E%9A%E4%B8%BE%E5%B1%9E%E6%80%A7%E6%98%AF%E4%B8%8D%E8%83%BD%E6%8B%B7%E8%B4%9D%E7%9A%84"><span class="toc-text">继承属性和不可枚举属性是不能拷贝的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E4%BC%9A%E5%8C%85%E8%A3%85%E4%B8%BA%E5%AF%B9%E8%B1%A1"><span class="toc-text">原始类型会包装为对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E4%BC%9A%E6%89%93%E6%96%AD%E5%90%8E%E7%BB%AD%E6%8B%B7%E8%B4%9D%E4%BB%BB%E5%8A%A1"><span class="toc-text">异常会打断后续拷贝任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D%E8%AE%BF%E9%97%AE%E5%99%A8"><span class="toc-text">拷贝访问器</span></a></li></ol></li></ol>
     </div>
   </section>
 
 
   
 
-  
-
 
 </aside>
+
 
 
         
@@ -516,14 +552,14 @@ let isDone: boolean = false;
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="数据描述符详解";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 
