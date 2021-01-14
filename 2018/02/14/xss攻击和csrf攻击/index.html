@@ -19,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>faqs - 刘晨曦的个人博客</title>
+  <title>xss攻击和csrf攻击 - 刘晨曦的个人博客</title>
+  
+    <meta name="keywords" content="安全问题">
   
 
   
@@ -241,7 +243,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper page dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -289,7 +291,7 @@
         
 
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-page" id="page" itemscope itemprop="blogPost">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
 
 
@@ -299,7 +301,7 @@
     
     
       <h1 class="title">
-        faqs
+        xss攻击和csrf攻击
       </h1>
       <div class='new-meta-box'>
         
@@ -323,7 +325,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020-12-29</p>
+    <p>发布于：2018-02-14</p>
   </a>
 </div>
 
@@ -334,7 +336,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="faqs" data-path="/faqs/">
+      <div id="lc-pv" data-title="xss攻击和csrf攻击" data-path="/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -351,8 +353,36 @@
 
 
   
+  <h2 id="xss攻击"><a href="#xss攻击" class="headerlink" title="xss攻击"></a>xss攻击</h2><p><strong>定义</strong><br>XSS（Cross Site Scripting）：跨域脚本攻击。<br><strong>XSS的攻击原理</strong><br>XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。<br><strong>导致的问题</strong><br>盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。<br><strong>攻击方式</strong><br>1、反射型<br>发出请求时，XSS代码出现在url中，作为输入提交到服务器端，服务器端解析后响应，XSS代码随响应内容一起传回给浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，所以叫反射型XSS。<br>2、存储型存<br>存储型XSS和反射型XSS的差别在于，提交的代码会存储在服务器端（数据库、内存、文件系统等），下次请求时目标页面时不用再提交XSS代码。<br><strong>XSS的主要防范措施</strong><br>1、编码<br>对用户输入的数据进行HTML Entity编码。把字符转换成 转义字符。<br>Encode的作用是将$var等一些字符进行转化，使得浏览器在最终输出结果上是一样的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(1)&lt;&#x2F;script&gt; &#x2F;&#x2F;若不进行任何处理，则浏览器会执行alert的js操作，实现XSS注入。</span><br></pre></td></tr></table></figure>
+<p><code>进行编码处理之后，L在浏览器中的显示结果就是&lt;script&gt;alert(1)&lt;/script&gt;，实现了将$var作为纯文本进行输出，且不引起JavaScript的执行。</code><br>2、过滤<br>移除用户输入的和事件相关的属性。如onerror可以自动触发攻击，还有onclick等。（总而言是，过滤掉一些不安全的内容）移除用户输入的Style节点、Script节点、Iframe节点。（尤其是Script节点，它可是支持跨域的呀，一定要移除）。<br>3、校正<br>避免直接对HTML Entity进行解码。使用DOM Parse转换，校正不配对的DOM标签。<br><code>DOM Parse这个概念，它的作用是把文本解析成DOM结构。</code><br><strong>比较常用的做法是，通过第一步的编码转成文本，然后第三步转成DOM对象，然后经过第二步的过滤。</strong><br>**还有一种简洁的答案:**首先是encode，如果是富文本，就白名单。</p>
+<h2 id="CSRF攻击"><a href="#CSRF攻击" class="headerlink" title="CSRF攻击"></a>CSRF攻击</h2><p><strong>定义</strong><br>CSRF（Cross-site request forgery）：跨站请求伪造。<br><strong>CSRF的攻击原理</strong><br>用户是网站A的注册用户，且登录进去，于是网站A就给用户下发cookie。<br>要完成一次CSRF攻击，受害者必须满足两个必要的条件：<br>（1）登录受信任网站A，并在本地生成Cookie。（如果用户没有登录网站A，那么网站B在诱导的时候，请求网站A的api接口时，会提示你登录）<br>（2）在不登出A的情况下，访问危险网站B（其实是利用了网站A的漏洞）。<br><code>我们在讲CSRF时，一定要把上面的两点说清楚。</code><br><strong>CSRF的主要防范措施</strong><br>1、Token验证(最常用)<br>（1）服务器发送给客户端一个token；<br>（2）客户端提交的表单中带着这个token。<br>（3）如果这个token不合法，那么服务器拒绝这个请求。<br>2、隐藏令牌<br>把token隐藏在http的head头中。<br>3、Referer验证<br>Referer指的是页面请求来源。意思是，只接受本站的请求，服务器才做响应；如果不是，就拦截。</p>
+<h2 id="CSRF和XSS的区别"><a href="#CSRF和XSS的区别" class="headerlink" title="CSRF和XSS的区别"></a>CSRF和XSS的区别</h2><p>1、CSRF：需要用户先登录网站A，获取 cookie。XSS：不需要登录。<br>2、CSRF：是利用网站A本身的漏洞，去请求网站A的api。XSS：是向网站 A 注入 JS代码，然后执行 JS 里的代码，篡改网站A的内容。</p>
+
   
   
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/>http://example.com/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
   
   
     
@@ -362,10 +392,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-29T09:42:21+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-14T19:50:00+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020-12-29</p>
+    <p>更新于：2021-01-14</p>
   </a>
 </div>
 
@@ -373,6 +403,9 @@
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>安全问题</p></a></div>
+
 
         
       
@@ -384,7 +417,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/faqs/index.html&title=faqs - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/&title=xss攻击和csrf攻击 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -396,7 +429,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/faqs/index.html&title=faqs - 刘晨曦的个人博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/&title=xss攻击和csrf攻击 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -408,7 +441,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/faqs/index.html&title=faqs - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/&title=xss攻击和csrf攻击 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -435,6 +468,22 @@
   
   
 
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2019/01/03/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3class%E7%B1%BB%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%B1%BB/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>深入了解class类并使用类</p>
+          <p class='content'>前情提要:JavaScript 语言中，在使用类之前，生成实例对象的传统方法是通过使用构造函数。
+一、构造函数：定义：通过  new 函数名  来实例化对象的函数叫构造函数。主要功能：为初始化对...</p>
+        </a>
+      
+      
+        <a class='next' href='/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/'>
+          <p class='title'>JavaScript中的宏任务和微任务<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>前情提要首先，我们必须明确一个概念：JS是单线程的其次，JS是有异步的，JS的异步分 微任务、宏任务主线任务执行完，JS会到微任务列表找任务，找不到了再到宏任务里面找其中Promise的任务是微...</p>
+        </a>
+      
+    </div>
   
 </article>
 
@@ -464,6 +513,20 @@
 
 
 
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#xss%E6%94%BB%E5%87%BB"><span class="toc-text">xss攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF%E6%94%BB%E5%87%BB"><span class="toc-text">CSRF攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF%E5%92%8CXSS%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">CSRF和XSS的区别</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -479,8 +542,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="xss攻击和csrf攻击";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
