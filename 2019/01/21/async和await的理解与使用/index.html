@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Tag: 安全问题 - 刘晨曦的个人博客</title>
+  <title>async和await的理解与使用 - 刘晨曦的个人博客</title>
+  
+    <meta name="keywords" content="Javascript">
   
 
   
@@ -243,7 +243,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -290,73 +290,228 @@
       <div class='body-wrapper' id="pjax-container">
         
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        async和await的理解与使用
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://pic1.zhimg.com/v2-b1071ec78f7e34d3a62213a67afc6aed_r.jpg?source=1940ef5c">
+    <p>刘晨曦</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
+          
+            
+
+          
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/">
-        xss攻击和csrf攻击
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019-01-21</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-        xss攻击定义XSS（Cross Site Scripting）：跨域脚本攻击。XSS的攻击原理XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。导致的问题盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。攻击方式1、反射型发出请求时，XSS代码出现在url中，...
-      
-    
+      <div id="lc-pv" data-title="async和await的理解与使用" data-path="/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2018-02-14</time>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p><strong>如果想要理解和使用 async 和 await，就必须先要掌握 Promise 的用法，务必先看我整理的 Promise 再来看本篇文章。</strong></p>
+<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><p><strong>是什么</strong><br>async 是一个修饰符。<br><strong>用法</strong><br>它作为一个关键字放到函数前面。<br><strong>作用</strong><br>async 定义的函数会默认的返回一个 Promise 对象 resolve 的值，因此对 async 函数可以直接进行 then 操作,返回的值即为 then 方法的传入函数。<br><strong>基础用法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">async function fn1()&#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">    return 2</span><br><span class="line">&#125;</span><br><span class="line">fn1().then(res &#x3D;&gt;&#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;输出结果为1，2</span><br><span class="line"></span><br><span class="line">async function fn2()&#123;</span><br><span class="line">    console.log(&quot;Promise1&quot;)</span><br><span class="line">    return new Promise(function(resolve,reject)&#x3D;&gt;&#123;</span><br><span class="line">        resolve(&quot;Promise2&quot;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">fn2().then(res &#x3D;&gt;&#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;输出结果为Promise1，Promise2</span><br></pre></td></tr></table></figure>
+<h2 id="await"><a href="#await" class="headerlink" title="await"></a>await</h2><p><strong>是什么</strong><br>await 也是一个修饰符。<br><strong>用法</strong><br>await 关键字，只能放在 async 函数内部，<br><strong>作用</strong><br>获取 Promise 中返回的内容， 获取的是 Promise 函数中 resolve 或者 reject 的值<br><strong>基础用法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.如果await 后面并不是一个Promise的返回值，则会按照同步程序返回值处理。</span><br><span class="line">async function fn3() &#123;</span><br><span class="line">   const a &#x3D; await 1</span><br><span class="line">   const b &#x3D; await new Promise((resolve, reject)&#x3D;&gt;&#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">           resolve(2)</span><br><span class="line">        &#125;, 3000)</span><br><span class="line">   &#125;)</span><br><span class="line">   const c &#x3D; await 3</span><br><span class="line">   console.log(a, b, c)</span><br><span class="line">&#125;</span><br><span class="line">fn3()</span><br><span class="line">&#x2F;&#x2F;运行结果是：3秒钟之后 ，输出 1， 2 , 3。</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 2.如果不使用promise的方法的话</span><br><span class="line">function timer(time) &#123;</span><br><span class="line">   setTimeout(function()&#123;</span><br><span class="line">       console.log(time)</span><br><span class="line">       return 1</span><br><span class="line">    &#125;, time)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function fn4() &#123;</span><br><span class="line">    const a &#x3D; await timer(5000)</span><br><span class="line">    const b &#x3D; await timer(10000)</span><br><span class="line">    const c &#x3D; timer(2000)</span><br><span class="line">    console.log(a)</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn4()</span><br><span class="line">&#x2F;&#x2F;运行结果为：立刻输出undefined ，立刻输出1  2秒后输出2000  5秒后输出5000  10秒后输出10000</span><br></pre></td></tr></table></figure>
+<h2 id="async-await-综合用法"><a href="#async-await-综合用法" class="headerlink" title="async/await 综合用法"></a>async/await 综合用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 定义一个或多个普通函数，函数必须返回Promise对象，如果返回其他类型的数据，将按照普通同步程序处理</span><br><span class="line">function timer2(time) &#123;</span><br><span class="line">    return new Promise((resolve, reject)&#x3D;&gt; &#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">           console.log(time)</span><br><span class="line">           resolve()</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function fn5() &#123;</span><br><span class="line">    await timer2(5000)</span><br><span class="line">    await timer2(10000)</span><br><span class="line">    timer2(1000)</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;</span><br><span class="line">fn5()</span><br><span class="line">&#x2F;&#x2F;运行结果为，5s之后输出5000，10s之后输出10000，10000输出完之后立刻输出1，1s之后输出1000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>async 函数的执行会返回一个 promise 对象，并且把内部的值进行 promise 的封装。</li>
+<li>如果 promise 对象通过 then 或 catch 方法又注册了回调函数，async 函数执行完以后，注册的回调函数就会放到异步队列中，等待执行。</li>
+<li><code>如果只是 async, 和 promise 差不多，但有了 await 就不一样了， await 关键字只能放到 async 函数里面，await 是等待的意思，它后面可以放任何表达式，不过我们更多的是放一个返回 promise 对象的表达式，它等待的是 promise 对象的执行完毕，并返回结果。</code></li>
+<li>如果await 后面并不是一个Promise的返回值，则会按照同步程序返回值处理。</li>
+</ol>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/>http://example.com/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-21T17:00:17+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021-01-21</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Javascript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Javascript</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/&title=async和await的理解与使用 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/&title=async和await的理解与使用 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/&title=async和await的理解与使用 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2019/01/26/%E9%98%90%E8%BF%B0%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>阐述深浅拷贝</p>
+          <p class='content'>前情提要说起深浅拷贝离不开JavaScript的基本类型，我们首先说说JavaScript的数据类型与复制两种数据类型的区别。
+1、JS数据类型javaScritp的数据类型有：数值类型、字符串...</p>
+        </a>
+      
+      
+        <a class='next' href='/2019/01/15/%E7%AE%80%E8%BF%B0Javascript%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/'>
+          <p class='title'>简述Javascript中的this指向<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>前情提要JS 中的this是一个相对复杂的概念，不是简单几句能解释清楚的。粗略地讲，函数的调用方式决定了this的值。
+this取值符合以下规则：1、在调用函数时使用new关键字，函数内的thi...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -364,103 +519,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">刘晨曦的个人博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/JavaScript/" style="font-size: 24px; color: #555">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 14px; color: #999">Javascript</a> <a href="/tags/React/" style="font-size: 14px; color: #999">React</a> <a href="/tags/TypeScript/" style="font-size: 19px; color: #777">TypeScript</a> <a href="/tags/Vue/" style="font-size: 14px; color: #999">Vue</a> <a href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" style="font-size: 14px; color: #999">安全问题</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="toc-text">前情提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async"><span class="toc-text">async</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#await"><span class="toc-text">await</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async-await-%E7%BB%BC%E5%90%88%E7%94%A8%E6%B3%95"><span class="toc-text">async&#x2F;await 综合用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </section>
 
 
   
 
-  
-
 
 </aside>
+
 
 
         
@@ -470,8 +550,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="async和await的理解与使用";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
