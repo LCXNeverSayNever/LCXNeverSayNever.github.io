@@ -451,7 +451,7 @@ async是什么async 是一个修饰符。用法它作为一个关键字放到函
 
 
     <div class='content'>
-      <a href="/tags/JavaScript/" style="font-size: 24px; color: #555">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 14px; color: #999">Javascript</a> <a href="/tags/React/" style="font-size: 14px; color: #999">React</a> <a href="/tags/TypeScript/" style="font-size: 19px; color: #777">TypeScript</a> <a href="/tags/Vue/" style="font-size: 14px; color: #999">Vue</a> <a href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" style="font-size: 14px; color: #999">安全问题</a>
+      <a href="/tags/ECMAScript-6/" style="font-size: 14px; color: #999">ECMAScript 6</a> <a href="/tags/JavaScript/" style="font-size: 24px; color: #555">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 14px; color: #999">Javascript</a> <a href="/tags/React/" style="font-size: 14px; color: #999">React</a> <a href="/tags/TypeScript/" style="font-size: 19px; color: #777">TypeScript</a> <a href="/tags/Vue/" style="font-size: 14px; color: #999">Vue</a> <a href="/tags/hJavaScript/" style="font-size: 14px; color: #999">hJavaScript</a> <a href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" style="font-size: 14px; color: #999">安全问题</a>
     </div>
   </section>
 
@@ -1266,45 +1266,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
   </div>
 </body>
 </html>
-tamp';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    },
-
-    addCount(Counter) {
-      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
-      enableIncr = true;
-      var getterArr = [];
-      var incrArr = [];
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#lc-sv');
-      if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'http://example.com' + '/#lc-sv', 'Visits').then((record) => {
-          incrArr.push(this.buildIncrement(record.objectId))
-          var eles = document.querySelectorAll('#lc-sv #number');
-          if (eles.length > 0) {
-            eles.forEach((el,index,array)=>{
-              el.innerText = record.times + 1;
-              if (pvCtn) {
-                pvCtn.style.display = 'inline';
-              }
-            })
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#lc-uv');
-      if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'http://example.com' + '/#lc-uv', 'Visitors').then((record) => {
+r uvGetter = this.getRecord(Counter, 'http://example.com' + '/#lc-uv', 'Visitors').then((record) => {
           var vuv = this.validUV();
           vuv && incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-uv #number');
