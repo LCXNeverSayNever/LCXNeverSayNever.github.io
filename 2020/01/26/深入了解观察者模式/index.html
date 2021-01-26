@@ -355,9 +355,9 @@
   
   <h2 id="何为观察者模式？"><a href="#何为观察者模式？" class="headerlink" title="何为观察者模式？"></a>何为观察者模式？</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><strong>观察者模式是一种对象行为模式，它定义对象间的一种对一多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新，在观察者模式中，主题是通知的发布者，它发出通知时并不需要知道谁是它的观察者，可以有任意数目的观察者订阅并接收通知，观察者模式不仅被广泛应用于软件界面元素之间的交互，在业务对象之间的交互、权限管理等方面也有广泛的应用。</strong></p>
 <p><strong>观察者模式（Observer）完美的将观察者和被观察者的对象分开，假如说用户界面可以作为一个观察者，业务数据是被观察者，用户界面观察业务数据的变化，发现数据变化后，就会显示在界面上。</strong></p>
+<p><strong>简而言之观察者设计模式定义了对象间的一种一对多的组合关系，以便一个对象的状态发生变化时，所有依赖于它的对象都得到通知并自动刷新。</strong></p>
 <h3 id="面向对象的设计原则"><a href="#面向对象的设计原则" class="headerlink" title="面向对象的设计原则"></a>面向对象的设计原则</h3><p><code>系统中的每个类重点放在某一个功能上，而不是其他方面，一个对象只做一件事情，并且将它做好。</code></p>
 <h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><p>观察者模式在模块之间划定了清晰的界限，提高了应用程序的可维护性和重要性。</p>
-<p><strong>观察者设计模式定义了对象间的一种一对多的组合关系，以便一个对象的状态发生变化时，所有依赖于它的对象都得到通知并自动刷新。</strong></p>
 <h2 id="观察者模式的实现方式"><a href="#观察者模式的实现方式" class="headerlink" title="观察者模式的实现方式"></a>观察者模式的实现方式</h2><p>从根本上来说，<strong>该模式必须包含两个角色即观察者和被观察者对象。</strong><br>在上文的例子中业务数据是被观察对象，用户界面是观察者。<br>观察者和被观察者之间存在“观察”的逻辑关联，当被观察者发生改变的时候，观察者就会观察到这样的变化，并且做出相应的响应。<br>如果在用户界面、业务数据之间使用这样的观察过程，可以确保界面和数据之间划清界限，假定应用程序的需求发生变化，需要修改界面的表现，只需要重新构建一个用户界面，业务数据不需要发生变化。</p>
 <h2 id="观察者使用场景"><a href="#观察者使用场景" class="headerlink" title="观察者使用场景"></a>观察者使用场景</h2><ol>
 <li>当一个对象抽象模型有两个方面，其中一个方面依赖于另一方面。将这二者封装在独立的对象中使它们可以各自独立地改变和复用。</li>
@@ -398,7 +398,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T19:06:08+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T19:08:15+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021-01-26</p>
@@ -582,7 +582,7 @@
       
     
       
-        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
@@ -594,9 +594,9 @@
       
     
       
-        Use
+        本站使用
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename">Volantis</a>
-        as theme
+        作为主题
       
     
       
