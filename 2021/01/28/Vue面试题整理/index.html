@@ -19,9 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Vue中的computed与watch的区别 - 刘晨曦的个人博客</title>
+  <title>Vue面试题整理 - 刘晨曦的个人博客</title>
   
-    <meta name="keywords" content="Vue">
+    <meta name="keywords" content="面试题">
   
 
   
@@ -301,7 +301,7 @@
     
     
       <h1 class="title">
-        Vue中的computed与watch的区别
+        Vue面试题整理
       </h1>
       <div class='new-meta-box'>
         
@@ -325,7 +325,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2019-05-19</p>
+    <p>发布于：2021-01-28</p>
   </a>
 </div>
 
@@ -336,7 +336,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="Vue中的computed与watch的区别" data-path="/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/">
+      <div id="lc-pv" data-title="Vue面试题整理" data-path="/2021/01/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -353,21 +353,86 @@
 
 
   
-  <h2 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性 computed"></a>计算属性 computed</h2><ol>
-<li>支持缓存，只有依赖数据发生改变，才会重新进行计算</li>
-<li>不支持异步，当 computed 内有异步操作时无效，无法监听数据的变化</li>
-<li>computed 属性值会默认走缓存，计算属性是基于它们的响应式依赖进行缓存的，也就是基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的值</li>
-<li>如果一个属性是由其他属性计算而来的，这个属性依赖其他属性，是一个多对一或者一对一，一般用 computed</li>
-<li>如果 computed 属性属性值是函数，那么默认会走 get 方法；函数的返回值就是属性的属性值；在 computed 中的，属性都有一个 get 和一个 set 方法，当数据变化时，调用 set 方法。</li>
+  <h2 id="vue-router-的原理"><a href="#vue-router-的原理" class="headerlink" title="vue-router 的原理"></a>vue-router 的原理</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><h2 id="Vue-事件总线（EventBus）"><a href="#Vue-事件总线（EventBus）" class="headerlink" title="Vue 事件总线（EventBus）"></a>Vue 事件总线（EventBus）</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>EventBus 又称为事件总线。在 Vue 中可以使用 EventBus 来作为沟通桥梁的概念，就像是所有组件共用相同的事件中心，可以向该中心注册发送事件或接收事件，所以组件都可以上下平行地通知其他组件。</p>
+<h3 id="使用以及注意事项"><a href="#使用以及注意事项" class="headerlink" title="使用以及注意事项"></a>使用以及注意事项</h3><p>新创建一个 event-bus.js 文件;<br>首先需要创建事件总线并将其导出，以便其它组件可以使用或者监听它。<br>然后假设你有两个 Vue 组件 A 和 B,A 组件需要通知 B 组件。<br>最后分别在两个组件中引入 EventBus<br><strong>发送：</strong> A 组件通过 EventBus.$emit(事件名,payload)发送；<br><strong>接收：</strong> B 组件通过 EventBus.$on(事件名,payload)接收；<br><strong>移除：</strong></p>
+<ol>
+<li>通过 EventBus.$off(事件名)来移除应用内所有对此某个事件的监听</li>
+<li>直接调用 EventBus.$off() 来移除所有事件频道，不需要添加任何参数 。</li>
 </ol>
-<h2 id="侦听属性-watch："><a href="#侦听属性-watch：" class="headerlink" title="侦听属性 watch："></a>侦听属性 watch：</h2><ol>
-<li>不支持缓存，数据变，直接会触发相应的操作；</li>
-<li>watch 支持异步；</li>
-<li>监听的函数接收两个参数，第一个参数是最新的值；第二个参数是输入之前的值；</li>
-<li>当一个属性发生变化时，需要执行对应的操作；一对多；</li>
-<li>监听数据必须是 data 中声明过或者父组件传递过来的 props 中的数据，当数据变化时，触发其他操作，函数有两个参数，<br>　　 immediate：组件加载立即触发回调函数执行，<br>　　 deep: 深度监听，为了发现对象内部值的变化，复杂类型的数据时使用，例如数组中的对象内容的改变，注意监听数组的变动不需要这么做。注意：deep 无法监听到数组的变动和对象的新增，参考 vue 数组变异,只有以响应式的方式触发才会被监听到。</li>
+<p><span style="color:red;font-size:16px;">注意事项：</span></p>
+<ol>
+<li>如果你在某一个组件刷新了之后，与之相关的 EventBus 会被移除，这样就导致业务走不下去。</li>
+<li>如果业务有反复操作的组件，EventBus 在监听的时候就会触发很多次，也是一个非常大的隐患。</li>
 </ol>
-<h2 id="最大区别"><a href="#最大区别" class="headerlink" title="最大区别"></a>最大区别</h2><p><code>监听的对象也可以写成字符串的形式</code><br>当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的,但是切记不可以滥用。</p>
+<p><span style="color:blue;font-size:16px;">解决方法：</span></p>
+<p><strong>在 vue 组件销毁时，同时移除 EventBus 事件监听。</strong></p>
+<h2 id="vue-指令"><a href="#vue-指令" class="headerlink" title="vue 指令"></a>vue 指令</h2><ul>
+<li>解释：指令 (Directives) 是带有 v- 前缀的特殊属性。</li>
+<li>作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。</li>
+</ul>
+<hr>
+<h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><ul>
+<li>解释：更新元素的 textContent</li>
+</ul>
+<h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><ul>
+<li>解释：更新元素的 innerHTML</li>
+</ul>
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><ul>
+<li>作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM</li>
+<li>语法：v-bind:title=”msg”</li>
+<li>简写：:title=”msg”</li>
+</ul>
+<h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><ul>
+<li>作用：绑定事件</li>
+<li>语法：v-on:click=”say” or v-on:click=”say(‘参数’, $event)”</li>
+<li>简写：@click=”say”</li>
+<li>说明：绑定的事件从 methods 中获取</li>
+</ul>
+<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><ul>
+<li>作用：在表单元素上创建双向数据绑定</li>
+<li>说明：监听用户的输入事件以更新数据</li>
+</ul>
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><ul>
+<li>作用：基于源数据多次渲染元素或模板块</li>
+</ul>
+<h3 id="v-if-和-v-show"><a href="#v-if-和-v-show" class="headerlink" title="v-if 和 v-show"></a>v-if 和 v-show</h3><ul>
+<li>条件渲染</li>
+<li>v-if：根据表达式的值的真假条件，销毁或重建元素</li>
+<li>v-show：根据表达式之真假值，切换元素的 display CSS 属性</li>
+</ul>
+<h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h3><ul>
+<li>限制：前一兄弟元素必须有 v-if 或 v-else-if。</li>
+<li>用法：为 v-if 或者 v-else-if 添加“else 块”。</li>
+</ul>
+<h3 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h3><ul>
+<li>限制：前一兄弟元素必须有 v-if 或 v-else-if。</li>
+<li>表示 v-if 的“else if 块”。可以链式调用。</li>
+</ul>
+<h3 id="v-slot"><a href="#v-slot" class="headerlink" title="v-slot"></a>v-slot</h3><ul>
+<li>用法：提供具名插槽或需要接收 prop 的插槽。</li>
+<li>限用于：template 标签当中，组件 (对于一个单独的带 prop 的默认插槽)</li>
+<li>参数：插槽名 (可选，默认值是 default)</li>
+</ul>
+<h3 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h3><ul>
+<li>.stop 阻止冒泡，调用 event.stopPropagation()</li>
+<li>.prevent 阻止默认事件，调用 event.preventDefault()</li>
+<li>.capture 添加事件侦听器时使用事件捕获模式</li>
+<li>.self 只当事件在该元素本身（比如不是子元素）触发时触发回调</li>
+<li>.once 事件只触发一次</li>
+</ul>
+<h3 id="样式处理-class-和-style"><a href="#样式处理-class-和-style" class="headerlink" title="样式处理 -class 和 style"></a>样式处理 -class 和 style</h3><ul>
+<li>说明：这两个都是 HTML 元素的属性，使用 v-bind，只需要通过表达式计算出字符串结果即可</li>
+<li>表达式的类型：字符串、数组、对象</li>
+</ul>
+<h3 id="v-pre"><a href="#v-pre" class="headerlink" title="v-pre"></a>v-pre</h3><ul>
+<li>用法：跳过这个元素和它的子元素的编译过程。可以用来显示原始 Mustache 标签。跳过大量没有指令的节点会加快编译。</li>
+</ul>
+<h3 id="v-cloak"><a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h3><ul>
+<li>用法：这个指令保持在元素上直到关联实例结束编译。和 CSS 规则一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕。</li>
+</ul>
+<h3 id="v-once"><a href="#v-once" class="headerlink" title="v-once"></a>v-once</h3><ul>
+<li>用法：只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。</li>
+</ul>
 
   
   
@@ -385,7 +450,7 @@
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/>http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2021/01/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/>http://example.com/2021/01/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</a></p>
               
             
           </blockquote>
@@ -402,10 +467,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-19T21:08:20+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-28T20:30:21+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021-01-19</p>
+    <p>更新于：2021-01-28</p>
   </a>
 </div>
 
@@ -414,7 +479,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Vue/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Vue</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>面试题</p></a></div>
 
 
         
@@ -427,7 +492,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/&title=Vue中的computed与watch的区别 - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2021/01/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/&title=Vue面试题整理 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -439,7 +504,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/&title=Vue中的computed与watch的区别 - 刘晨曦的个人博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2021/01/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/&title=Vue面试题整理 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -451,7 +516,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/&title=Vue中的computed与watch的区别 - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2021/01/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/&title=Vue面试题整理 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -481,17 +546,13 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/2019/10/29/TypeScript-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>TypeScript-基础类型和变量声明</p>
-          <p class='content'>基础类型布尔值最基本的数据类型就是简单的true/false值，在JavaScript和TypeScript里叫做boolean（其它语言中也一样）。
-let isDone: boolean =...</p>
-        </a>
       
-      
-        <a class='next' href='/2019/02/01/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/'>
-          <p class='title'>严格模式和变量提升<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>严格模式使用 “use strict” 指令“use strict” 指令在 JavaScript 1.8.5 (ECMAScript5) 中新增。
-它不是一条语句，但是是一个字面量表达式，在 ...</p>
+        <a class='next' href='/2020/01/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/'>
+          <p class='title'>常考面试题1<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>dispaly:none;与 visibility:hidden;的区别联系：它们都能让元素不可见。
+区别：
+
+display:none;会让元素完全从渲染树中消失，渲染的时候不占据任何空间；v...</p>
         </a>
       
     </div>
@@ -534,7 +595,7 @@ let isDone: boolean =...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-computed"><span class="toc-text">计算属性 computed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%A6%E5%90%AC%E5%B1%9E%E6%80%A7-watch%EF%BC%9A"><span class="toc-text">侦听属性 watch：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%8C%BA%E5%88%AB"><span class="toc-text">最大区别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router-%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">vue-router 的原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%EF%BC%88EventBus%EF%BC%89"><span class="toc-text">Vue 事件总线（EventBus）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">使用以及注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-%E6%8C%87%E4%BB%A4"><span class="toc-text">vue 指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-text"><span class="toc-text">v-text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-html"><span class="toc-text">v-html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind"><span class="toc-text">v-bind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on"><span class="toc-text">v-on</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model"><span class="toc-text">v-model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for"><span class="toc-text">v-for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-if-%E5%92%8C-v-show"><span class="toc-text">v-if 和 v-show</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-else"><span class="toc-text">v-else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-else-if"><span class="toc-text">v-else-if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-slot"><span class="toc-text">v-slot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86-class-%E5%92%8C-style"><span class="toc-text">样式处理 -class 和 style</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-pre"><span class="toc-text">v-pre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-cloak"><span class="toc-text">v-cloak</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-once"><span class="toc-text">v-once</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -554,7 +615,7 @@ let isDone: boolean =...</p>
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="Vue中的computed与watch的区别";
+  pdata.postTitle="Vue面试题整理";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
