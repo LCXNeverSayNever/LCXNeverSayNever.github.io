@@ -19,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>photo - 刘晨曦的个人博客</title>
+  <title>JS的作用域及作用域链 - 刘晨曦的个人博客</title>
+  
+    <meta name="keywords" content="JS">
   
 
   
@@ -196,7 +198,7 @@
     
     
       <h1 class="title">
-        photo
+        JS的作用域及作用域链
       </h1>
       <div class='new-meta-box'>
         
@@ -220,7 +222,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021-03-10</p>
+    <p>发布于：2018-05-10</p>
   </a>
 </div>
 
@@ -231,7 +233,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="photo" data-path="/2021/03/10/photo/">
+      <div id="lc-pv" data-title="JS的作用域及作用域链" data-path="/2018/05/10/ScopeScopeChain/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -248,7 +250,23 @@
 
 
   
-  <p><img src="/2021/03/10/photo/01.webp" class="lazyload" data-srcset="/2021/03/10/photo/01.webp" srcset="data:image/png;base64,666" alt="这是代替图片的文字，随便写"></p>
+  <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>在 Javascript 中，作用域分为 <strong>全局作用域</strong> 和 <strong>函数作用域</strong>.</p>
+<ul>
+<li>全局作用域:代码在程序的任何地方都能被访问，window 对象的内置属性都拥有全局作用域。</li>
+<li>函数作用域:在固定的代码片段才能被访问</li>
+</ul>
+<p>例如下图：</p>
+<p><img src="/2018/05/10/ScopeScopeChain/01.png" class="lazyload" data-srcset="/2018/05/10/ScopeScopeChain/01.png" srcset="data:image/png;base64,666" alt="&quot;作用域&quot;"></p>
+<p>作用域有上下级关系，上下级关系的确定就看函数是在哪个作用域下创建的。如上，fn 作用域下创建了 bar 函数，那么“fn 作用域”就是“bar 作用域”的上级。</p>
+<blockquote>
+<p>作用域最大的用处就是隔离变量，不同作用域下同名变量不会有冲突。</p>
+</blockquote>
+<p><strong>变量取值：到创建这个变量的函数的作用域中取值.</strong></p>
+<h2 id="作用链"><a href="#作用链" class="headerlink" title="作用链"></a>作用链</h2><blockquote>
+<p>一般情况下，变量取值到创建这个变量的函数的作用域中取值。但是如果在当前作用域中没有查到值，就会向上级作用域去查，直到查到全局作用域，这么一个查找过程形成的链条就叫做作用域链。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; 0;</span><br><span class="line">function fn()&#123;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">function show(f)&#123;</span><br><span class="line">    var a &#x3D; 6;</span><br><span class="line">    (function()&#123;</span><br><span class="line">        f()</span><br><span class="line">    &#125;)()</span><br><span class="line">&#125;</span><br><span class="line">show(fn);</span><br></pre></td></tr></table></figure>
+<p>下图所示：<br><img src="/2018/05/10/ScopeScopeChain/02.png" class="lazyload" data-srcset="/2018/05/10/ScopeScopeChain/02.png" srcset="data:image/png;base64,666" alt="&quot;作用域链&quot;"></p>
 
   
   
@@ -274,7 +292,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-10T09:36:03+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-10T20:45:26+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021-03-10</p>
@@ -285,6 +303,9 @@
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JS</p></a></div>
+
 
         
       
@@ -296,7 +317,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2021/03/10/photo/&title=photo - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2018/05/10/ScopeScopeChain/&title=JS的作用域及作用域链 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -308,7 +329,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2021/03/10/photo/&title=photo - 刘晨曦的个人博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2018/05/10/ScopeScopeChain/&title=JS的作用域及作用域链 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -320,7 +341,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2021/03/10/photo/&title=photo - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2018/05/10/ScopeScopeChain/&title=JS的作用域及作用域链 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -350,16 +371,16 @@
   
     <div class="prev-next">
       
+        <a class='prev' href='/2019/01/03/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3class%E7%B1%BB%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%B1%BB/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>深入了解class类并使用类</p>
+          <p class='content'>前情提要:JavaScript 语言中，在使用类之前，生成实例对象的传统方法是通过使用构造函数。
+一、构造函数：定义：通过  new 函数名  来实例化对象的函数叫构造函数。主要功能：为初始化对...</p>
+        </a>
       
-        <a class='next' href='/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/'>
-          <p class='title'>Vue面试题整理<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>vue 指令
-解释：指令 (Directives) 是带有 v- 前缀的特殊属性。
-作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。
-
-
-v-text
-解释：更新元素的 t...</p>
+      
+        <a class='next' href='/2018/03/10/BoxModel/'>
+          <p class='title'>浏览器标准模式和怪异模式之间的区别<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>前言标准模式：在标准模式下页面按照 HTML,CSS 的定义渲染；怪异模式：是浏览器为了兼容很早之前针对旧版本浏览器设计，浏览器基于页面中文件类型描述的存在以决定采用哪种渲染模式，如果存在一个完...</p>
         </a>
       
     </div>
@@ -385,6 +406,20 @@ v-text
 
 
 
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E9%93%BE"><span class="toc-text">作用链</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -401,7 +436,7 @@ v-text
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="photo";
+  pdata.postTitle="JS的作用域及作用域链";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
@@ -440,7 +475,7 @@ v-text
       
     
       
-        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
@@ -452,9 +487,9 @@ v-text
       
     
       
-        Use
+        本站使用
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename">Volantis</a>
-        as theme
+        作为主题
       
     
       
