@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive: 2019/3 - 刘晨曦的个人博客</title>
+  <title>浏览器标准模式和怪异模式之间的区别 - 刘晨曦的个人博客</title>
+  
+    <meta name="keywords" content="html">
   
 
   
@@ -56,7 +56,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -147,7 +147,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -188,73 +188,210 @@
         
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
-      
+    
+    
+      <h1 class="title">
+        浏览器标准模式和怪异模式之间的区别
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://pic1.zhimg.com/v2-b1071ec78f7e34d3a62213a67afc6aed_r.jpg?source=1940ef5c">
+    <p>刘晨曦</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
+          
+            
+
+          
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/03/10/ajax%E3%80%81fetch%E3%80%81axios%E7%9A%84%E5%85%B3%E7%B3%BB/">
-        ajax、fetch、axios的关系
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018-03-10</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-        ajax 与 fetch 的区别？
-ajax 是使用 XMLHttpRequest 对象发起的，但是用起来很麻烦，所以 ES6 新规范就有了 fetch，fetch 发一个请求不用像 ajax 那样写一大堆代码。
-使用 fetch 无法取消一个请求，这是因为 fetch 基于 Promise，而 Promise 无法做到这一点。
-在默认情况下，fetch 不会接受或者发送 cookies
-f...
-      
-    
+      <div id="lc-pv" data-title="浏览器标准模式和怪异模式之间的区别" data-path="/2018/03/10/BoxModel/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-03-10</time>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>标准模式：在标准模式下页面按照 HTML,CSS 的定义渲染；</strong><br><strong>怪异模式：是浏览器为了兼容很早之前针对旧版本浏览器设计，浏览器基于页面中文件类型描述的存在以决定采用哪种渲染模式，如果存在一个完整的 DOCTYPE 则浏览器将会采用标准模式，如果缺失就会采用怪异模式。</strong></p>
+<p>由此，引发下文的盒模型！</p>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>在 W3C 标准模式下，盒模型被称为标准盒模型。</p>
+<p><img src="/2018/03/10/BoxModel/01.jpg" class="lazyload" data-srcset="/2018/03/10/BoxModel/01.jpg" srcset="data:image/png;base64,666" alt="&quot;标准盒模型&quot;"></p>
+<blockquote>
+<p>在标准的盒子模型中，width 表示 content 部分的宽度。</p>
+</blockquote>
+<p>在怪异模式下，盒模型又称 IE 盒模型。</p>
+<p><img src="/2018/03/10/BoxModel/02.jpg" class="lazyload" data-srcset="/2018/03/10/BoxModel/02.jpg" srcset="data:image/png;base64,666" alt="&quot;怪异盒模型&quot;"></p>
+<blockquote>
+<p>在怪异的盒子模型中，width 表示 content + padding + border 这三个部分的宽度。</p>
+</blockquote>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2019/03/10/ajax%E3%80%81fetch%E3%80%81axios%E7%9A%84%E5%85%B3%E7%B3%BB/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-10T10:00:50+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021-03-10</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/html/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>html</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2018/03/10/BoxModel/&title=浏览器标准模式和怪异模式之间的区别 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2018/03/10/BoxModel/&title=浏览器标准模式和怪异模式之间的区别 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2018/03/10/BoxModel/&title=浏览器标准模式和怪异模式之间的区别 - 刘晨曦的个人博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2019/01/03/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3class%E7%B1%BB%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%B1%BB/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>深入了解class类并使用类</p>
+          <p class='content'>前情提要:JavaScript 语言中，在使用类之前，生成实例对象的传统方法是通过使用构造函数。
+一、构造函数：定义：通过  new 函数名  来实例化对象的函数叫构造函数。主要功能：为初始化对...</p>
+        </a>
+      
+      
+        <a class='next' href='/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/'>
+          <p class='title'>xss攻击和csrf攻击<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>xss攻击定义XSS（Cross Site Scripting）：跨域脚本攻击。XSS的攻击原理XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
   
 
 
-	
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -262,103 +399,28 @@ f...
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">刘晨曦的个人博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/ES6/" style="font-size: 14px; color: #999">ES6</a> <a href="/tags/React/" style="font-size: 14px; color: #999">React</a> <a href="/tags/Vue/" style="font-size: 14px; color: #999">Vue</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/js/" style="font-size: 24px; color: #555">js</a> <a href="/tags/ts/" style="font-size: 19px; color: #777">ts</a> <a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">原理</a> <a href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" style="font-size: 14px; color: #999">安全问题</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 19px; color: #777">面试题</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-text">盒模型</span></a></li></ol>
     </div>
   </section>
 
 
   
 
-  
-
 
 </aside>
+
 
 
         
@@ -368,14 +430,14 @@ f...
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="浏览器标准模式和怪异模式之间的区别";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 
