@@ -373,7 +373,7 @@
 <p>let mySquare = createSquare({color: “black”});</p>
 <h3 id="只读属性"><a href="#只读属性" class="headerlink" title="只读属性"></a>只读属性</h3><p>一些对象属性只能在对象刚刚创建的时候修改其值。 你可以在属性名前用 readonly来指定只读属性:</p>
 <p>interface Point {<br>    readonly x: number;<br>    readonly y: number;<br>}<br>你可以通过赋值一个对象字面量来构造一个Point。 赋值后， x和y再也不能被改变了。</p>
-<p>let p1: Point = { x: 10, y: 20 };<br>p1.x = 5; // error!<br>TypeScript具有ReadonlyArray<T>类型，它与Array<T>相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：</p>
+<p>let p1: Point = { x: 10, y: 20 };<br>p1.x = 5; // error!<br>TypeScript具有ReadonlyArray<T>类型，它与Array<T>相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：</T></T></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let a: number[] &#x3D; [1, 2, 3, 4];</span><br><span class="line">let ro: ReadonlyArray&lt;number&gt; &#x3D; a;</span><br><span class="line">ro[0] &#x3D; 12; &#x2F;&#x2F; error!</span><br><span class="line">ro.push(5); &#x2F;&#x2F; error!</span><br><span class="line">ro.length &#x3D; 100; &#x2F;&#x2F; error!</span><br><span class="line">a &#x3D; ro; &#x2F;&#x2F; error!</span><br><span class="line">上面代码的最后一行，可以看到就算把整个ReadonlyArray赋值到一个普通数组也是不可以的。 但是你可以用类型断言重写：</span><br><span class="line"></span><br><span class="line">a &#x3D; ro as number[];</span><br><span class="line">readonly vs const</span><br></pre></td></tr></table></figure>
 <p>最简单判断该用readonly还是const的方法是看要把它做为变量使用还是做为一个属性。 做为变量使用的话用 const，若做为属性则使用readonly。</p>
 <h3 id="额外的属性检查"><a href="#额外的属性检查" class="headerlink" title="额外的属性检查"></a>额外的属性检查</h3><p>我们在第一个例子里使用了接口，TypeScript让我们传入{ size: number; label: string; }到仅期望得到{ label: string; }的函数里。 我们已经学过了可选属性，并且知道他们在“option bags”模式里很有用。</p>
@@ -421,14 +421,14 @@
 <h3 id="继承接口"><a href="#继承接口" class="headerlink" title="继承接口"></a>继承接口</h3><p>和类一样，接口也可以相互继承。 这让我们能够从一个接口里复制成员到另一个接口里，可以更灵活地将接口分割到可重用的模块里。</p>
 <p>interface Shape {<br>    color: string;<br>}</p>
 <p>interface Square extends Shape {<br>    sideLength: number;<br>}</p>
-<p>let square = <Square>{};<br>square.color = “blue”;<br>square.sideLength = 10;<br>一个接口可以继承多个接口，创建出多个接口的合成接口。</p>
+<p>let square = <Square>{};<br>square.color = “blue”;<br>square.sideLength = 10;<br>一个接口可以继承多个接口，创建出多个接口的合成接口。</Square></p>
 <p>interface Shape {<br>    color: string;<br>}</p>
 <p>interface PenStroke {<br>    penWidth: number;<br>}</p>
 <p>interface Square extends Shape, PenStroke {<br>    sideLength: number;<br>}</p>
-<p>let square = <Square>{};<br>square.color = “blue”;<br>square.sideLength = 10;<br>square.penWidth = 5.0;<br>混合类型<br>先前我们提过，接口能够描述JavaScript里丰富的类型。 因为JavaScript其动态灵活的特点，有时你会希望一个对象可以同时具有上面提到的多种类型。</p>
+<p>let square = <Square>{};<br>square.color = “blue”;<br>square.sideLength = 10;<br>square.penWidth = 5.0;<br>混合类型<br>先前我们提过，接口能够描述JavaScript里丰富的类型。 因为JavaScript其动态灵活的特点，有时你会希望一个对象可以同时具有上面提到的多种类型。</Square></p>
 <p>一个例子就是，一个对象可以同时做为函数和对象使用，并带有额外的属性。</p>
 <p>interface Counter {<br>    (start: number): string;<br>    interval: number;<br>    reset(): void;<br>}</p>
-<p>function getCounter(): Counter {<br>    let counter = <Counter>function (start: number) { };<br>    counter.interval = 123;<br>    counter.reset = function () { };<br>    return counter;<br>}</p>
+<p>function getCounter(): Counter {<br>    let counter = <Counter>function (start: number) { };<br>    counter.interval = 123;<br>    counter.reset = function () { };<br>    return counter;<br>}</Counter></p>
 <p>let c = getCounter();<br>c(10);<br>c.reset();<br>c.interval = 5.0;<br>在使用JavaScript第三方库的时候，你可能需要像上面那样去完整地定义类型。</p>
 <h3 id="接口继承类"><a href="#接口继承类" class="headerlink" title="接口继承类"></a>接口继承类</h3><p>当接口继承了一个类类型时，它会继承类的成员但不包括其实现。 就好像接口声明了所有类中存在的成员，但并没有提供具体实现一样。 接口同样会继承到类的private和protected成员。 这意味着当你创建了一个接口继承了一个拥有私有或受保护的成员的类时，这个接口类型只能被这个类或其子类所实现（implement）。</p>
 <p>当你有一个庞大的继承结构时这很有用，但要指出的是你的代码只在子类拥有特定属性时起作用。 这个子类除了继承至基类外与基类没有任何关系。 例：</p>
