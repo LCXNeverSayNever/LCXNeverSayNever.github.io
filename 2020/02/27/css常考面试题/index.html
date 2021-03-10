@@ -19,9 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Vue中的computed与watch的区别 - 刘晨曦的个人博客</title>
+  <title>常考面试题1 - 刘晨曦的个人博客</title>
   
-    <meta name="keywords" content="Vue">
+    <meta name="keywords" content="面试题">
   
 
   
@@ -301,7 +301,7 @@
     
     
       <h1 class="title">
-        Vue中的computed与watch的区别
+        常考面试题1
       </h1>
       <div class='new-meta-box'>
         
@@ -325,7 +325,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2019-05-19</p>
+    <p>发布于：2020-02-27</p>
   </a>
 </div>
 
@@ -336,7 +336,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="Vue中的computed与watch的区别" data-path="/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/">
+      <div id="lc-pv" data-title="常考面试题1" data-path="/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -353,21 +353,124 @@
 
 
   
-  <h2 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性 computed"></a>计算属性 computed</h2><ol>
-<li>支持缓存，只有依赖数据发生改变，才会重新进行计算</li>
-<li>不支持异步，当 computed 内有异步操作时无效，无法监听数据的变化</li>
-<li>computed 属性值会默认走缓存，计算属性是基于它们的响应式依赖进行缓存的，也就是基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的值</li>
-<li>如果一个属性是由其他属性计算而来的，这个属性依赖其他属性，是一个多对一或者一对一，一般用 computed</li>
-<li>如果 computed 属性属性值是函数，那么默认会走 get 方法；函数的返回值就是属性的属性值；在 computed 中的，属性都有一个 get 和一个 set 方法，当数据变化时，调用 set 方法。</li>
+  <h2 id="dispaly-none-与-visibility-hidden-的区别"><a href="#dispaly-none-与-visibility-hidden-的区别" class="headerlink" title="dispaly:none;与 visibility:hidden;的区别"></a>dispaly:none;与 visibility:hidden;的区别</h2><p><strong>联系：</strong>它们都能让元素不可见。</p>
+<p><strong>区别：</strong></p>
+<ol>
+<li>display:none;会让元素完全从渲染树中消失，渲染的时候不占据任何空间；<br>visibility:hidden;不会让元素从渲染树消失，渲染时元素继续占据空间，只是内容不可见。</li>
+<li>display: none;是非继承属性，子孙节点消失由于元素从渲染树消失造成，通过修改子孙节点属性无法显示。<br>visibility: hidden;是继承属性，子孙节点由于继承了 hidden 而消失，通过设置 visibility: visible，可以让子孙节点显示。</li>
+<li>修改常规流中元素的 display 通常会造成文档重排。<br>修改 visibility 属性只会造成本元素的重绘。</li>
+<li>读屏器不会读取 display：none;元素内容。<br>会读取 visibility：hidden；元素内容。</li>
 </ol>
-<h2 id="侦听属性-watch："><a href="#侦听属性-watch：" class="headerlink" title="侦听属性 watch："></a>侦听属性 watch：</h2><ol>
-<li>不支持缓存，数据变，直接会触发相应的操作；</li>
-<li>watch 支持异步；</li>
-<li>监听的函数接收两个参数，第一个参数是最新的值；第二个参数是输入之前的值；</li>
-<li>当一个属性发生变化时，需要执行对应的操作；一对多；</li>
-<li>监听数据必须是 data 中声明过或者父组件传递过来的 props 中的数据，当数据变化时，触发其他操作，函数有两个参数，<br>　　 immediate：组件加载立即触发回调函数执行，<br>　　 deep: 深度监听，为了发现对象内部值的变化，复杂类型的数据时使用，例如数组中的对象内容的改变，注意监听数组的变动不需要这么做。注意：deep 无法监听到数组的变动和对象的新增，参考 vue 数组变异,只有以响应式的方式触发才会被监听到。</li>
+<h2 id="css-hack-原理及常用-hack"><a href="#css-hack-原理及常用-hack" class="headerlink" title="css hack 原理及常用 hack"></a>css hack 原理及常用 hack</h2><p><strong>原理</strong><br>利用不同浏览器对 CSS 的支持和解析结果不一样编写针对特定浏览器样式。</p>
+<p><strong>常见的 hack 属性</strong></p>
+<ol>
+<li>属性 hack。(不同浏览器解析 bug 或方法)</li>
 </ol>
-<h2 id="最大区别"><a href="#最大区别" class="headerlink" title="最大区别"></a>最大区别</h2><p><code>监听的对象也可以写成字符串的形式</code><br>当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的,但是切记不可以滥用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* IE6 *&#x2F;</span><br><span class="line">#once &#123; _color: blue &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* IE6, IE7 *&#x2F;</span><br><span class="line">#doce &#123; *color: blue; &#x2F;* or #color: blue *&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* Everything but IE6 *&#x2F;</span><br><span class="line">#diecisiete &#123; color&#x2F;**&#x2F;: blue &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* IE6, IE7, IE8 *&#x2F;</span><br><span class="line">#diecinueve &#123; color: blue\9; &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* IE7, IE8 *&#x2F;</span><br><span class="line">#veinte &#123; color&#x2F;*\**&#x2F;: blue\9; &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* IE6, IE7 -- acts as an !important *&#x2F;</span><br><span class="line">#veintesiete &#123; color: blue !ie; &#125; &#x2F;* string after ! can be anything</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>选择器 hack。(不同浏览器对选择器的支持不一样)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* IE6 and below *&#x2F;</span><br><span class="line">* html #uno &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* IE7 *&#x2F;</span><br><span class="line">*:first-child + html #dos &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* IE7, FF, Saf, Opera  *&#x2F;</span><br><span class="line">html &gt; body #tres &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* IE8, FF, Saf, Opera (Everything but IE 6,7) *&#x2F;</span><br><span class="line">html&gt;&#x2F;**&#x2F;body #cuatro &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* Opera 9.27 and below, safari 2 *&#x2F;</span><br><span class="line">html:first-child #cinco &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* Safari 2-3 *&#x2F;</span><br><span class="line">html[xmlns*&#x3D;&#39;&#39;] body:last-child #seis &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* safari 3+, chrome 1+, opera9+, ff 3.5+ *&#x2F;</span><br><span class="line">body:nth-of-type(1) #siete &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* safari 3+, chrome 1+, opera9+, ff 3.5+ *&#x2F;</span><br><span class="line">body:first-of-type #ocho &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* saf3+, chrome1+ *&#x2F;</span><br><span class="line">@media screen and (-webkit-min-device-pixel-ratio: 0) &#123;</span><br><span class="line">  #diez &#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* iPhone &#x2F; mobile webkit *&#x2F;</span><br><span class="line">@media screen and (max-device-width: 480px) &#123;</span><br><span class="line">  #veintiseis &#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* Safari 2 - 3.1 *&#x2F;</span><br><span class="line">html[xmlns*&#x3D;&#39;&#39;]:root #trece &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* Safari 2 - 3.1, Opera 9.25 *&#x2F;</span><br><span class="line">*|html[xmlns*&#x3D;&#39;&#39;] #catorce &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* Everything but IE6-8 *&#x2F;</span><br><span class="line">:root * &gt; #quince &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* IE7 *&#x2F;</span><br><span class="line">* + html #dieciocho &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* Firefox only. 1+ *&#x2F;</span><br><span class="line">#veinticuatro,</span><br><span class="line">x:-moz-any-link &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;* Firefox 3.0+ *&#x2F;</span><br><span class="line">#veinticinco,</span><br><span class="line">x:-moz-any-link,</span><br><span class="line">x:default &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>IE 条件注释（适用于[IE5, IE9]常见格式如下）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if IE 6]&gt;</span><br><span class="line">Special instructions for IE 6 here</span><br><span class="line">&lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="specified-value-computed-value-used-value-计算方法"><a href="#specified-value-computed-value-used-value-计算方法" class="headerlink" title="specified value,computed value,used value 计算方法"></a>specified value,computed value,used value 计算方法</h2><ol>
+<li>specified value: 计算方法如下：</li>
+</ol>
+<ul>
+<li>如果样式表设置了一个值，使用这个值</li>
+<li>如果没有设值，且这个属性是继承属性，从父元素继承</li>
+<li>如果没有设值，并且不是继承属性，则使用 css 规范指定的初始值</li>
+</ul>
+<ol start="2">
+<li><p>computed value: 以 specified value 根据规范定义的行为进行计算，通常将相对值计算为绝对值，例如 em 根据 font-size 进行计算。一些使用百分数并且需要布局来决定最终值的属性，如 width，margin。百分数就直接作为 computed value。line-height 的无单位值也直接作为 computed value。这些值将在计算 used value 时得到绝对值。computed value 的主要作用是用于继承</p>
+</li>
+<li><p>used value：属性计算后的最终值，对于大多数属性可以通过 window.getComputedStyle 获得，尺寸值单位为像素。以下属性依赖于布局，</p>
+</li>
+</ol>
+<ul>
+<li>background-position</li>
+<li>bottom, left, right, top</li>
+<li>height, width</li>
+<li>margin-bottom, margin-left, margin-right, margin-top</li>
+<li>min-height, min-width</li>
+<li>padding-bottom, padding-left, padding-right, padding-top</li>
+<li>text-indent</li>
+</ul>
+<h2 id="link-与-import-的区别"><a href="#link-与-import-的区别" class="headerlink" title="link 与 @import 的区别"></a>link 与 @import 的区别</h2><ol>
+<li>link 是 HTML 方式， @import 是 CSS 方式</li>
+<li>link 最大限度支持并行下载，@import 过多嵌套导致串行下载，出现 FOUC</li>
+<li>link 可以通过 rel=”alternate stylesheet”指定候选样式</li>
+<li>浏览器对 link 支持早于@import，可以使用@import 对老浏览器隐藏样式</li>
+<li>@import 必须在样式规则之前，可以在 css 文件中引用其他文件</li>
+</ol>
+<p><code>总体来说：link 优于@import</code></p>
+<h2 id="display-block-和-display-inline-的区别"><a href="#display-block-和-display-inline-的区别" class="headerlink" title="display:block;和 display:inline 的区别"></a>display:block;和 display:inline 的区别</h2><ol>
+<li>block 元素特点：</li>
+</ol>
+<ul>
+<li>处于常规流中时，如果 width 没有设置，会自动填充满父容器</li>
+<li>可以应用 margin/padding</li>
+<li>在没有设置高度的情况下会扩展高度以包含常规流中的子元素</li>
+<li>处于常规流中时布局时在前后元素位置之间（独占一个水平空间）</li>
+<li>忽略 vertical-align</li>
+</ul>
+<ol start="2">
+<li>inline 元素特点</li>
+</ol>
+<ul>
+<li>水平方向上根据 direction 依次布局</li>
+<li>不会在元素前后进行换行</li>
+<li>受 white-space 控制</li>
+<li>margin/padding 在竖直方向上无效，水平方向上有效</li>
+<li>width/height 属性对非替换行内元素无效，宽度由元素内容决定</li>
+<li>非替换行内元素的行框高由 line-height 确定，替换行内元素的行框高由 height,margin,padding,border 决定</li>
+<li>浮动或绝对定位时会转换为 block</li>
+<li>vertical-align 属性生效</li>
+</ul>
+<h2 id="PNG-GET-JPG-的区别及如何选择"><a href="#PNG-GET-JPG-的区别及如何选择" class="headerlink" title="PNG,GET,JPG 的区别及如何选择"></a>PNG,GET,JPG 的区别及如何选择</h2><h3 id="GIF"><a href="#GIF" class="headerlink" title="GIF:"></a>GIF:</h3><ol>
+<li>8 位像素，256 色</li>
+<li>无损压缩</li>
+<li>支持简单动画</li>
+<li>支持 boolean 透明</li>
+<li>适合简单动画</li>
+</ol>
+<h3 id="JPEG："><a href="#JPEG：" class="headerlink" title="JPEG："></a>JPEG：</h3><ol>
+<li>颜色限于 256</li>
+<li>有损压缩</li>
+<li>可控制压缩质量</li>
+<li>不支持透明</li>
+<li>适合照片</li>
+</ol>
+<h3 id="PNG："><a href="#PNG：" class="headerlink" title="PNG："></a>PNG：</h3><ol>
+<li>有 PNG8 和 truecolor PNG</li>
+<li>NG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无动画</li>
+<li>适合图标、背景、按钮</li>
+</ol>
+<h2 id="web-语义化"><a href="#web-语义化" class="headerlink" title="web 语义化"></a>web 语义化</h2><p><strong>概念</strong></p>
+<p>Web 语义化是指使用语义恰当的标签，使页面有良好的结构，页面元素有含义，能够让人和搜索引擎都容易理解。<br>如果可以在合适的位置使用恰当的标签，那么写出来的页面语义明确，结构清晰，搜索引擎也可以认出哪些是页面重要内容，予以较高的权值。</p>
+<p><strong>好处</strong></p>
+<ol>
+<li>去掉或者丢失样式的时候能够让页面呈现出清晰的结构</li>
+<li>有利于 SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；</li>
+<li>方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；</li>
+<li>便于团队开发和维护，语义化更具可读性，遵循 W3C 标准的团队都遵循这个标准，可以减少差异化。</li>
+</ol>
+<h2 id="offsetWidth-offsetHeight-clientWidth-clientHeight-scrollWidth-scrollHeight"><a href="#offsetWidth-offsetHeight-clientWidth-clientHeight-scrollWidth-scrollHeight" class="headerlink" title="offsetWidth,offsetHeight,clientWidth,clientHeight,scrollWidth,scrollHeight"></a>offsetWidth,offsetHeight,clientWidth,clientHeight,scrollWidth,scrollHeight</h2><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
+<li><p>offsetWidth 返回元素的宽度（包括元素宽度、内边距和边框，不包括外边距）</p>
+</li>
+<li><p>offsetHeight 返回元素的高度（包括元素高度、内边距和边框，不包括外边距）</p>
+</li>
+<li><p>clientWidth 返回元素的宽度（包括元素宽度、内边距，不包括边框和外边距）</p>
+</li>
+<li><p>clientHeight 返回元素的高度（包括元素高度、内边距，不包括边框和外边距）</p>
+</li>
+<li><p>scrollWidth 返回元素的宽度（包括元素宽度、内边距和溢出尺寸，不包括边框和外边距），无溢出的情况，与 clientWidth 相同</p>
+</li>
+<li><p>scrollHeight 返回元素的高度（包括元素高度、内边距和溢出尺寸，不包括边框和外边距），无溢出的情况，与 clientHeight 相同</p>
+</li>
+</ul>
 
   
   
@@ -385,7 +488,7 @@
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/>http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/>http://example.com/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/</a></p>
               
             
           </blockquote>
@@ -402,10 +505,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-19T21:08:20+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-10T07:50:31+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021-01-19</p>
+    <p>更新于：2021-03-10</p>
   </a>
 </div>
 
@@ -414,7 +517,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Vue/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Vue</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>面试题</p></a></div>
 
 
         
@@ -427,7 +530,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/&title=Vue中的computed与watch的区别 - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/&title=常考面试题1 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -439,7 +542,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/&title=Vue中的computed与watch的区别 - 刘晨曦的个人博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/&title=常考面试题1 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -451,7 +554,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/05/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/&title=Vue中的computed与watch的区别 - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/&title=常考面试题1 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -481,17 +584,22 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/2019/10/29/TypeScript-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>TypeScript-基础类型和变量声明</p>
-          <p class='content'>基础类型布尔值最基本的数据类型就是简单的true/false值，在JavaScript和TypeScript里叫做boolean（其它语言中也一样）。
-let isDone: boolean =...</p>
+        <a class='prev' href='/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Vue面试题整理</p>
+          <p class='content'>vue 指令
+解释：指令 (Directives) 是带有 v- 前缀的特殊属性。
+作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。
+
+
+v-text
+解释：更新元素的 t...</p>
         </a>
       
       
-        <a class='next' href='/2019/02/01/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/'>
-          <p class='title'>严格模式和变量提升<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>严格模式使用 “use strict” 指令“use strict” 指令在 JavaScript 1.8.5 (ECMAScript5) 中新增。
-它不是一条语句，但是是一个字面量表达式，在 ...</p>
+        <a class='next' href='/2020/01/26/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/'>
+          <p class='title'>深入了解观察者模式<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>何为观察者模式？概念观察者模式是一种对象行为模式，它定义对象间的一种一对多的依赖关系。
+当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新，在观察者模式中，主体是通知的发布者，...</p>
         </a>
       
     </div>
@@ -534,7 +642,7 @@ let isDone: boolean =...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-computed"><span class="toc-text">计算属性 computed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%A6%E5%90%AC%E5%B1%9E%E6%80%A7-watch%EF%BC%9A"><span class="toc-text">侦听属性 watch：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%8C%BA%E5%88%AB"><span class="toc-text">最大区别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#dispaly-none-%E4%B8%8E-visibility-hidden-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">dispaly:none;与 visibility:hidden;的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-hack-%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B8%B8%E7%94%A8-hack"><span class="toc-text">css hack 原理及常用 hack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#specified-value-computed-value-used-value-%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-text">specified value,computed value,used value 计算方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#link-%E4%B8%8E-import-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">link 与 @import 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display-block-%E5%92%8C-display-inline-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">display:block;和 display:inline 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PNG-GET-JPG-%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9"><span class="toc-text">PNG,GET,JPG 的区别及如何选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GIF"><span class="toc-text">GIF:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JPEG%EF%BC%9A"><span class="toc-text">JPEG：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PNG%EF%BC%9A"><span class="toc-text">PNG：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web-%E8%AF%AD%E4%B9%89%E5%8C%96"><span class="toc-text">web 语义化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offsetWidth-offsetHeight-clientWidth-clientHeight-scrollWidth-scrollHeight"><span class="toc-text">offsetWidth,offsetHeight,clientWidth,clientHeight,scrollWidth,scrollHeight</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-text">区别</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -554,7 +662,7 @@ let isDone: boolean =...</p>
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="Vue中的computed与watch的区别";
+  pdata.postTitle="常考面试题1";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
@@ -593,7 +701,7 @@ let isDone: boolean =...</p>
       
     
       
-        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
@@ -605,9 +713,9 @@ let isDone: boolean =...</p>
       
     
       
-        本站使用
+        Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename">Volantis</a>
-        作为主题
+        as theme
       
     
       

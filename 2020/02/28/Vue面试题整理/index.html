@@ -19,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>faqs - 刘晨曦的个人博客</title>
+  <title>Vue面试题整理 - 刘晨曦的个人博客</title>
+  
+    <meta name="keywords" content="面试题">
   
 
   
@@ -241,7 +243,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper page dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -289,7 +291,7 @@
         
 
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-page" id="page" itemscope itemprop="blogPost">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
 
 
@@ -299,7 +301,7 @@
     
     
       <h1 class="title">
-        faqs
+        Vue面试题整理
       </h1>
       <div class='new-meta-box'>
         
@@ -323,7 +325,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020-12-29</p>
+    <p>发布于：2020-02-28</p>
   </a>
 </div>
 
@@ -334,7 +336,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="faqs" data-path="/faqs/">
+      <div id="lc-pv" data-title="Vue面试题整理" data-path="/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -351,8 +353,238 @@
 
 
   
+  <h2 id="vue-指令"><a href="#vue-指令" class="headerlink" title="vue 指令"></a>vue 指令</h2><ul>
+<li>解释：指令 (Directives) 是带有 v- 前缀的特殊属性。</li>
+<li>作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。</li>
+</ul>
+<hr>
+<h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><ul>
+<li>解释：更新元素的 textContent</li>
+</ul>
+<h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><ul>
+<li>解释：更新元素的 innerHTML</li>
+</ul>
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><ul>
+<li>作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM</li>
+<li>语法：v-bind:title=”msg”</li>
+<li>简写：:title=”msg”</li>
+</ul>
+<h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><ul>
+<li>作用：绑定事件</li>
+<li>语法：v-on:click=”say” or v-on:click=”say(‘参数’, $event)”</li>
+<li>简写：@click=”say”</li>
+<li>说明：绑定的事件从 methods 中获取</li>
+</ul>
+<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><ul>
+<li>作用：在表单元素上创建双向数据绑定</li>
+<li>说明：监听用户的输入事件以更新数据</li>
+</ul>
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><ul>
+<li>作用：基于源数据多次渲染元素或模板块</li>
+</ul>
+<h3 id="v-if-和-v-show"><a href="#v-if-和-v-show" class="headerlink" title="v-if 和 v-show"></a>v-if 和 v-show</h3><ul>
+<li>条件渲染</li>
+<li>v-if：根据表达式的值的真假条件，销毁或重建元素</li>
+<li>v-show：根据表达式之真假值，切换元素的 display CSS 属性</li>
+</ul>
+<h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h3><ul>
+<li>限制：前一兄弟元素必须有 v-if 或 v-else-if。</li>
+<li>用法：为 v-if 或者 v-else-if 添加“else 块”。</li>
+</ul>
+<h3 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h3><ul>
+<li>限制：前一兄弟元素必须有 v-if 或 v-else-if。</li>
+<li>表示 v-if 的“else if 块”。可以链式调用。</li>
+</ul>
+<h3 id="v-slot"><a href="#v-slot" class="headerlink" title="v-slot"></a>v-slot</h3><ul>
+<li>用法：提供具名插槽或需要接收 prop 的插槽。</li>
+<li>限用于：template 标签当中，组件 (对于一个单独的带 prop 的默认插槽)</li>
+<li>参数：插槽名 (可选，默认值是 default)</li>
+</ul>
+<h3 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h3><ul>
+<li>.stop 阻止冒泡，调用 event.stopPropagation()</li>
+<li>.prevent 阻止默认事件，调用 event.preventDefault()</li>
+<li>.capture 添加事件侦听器时使用事件捕获模式</li>
+<li>.self 只当事件在该元素本身（比如不是子元素）触发时触发回调</li>
+<li>.once 事件只触发一次</li>
+</ul>
+<h3 id="样式处理-class-和-style"><a href="#样式处理-class-和-style" class="headerlink" title="样式处理 -class 和 style"></a>样式处理 -class 和 style</h3><ul>
+<li>说明：这两个都是 HTML 元素的属性，使用 v-bind，只需要通过表达式计算出字符串结果即可</li>
+<li>表达式的类型：字符串、数组、对象</li>
+</ul>
+<h3 id="v-pre"><a href="#v-pre" class="headerlink" title="v-pre"></a>v-pre</h3><ul>
+<li>用法：跳过这个元素和它的子元素的编译过程。可以用来显示原始 Mustache 标签。跳过大量没有指令的节点会加快编译。</li>
+</ul>
+<h3 id="v-cloak"><a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h3><ul>
+<li>用法：这个指令保持在元素上直到关联实例结束编译。和 CSS 规则一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕。</li>
+</ul>
+<h3 id="v-once"><a href="#v-once" class="headerlink" title="v-once"></a>v-once</h3><ul>
+<li>用法：只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。</li>
+</ul>
+<h2 id="Vue-插槽（slot）"><a href="#Vue-插槽（slot）" class="headerlink" title="Vue 插槽（slot）"></a>Vue 插槽（slot）</h2><ul>
+<li>概念：是 Vue 提出来的一个概念，正如名字一样，插槽用于决定将所携带的内容，插入到指定的某个位置，从而使模板分块，具有模块化的特质和更大的重用性。</li>
+<li>作用：为了让组件更加具有扩展性。抽取共性，保留不同为插槽，让其他组件可以传递自己想展示的标签到预留插槽。</li>
+</ul>
+<h3 id="默认插槽"><a href="#默认插槽" class="headerlink" title="默认插槽"></a>默认插槽</h3><ul>
+<li>在组件中定义一个slot标签即可</li>
+<li>如果插槽内具有共性的东西较多，可在插槽内设置默认值，当没有在插槽传入值时显示默认值</li>
+<li>如果有多个值，同时放入到组件中进行替换时，一起作为替换元素</li>
+</ul>
+<h3 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h3><blockquote>
+<p>通常情况下，一个页面设计非常复杂，需要在一个页面的不同位置放入不同的插槽内容。那么在这种情况下，我们就需要给插槽 <slot> 指定一个具体的名称 name，使其具有具体匹配的特性，在 Vue 中把这种具有具体名称 name 的插槽.</p>
+</blockquote>
+<h3 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h3><blockquote>
+<p>通常来说，一段程序代码中所用到的名字并不总是有效/可用的，而限定这个名字的可用性的代码范围就是这个名字的作用域。作用域的使用提高了程序逻辑的局部性，增强程序的可靠性，减少名字冲突。</p>
+</blockquote>
+<h2 id="Vue-生命周期"><a href="#Vue-生命周期" class="headerlink" title="Vue 生命周期"></a>Vue 生命周期</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
+<p>在 Vue 从创建实例到最终完全消亡的过程中，会执行一系列的方法，用于对应当前 Vue 的状态，这些方法我们叫它：生命周期钩子！</p>
+</blockquote>
+<h3 id="8-个生命周期函数"><a href="#8-个生命周期函数" class="headerlink" title="8 个生命周期函数"></a>8 个生命周期函数</h3><ol>
+<li>beforeCreate：在实例初始化之后。</li>
+<li>created：在实例创建完成后被立即调用。</li>
+<li>beforeMount：在挂载开始之前被调用，相关的 render 函数首次被调用。</li>
+<li>mounted：el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。</li>
+<li>beforeUpdate：数据更新时调用。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。</li>
+<li>updated：数据更新之后调用。</li>
+<li>beforeDestroy：实例销毁之前调用，在这一步，实例仍然完全可用。</li>
+<li>destroyed：Vue 实例销毁后调用。</li>
+</ol>
+<h3 id="3-个关于-vue-组件的生命周期钩子"><a href="#3-个关于-vue-组件的生命周期钩子" class="headerlink" title="3 个关于 vue 组件的生命周期钩子"></a>3 个关于 vue 组件的生命周期钩子</h3><ol>
+<li>activated：keep-alive 组件激活时调用</li>
+<li>deactivated：keep-alive 组件停用时调用</li>
+<li>errorCaptured：当捕获一个来自子孙组件的错误时被调用。<br>此钩子会收到 3 个参数：<ul>
+<li>错误对象</li>
+<li>发生错误的组件实例</li>
+<li>一个包含错误来源信息的字符串<br>返回值：此钩子可以返回 false 以阻止该错误继续向上传播。</li>
+</ul>
+</li>
+</ol>
+<h2 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h2><ul>
+<li>概念：keep-alive 是一个内置抽象组件（它自身不会渲染一个 DOM 元素，也不会出现在父组件链中，abstract: true 属性值决定）。</li>
+<li>作用：包裹动态组件时，会缓存不活动的组件实例。而不是销毁它们。 其主要用于保留组件状态（保留在内存中），避免重新渲染。</li>
+</ul>
+<hr>
+<h3 id="常用场景"><a href="#常用场景" class="headerlink" title="常用场景"></a>常用场景</h3><ol>
+<li>从列表进入详情页面，再回到列表页面，不需要刷新列表页面</li>
+<li>填写表单，进入下一步，返回上一步数据不会清空</li>
+<li>长列表内容</li>
+</ol>
+<h3 id="使用语法"><a href="#使用语法" class="headerlink" title="使用语法"></a>使用语法</h3><p>有三个属性 Props：</p>
+<ul>
+<li>include 字符串或正则表达式。只有名称匹配的组件会被缓存。</li>
+<li>exclude 字符串或正则表达式。任何名称匹配的组件都不会被缓存。</li>
+<li>max 最多可以缓存多少组件实例。</li>
+</ul>
+<h3 id="常见面试题："><a href="#常见面试题：" class="headerlink" title="常见面试题："></a>常见面试题：</h3><p>本文引自：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6921158170224099335#heading-4">https://juejin.cn/post/6921158170224099335#heading-4</a></p>
+<h2 id="谈一谈-Vuex"><a href="#谈一谈-Vuex" class="headerlink" title="谈一谈 Vuex"></a>谈一谈 Vuex</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式,可以帮助我们管理共享状态。<br>Vuex 是实现组件全局状态(数据) 管理的一种机制，可以方便的实现组件之间数据的共享。</p>
+<h3 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h3><p>Vuex 的组成部分如下：</p>
+<ol>
+<li>state：State 提供唯一的公共数据源，所有共享的数据都要统一放到 Store 的 State 中进行存储</li>
+<li>mutations：用于变更 Store 中的数据</li>
+</ol>
+<ul>
+<li>不能直接改变 store 仓库中的状态</li>
+<li>改变 store 中的状态唯一途径就是显示地提交 mutation。</li>
+<li>这样使得我们可以方便地跟踪每一个状态地变化，从而让我们能够实现一些工具帮助我们更好地了解我们地应用。</li>
+</ul>
+<ol start="3">
+<li>actions：用于处理异步任务。如果通过异步操作变更数据，必须通过 Action，而不能使用 Mutation，但是在 Action 中还是要通过触发 Mutation 的方式间接变更数据。</li>
+<li>getters：用于对 Store 中的数据进行加工处理形成新的数据。</li>
+</ol>
+<ul>
+<li>getters 可以对 Store 中已有的数据加工处理之后形成新的数据,类似 Vue 的计算属性</li>
+<li>Store 中数据发生变化，Getter 的数据也会跟着变化</li>
+</ul>
+<ol start="5">
+<li>modules：拆分，方便多人协同开发。</li>
+</ol>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ol>
+<li>能够在 vuex 中集中管理共享的数据，易于开发和后期维护</li>
+<li>能够高效地实现组件之间的数据共享，提高开发效率</li>
+<li>存储在 vuex 中的数据都是响应式的，能够实时保持数据与页面的同步。</li>
+<li>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。</li>
+</ol>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>一般情况下，只有组件之间共享的数据，才有必要存储到 vuex 中；对于组件中的私有数据，依旧存储在组件自身的 data 中即可。</p>
+<h2 id="Vue-异步组件"><a href="#Vue-异步组件" class="headerlink" title="Vue 异步组件"></a>Vue 异步组件</h2><h3 id="普通函数异步组件"><a href="#普通函数异步组件" class="headerlink" title="普通函数异步组件"></a>普通函数异步组件</h3><h3 id="Promise异步组件"><a href="#Promise异步组件" class="headerlink" title="Promise异步组件"></a>Promise异步组件</h3><h3 id="高级异步组件"><a href="#高级异步组件" class="headerlink" title="高级异步组件"></a>高级异步组件</h3><h2 id="Vue-事件总线（EventBus）"><a href="#Vue-事件总线（EventBus）" class="headerlink" title="Vue 事件总线（EventBus）"></a>Vue 事件总线（EventBus）</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>EventBus 又称为事件总线。在 Vue 中可以使用 EventBus 来作为沟通桥梁的概念，就像是所有组件共用相同的事件中心，可以向该中心注册发送事件或接收事件，所以组件都可以上下平行地通知其他组件。</p>
+<h3 id="使用以及注意事项"><a href="#使用以及注意事项" class="headerlink" title="使用以及注意事项"></a>使用以及注意事项</h3><p>新创建一个 event-bus.js 文件;<br>首先需要创建事件总线并将其导出，以便其它组件可以使用或者监听它。<br>然后假设你有两个 Vue 组件 A 和 B,A 组件需要通知 B 组件。<br>最后分别在两个组件中引入 EventBus<br><strong>发送：</strong> A 组件通过 EventBus.$emit(事件名,payload)发送；<br><strong>接收：</strong> B 组件通过 EventBus.$on(事件名,payload)接收；<br><strong>移除：</strong></p>
+<ol>
+<li>通过 EventBus.$off(事件名)来移除应用内所有对此某个事件的监听</li>
+<li>直接调用 EventBus.$off() 来移除所有事件频道，不需要添加任何参数 。</li>
+</ol>
+<p><span style="color:red;font-size:16px;">注意事项：</span></p>
+<ol>
+<li>如果你在某一个组件刷新了之后，与之相关的 EventBus 会被移除，这样就导致业务走不下去。</li>
+<li>如果业务有反复操作的组件，EventBus 在监听的时候就会触发很多次，也是一个非常大的隐患。</li>
+</ol>
+<p><span style="color:blue;font-size:16px;">解决方法：</span></p>
+<p><strong>在 vue 组件销毁时，同时移除 EventBus 事件监听。</strong></p>
+<h2 id="Vuex-与全局对象的区别"><a href="#Vuex-与全局对象的区别" class="headerlink" title="Vuex 与全局对象的区别"></a>Vuex 与全局对象的区别</h2><h2 id="Vue-router-相关问题"><a href="#Vue-router-相关问题" class="headerlink" title="Vue-router 相关问题"></a>Vue-router 相关问题</h2><h3 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h3><ol>
+<li>vue-router 是 WebApp 的链接路径管理系统。</li>
+<li>vue-router 是 Vue.js 官方的路由插件，它和 vue.js 是深度集成的，适合用于构建单页面应用。</li>
+</ol>
+<h3 id="它与传统的页面跳转的区别"><a href="#它与传统的页面跳转的区别" class="headerlink" title="它与传统的页面跳转的区别"></a>它与传统的页面跳转的区别</h3><ol>
+<li>vue 的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来（一个 url 地址对应着一个组件）。</li>
+<li>传统的页面应用，是用一些超链接来实现页面切换和跳转的。</li>
+</ol>
+<blockquote>
+<p>换而言之在 vue-router 单页面应用中，则是路径之间的切换，也就是组件的切换。路由模块的本质 就是建立起 url 和页面之间的映射关系。</p>
+</blockquote>
+<h3 id="为什么使用-vue-router"><a href="#为什么使用-vue-router" class="headerlink" title="为什么使用 vue-router"></a>为什么使用 vue-router</h3><blockquote>
+<p>我们为什么不能使用 a 标签代替，这是因为用 Vue 做的都是单页面应用（当你的项目准备打包时，运行 npm run build 时，就会生成 dist 文件夹，这里面只有静态资源和一个 index.html 页面，在没有后端服务的支持下，浏览器无法找到对应的 url 路径的），所以你写的标签是不起作用的，你必须使用 vue-router 来进行管理。</p>
+</blockquote>
+<ul>
+<li>vue-router 的功能</li>
+</ul>
+<ol>
+<li>嵌套的路由/视图表</li>
+<li>模块化的、基于组件的路由配置</li>
+<li>路由参数、查询、通配符</li>
+<li>基于 Vue.js 过渡系统的视图过渡效果</li>
+<li>HTML5 history 模式或 hash 模式，在 IE9 中自动降级。</li>
+</ol>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>单页面应用(SPA)的核心之一是:</p>
+<ol>
+<li>更新视图而不重新请求页面</li>
+<li>vue-router 在实现单页面前端路由时，提供了三种方式： Hash 模式;History 模式;根据 mode 参数以及运行环境决定采用哪一种方式。</li>
+</ol>
+<hr>
+<h5 id="hash-模式"><a href="#hash-模式" class="headerlink" title="hash 模式"></a>hash 模式</h5><ul>
+<li>vue-router 默认 hash 模式 —— 使用 URL 的 hash 来模拟一个完整的 URL，于是当 URL 改变时，页面不会重新加载。</li>
+<li>hash 模式的原理是 onhashchange 事件(监测 hash 值变化)，可以在 window 对象上监听这个事件。</li>
+</ul>
+<h5 id="history-模式"><a href="#history-模式" class="headerlink" title="history 模式"></a>history 模式</h5><blockquote>
+<p>html5 history interface 中新增的了 pushState() 和 replaceState()方法这两个方法应用于浏览器记录栈，在当前已有的 back、forward、go 基础之上，它们提供了对历史记录修改的功能。只是当它们执行修改时，虽然改变了当前的 URL，但浏览器不会立即向后端发送请求。同时还有 popstate 事件。通过这些就能用另一种方式来实现前端路由了，但原理都是跟 hash 实现相同的。</p>
+</blockquote>
+<h5 id="history-模式，页面返回-404"><a href="#history-模式，页面返回-404" class="headerlink" title="history 模式，页面返回 404"></a>history 模式，页面返回 404</h5><ul>
+<li><p>问题原因：因为 history 模式是 html5 新增特性，它的功能只是来改变浏览器地址栏里的路径，并没有发起 http 请求，但是当我直接在浏览器里输入这个地址的时候，就一定要对服务器发起 http 请求，但是这个目标在服务器上又不存在， 所以会返回 404。为了避免出现这种情况，所以这个实现需要服务器的支持，需要把所有路由都重定向到根页面。</p>
+</li>
+<li><p>具体做法：要在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html 页面，这个页面就是你 app 依赖的页面。</p>
+</li>
+</ul>
+
   
   
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/>http://example.com/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
   
   
     
@@ -362,10 +594,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-29T09:42:21+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-10T07:50:39+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020-12-29</p>
+    <p>更新于：2021-03-10</p>
   </a>
 </div>
 
@@ -373,6 +605,9 @@
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>面试题</p></a></div>
+
 
         
       
@@ -384,7 +619,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/faqs/index.html&title=faqs - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/&title=Vue面试题整理 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -396,7 +631,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/faqs/index.html&title=faqs - 刘晨曦的个人博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/&title=Vue面试题整理 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -408,7 +643,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/faqs/index.html&title=faqs - 刘晨曦的个人博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/&title=Vue面试题整理 - 刘晨曦的个人博客&summary="
           
           >
           
@@ -435,6 +670,19 @@
   
   
 
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/'>
+          <p class='title'>常考面试题1<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>dispaly:none;与 visibility:hidden;的区别联系：它们都能让元素不可见。
+区别：
+
+display:none;会让元素完全从渲染树中消失，渲染的时候不占据任何空间；v...</p>
+        </a>
+      
+    </div>
   
 </article>
 
@@ -464,6 +712,20 @@
 
 
 
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-%E6%8C%87%E4%BB%A4"><span class="toc-text">vue 指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-text"><span class="toc-text">v-text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-html"><span class="toc-text">v-html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind"><span class="toc-text">v-bind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on"><span class="toc-text">v-on</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model"><span class="toc-text">v-model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for"><span class="toc-text">v-for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-if-%E5%92%8C-v-show"><span class="toc-text">v-if 和 v-show</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-else"><span class="toc-text">v-else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-else-if"><span class="toc-text">v-else-if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-slot"><span class="toc-text">v-slot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86-class-%E5%92%8C-style"><span class="toc-text">样式处理 -class 和 style</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-pre"><span class="toc-text">v-pre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-cloak"><span class="toc-text">v-cloak</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-once"><span class="toc-text">v-once</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-%E6%8F%92%E6%A7%BD%EF%BC%88slot%EF%BC%89"><span class="toc-text">Vue 插槽（slot）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%8F%92%E6%A7%BD"><span class="toc-text">默认插槽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD"><span class="toc-text">具名插槽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD"><span class="toc-text">作用域插槽</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">Vue 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E4%B8%AA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-text">8 个生命周期函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%AA%E5%85%B3%E4%BA%8E-vue-%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90"><span class="toc-text">3 个关于 vue 组件的生命周期钩子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keep-alive"><span class="toc-text">keep-alive</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">常用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="toc-text">使用语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A"><span class="toc-text">常见面试题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%88%E4%B8%80%E8%B0%88-Vuex"><span class="toc-text">谈一谈 Vuex</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-text">组成部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">使用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6"><span class="toc-text">Vue 异步组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6"><span class="toc-text">普通函数异步组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6"><span class="toc-text">Promise异步组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6"><span class="toc-text">高级异步组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%EF%BC%88EventBus%EF%BC%89"><span class="toc-text">Vue 事件总线（EventBus）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">使用以及注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuex-%E4%B8%8E%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">Vuex 与全局对象的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-router-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="toc-text">Vue-router 相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-2"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%83%E4%B8%8E%E4%BC%A0%E7%BB%9F%E7%9A%84%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">它与传统的页面跳转的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-vue-router"><span class="toc-text">为什么使用 vue-router</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#hash-%E6%A8%A1%E5%BC%8F"><span class="toc-text">hash 模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#history-%E6%A8%A1%E5%BC%8F"><span class="toc-text">history 模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#history-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E-404"><span class="toc-text">history 模式，页面返回 404</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -479,8 +741,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Vue面试题整理";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
