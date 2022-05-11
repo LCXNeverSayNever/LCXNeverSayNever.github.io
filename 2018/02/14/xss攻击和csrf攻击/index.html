@@ -1,97 +1,251 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>
-        刘晨曦的个人博客
-    </title>
+  <meta charset="utf-8">
+  
+  
+  <title>xss攻击和csrf攻击 | 刘晨曦的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="xss攻击定义XSS（Cross Site Scripting）：跨域脚本攻击。XSS的攻击原理XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。导致的问题盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。攻击方式1、反射型发出请求时，XSS代码出现在url中，作为输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xss攻击和csrf攻击">
+<meta property="og:url" content="http://example.com/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/index.html">
+<meta property="og:site_name" content="刘晨曦的个人博客">
+<meta property="og:description" content="xss攻击定义XSS（Cross Site Scripting）：跨域脚本攻击。XSS的攻击原理XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。导致的问题盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。攻击方式1、反射型发出请求时，XSS代码出现在url中，作为输">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-02-14T11:18:48.000Z">
+<meta property="article:modified_time" content="2021-03-10T00:02:02.265Z">
+<meta property="article:author" content="刘晨曦的个人博客">
+<meta property="article:tag" content="安全问题">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="刘晨曦的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
     
-<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-    
-<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-
-    
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
 <meta name="generator" content="Hexo 5.3.0"></head>
 
-<body id="bodyx">
-    <div class="hd posts">
-    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
-    <div class="post-title">
-        <p>
-            xss攻击和csrf攻击
-        </p>
-        <hr>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">刘晨曦的个人博客</a>
+      </h1>
+      
     </div>
-    <div class="post-content">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Buscar"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-xss攻击和csrf攻击" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/" class="article-date">
+  <time class="dt-published" datetime="2018-02-14T11:18:48.000Z" itemprop="datePublished">2018-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      xss攻击和csrf攻击
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
         <h2 id="xss攻击"><a href="#xss攻击" class="headerlink" title="xss攻击"></a>xss攻击</h2><p><strong>定义</strong><br>XSS（Cross Site Scripting）：跨域脚本攻击。<br><strong>XSS的攻击原理</strong><br>XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。<br><strong>导致的问题</strong><br>盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。<br><strong>攻击方式</strong><br>1、反射型<br>发出请求时，XSS代码出现在url中，作为输入提交到服务器端，服务器端解析后响应，XSS代码随响应内容一起传回给浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，所以叫反射型XSS。<br>2、存储型存<br>存储型XSS和反射型XSS的差别在于，提交的代码会存储在服务器端（数据库、内存、文件系统等），下次请求时目标页面时不用再提交XSS代码。<br><strong>XSS的主要防范措施</strong><br>1、编码<br>对用户输入的数据进行HTML Entity编码。把字符转换成 转义字符。<br>Encode的作用是将$var等一些字符进行转化，使得浏览器在最终输出结果上是一样的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(1)&lt;&#x2F;script&gt; &#x2F;&#x2F;若不进行任何处理，则浏览器会执行alert的js操作，实现XSS注入。</span><br></pre></td></tr></table></figure>
 <p><code>进行编码处理之后，L在浏览器中的显示结果就是&lt;script&gt;alert(1)&lt;/script&gt;，实现了将$var作为纯文本进行输出，且不引起JavaScript的执行。</code><br>2、过滤<br>移除用户输入的和事件相关的属性。如onerror可以自动触发攻击，还有onclick等。（总而言是，过滤掉一些不安全的内容）移除用户输入的Style节点、Script节点、Iframe节点。（尤其是Script节点，它可是支持跨域的呀，一定要移除）。<br>3、校正<br>避免直接对HTML Entity进行解码。使用DOM Parse转换，校正不配对的DOM标签。<br><code>DOM Parse这个概念，它的作用是把文本解析成DOM结构。</code><br><strong>比较常用的做法是，通过第一步的编码转成文本，然后第三步转成DOM对象，然后经过第二步的过滤。</strong><br>**还有一种简洁的答案:**首先是encode，如果是富文本，就白名单。</p>
 <h2 id="CSRF攻击"><a href="#CSRF攻击" class="headerlink" title="CSRF攻击"></a>CSRF攻击</h2><p><strong>定义</strong><br>CSRF（Cross-site request forgery）：跨站请求伪造。<br><strong>CSRF的攻击原理</strong><br>用户是网站A的注册用户，且登录进去，于是网站A就给用户下发cookie。<br>要完成一次CSRF攻击，受害者必须满足两个必要的条件：<br>（1）登录受信任网站A，并在本地生成Cookie。（如果用户没有登录网站A，那么网站B在诱导的时候，请求网站A的api接口时，会提示你登录）<br>（2）在不登出A的情况下，访问危险网站B（其实是利用了网站A的漏洞）。<br><code>我们在讲CSRF时，一定要把上面的两点说清楚。</code><br><strong>CSRF的主要防范措施</strong><br>1、Token验证(最常用)<br>（1）服务器发送给客户端一个token；<br>（2）客户端提交的表单中带着这个token。<br>（3）如果这个token不合法，那么服务器拒绝这个请求。<br>2、隐藏令牌<br>把token隐藏在http的head头中。<br>3、Referer验证<br>Referer指的是页面请求来源。意思是，只接受本站的请求，服务器才做响应；如果不是，就拦截。</p>
 <h2 id="CSRF和XSS的区别"><a href="#CSRF和XSS的区别" class="headerlink" title="CSRF和XSS的区别"></a>CSRF和XSS的区别</h2><p>1、CSRF：需要用户先登录网站A，获取 cookie。XSS：不需要登录。<br>2、CSRF：是利用网站A本身的漏洞，去请求网站A的api。XSS：是向网站 A 注入 JS代码，然后执行 JS 里的代码，篡改网站A的内容。</p>
 
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/" data-id="cl31lg951000p34vq9ro6buhb" data-title="xss攻击和csrf攻击" class="article-share-link">Compartir</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" rel="tag">安全问题</a></li></ul>
 
+    </footer>
+  </div>
+  
     
-        <hr class="fhr">
-        <div id="vcomments"></div>
+<nav id="article-nav">
+  
+    <a href="/2018/03/10/BoxModel/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          浏览器标准模式和怪异模式之间的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">JavaScript中的宏任务和微任务</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
     
-</div>
-    <div class="footer" id="footer">
-    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
-        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
-            <input type="checkbox" name="switch" id="update_style">
-            <span class="el-switch-style"></span>
-        </label>
-<!--         <script type="text/javascript">
-        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
-        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-        </script> -->
-    </p>
-</div>
-<input type="hidden" id="web_style" value="black">
-<input type="hidden" id="valine_appid" value="CmCti21ooOOIzFOhEyFkFvR0-gzGzoHsz">
-<input type="hidden" id="valine_appKey" value="FqiyUqbg7McKN2eG0MCewupf">
 
-<script src="/libs/jquery.min.js"></script>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TS/" rel="tag">TS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" rel="tag">安全问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+    </div>
+  </div>
 
 
-<script src="/libs/highlight/highlight.pack.js"></script>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nube de Tags</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/TS/" style="font-size: 15px;">TS</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 10px;">原理</a> <a href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" style="font-size: 10px;">安全问题</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a>
+    </div>
+  </div>
 
-<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archivos</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
 
-<script src="/js/js.js"></script>
 
-<style type="text/css">
-.v * {
-    color: #698fca;
-}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Posts recientes</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/25/TypeScript-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/">TypeScript-基础类型和变量声明</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/">Vue面试题整理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/">常考面试题1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/26/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">深入了解观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/">Vue中的computed与watch的区别</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-.v .vlist .vcard .vhead .vsys {
-    color: #3a3e4a;
-}
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 刘晨曦的个人博客<br>
+      Construido por <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
 
-.v .vlist .vcard .vh .vmeta .vat {
-    color: #638fd5;
-}
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-.v .vlist .vcard .vhead .vnick {
-    color: #6ba1ff;
-}
 
-.v a {
-    color: #8696b1;
-}
+<script src="/js/jquery-3.4.1.min.js"></script>
 
-.v .vlist .vcard .vhead .vnick:hover {
-    color: #669bfc;
-}
-</style>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
 </body>
-
 </html>

@@ -1,34 +1,101 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>
-        刘晨曦的个人博客
-    </title>
+  <meta charset="utf-8">
+  
+  
+  <title>HOCK知识点梳理 | 刘晨曦的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="对React Hook 的整理hook简介Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。 useState使用 12345678910111213141516import React, &amp;#123; useState &amp;#125; from &#39;react&#39;;function Example()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HOCK知识点梳理">
+<meta property="og:url" content="http://example.com/2019/01/10/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/index.html">
+<meta property="og:site_name" content="刘晨曦的个人博客">
+<meta property="og:description" content="对React Hook 的整理hook简介Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。 useState使用 12345678910111213141516import React, &amp;#123; useState &amp;#125; from &#39;react&#39;;function Example()">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-01-10T11:00:23.000Z">
+<meta property="article:modified_time" content="2020-12-30T13:08:46.798Z">
+<meta property="article:author" content="刘晨曦的个人博客">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="刘晨曦的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
     
-<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-    
-<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-
-    
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
 <meta name="generator" content="Hexo 5.3.0"></head>
 
-<body id="bodyx">
-    <div class="hd posts">
-    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
-    <div class="post-title">
-        <p>
-            HOCK知识点梳理
-        </p>
-        <hr>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">刘晨曦的个人博客</a>
+      </h1>
+      
     </div>
-    <div class="post-content">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Buscar"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-HOCK知识点梳理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/01/10/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2019-01-10T11:00:23.000Z" itemprop="datePublished">2019-01-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      HOCK知识点梳理
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
         <h1 id="对React-Hook-的整理"><a href="#对React-Hook-的整理" class="headerlink" title="对React Hook 的整理"></a>对React Hook 的整理</h1><h2 id="hook简介"><a href="#hook简介" class="headerlink" title="hook简介"></a>hook简介</h2><p><strong>Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</strong></p>
 <p><strong>useState使用</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState &#125; from &#39;react&#39;;</span><br><span class="line">function Example() &#123;</span><br><span class="line">  &#x2F;&#x2F; 声明一个新的叫做 “count” 的 state 变量</span><br><span class="line">  const [count, setCount] &#x3D; useState(0);</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;&#x2F;p&gt;</span><br><span class="line">      &lt;button onClick&#x3D;&#123;() &#x3D;&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">        Click me</span><br><span class="line">      &lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br><span class="line">useState</span><br><span class="line">可以实现在函数组件中使用 state count是值,setCount是修改的方法</span><br></pre></td></tr></table></figure>
@@ -36,63 +103,150 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState, useEffect &#125; from &#39;react&#39;;</span><br><span class="line">function Example() &#123;</span><br><span class="line">  const [count, setCount] &#x3D; useState(0);</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; Similar to componentDidMount and componentDidUpdate:</span><br><span class="line">  useEffect(() &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; Update the document title using the browser API</span><br><span class="line">    document.title &#x3D; &#96;You clicked $&#123;count&#125; times&#96;;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;&#x2F;p&gt;</span><br><span class="line">      &lt;button onClick&#x3D;&#123;() &#x3D;&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">        Click me</span><br><span class="line">      &lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br><span class="line">&lt;font color&#x3D;&#x3D;#00000 &gt;很多情况下，我们希望在组件加载和更新时执行同样的操作。从概念上说，我们希望它在每次渲染之后执行 —— 但 React 的 class 组件没有提供这样的方法。即使我们提取出一个方法，我们还是要在两个地方调用它。</span><br></pre></td></tr></table></figure>
 <p>useEffect是在加载前或更新时都会使用 替代了componentDidMount()和componentDidUpdate() 集合起来<br>不要在循环，条件或嵌套函数中调用 Hook， 确保总是在你的 React 函数的最顶层调用他们。遵守这条规则，你就能确保 Hook 在每一次渲染中都按照同样的顺序被调用。这让 React 能够在多次的 useState 和 useEffect 调用之间保持 hook 状态的正确.</p>
 
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/01/10/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/" data-id="cl31lg94r000434vq04rkeey2" data-title="HOCK知识点梳理" class="article-share-link">Compartir</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
 
+    </footer>
+  </div>
+  
     
-        <hr class="fhr">
-        <div id="vcomments"></div>
+<nav id="article-nav">
+  
+    <a href="/2019/01/15/%E7%AE%80%E8%BF%B0Javascript%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          简述Javascript中的this指向
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">数据描述符详解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
     
-</div>
-    <div class="footer" id="footer">
-    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
-        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
-            <input type="checkbox" name="switch" id="update_style">
-            <span class="el-switch-style"></span>
-        </label>
-<!--         <script type="text/javascript">
-        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
-        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-        </script> -->
-    </p>
-</div>
-<input type="hidden" id="web_style" value="black">
-<input type="hidden" id="valine_appid" value="CmCti21ooOOIzFOhEyFkFvR0-gzGzoHsz">
-<input type="hidden" id="valine_appKey" value="FqiyUqbg7McKN2eG0MCewupf">
 
-<script src="/libs/jquery.min.js"></script>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TS/" rel="tag">TS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" rel="tag">安全问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+    </div>
+  </div>
 
 
-<script src="/libs/highlight/highlight.pack.js"></script>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nube de Tags</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/TS/" style="font-size: 15px;">TS</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 10px;">原理</a> <a href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" style="font-size: 10px;">安全问题</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a>
+    </div>
+  </div>
 
-<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archivos</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
 
-<script src="/js/js.js"></script>
 
-<style type="text/css">
-.v * {
-    color: #698fca;
-}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Posts recientes</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/25/TypeScript-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/">TypeScript-基础类型和变量声明</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/">Vue面试题整理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/">常考面试题1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/26/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">深入了解观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/">Vue中的computed与watch的区别</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-.v .vlist .vcard .vhead .vsys {
-    color: #3a3e4a;
-}
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 刘晨曦的个人博客<br>
+      Construido por <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
 
-.v .vlist .vcard .vh .vmeta .vat {
-    color: #638fd5;
-}
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-.v .vlist .vcard .vhead .vnick {
-    color: #6ba1ff;
-}
 
-.v a {
-    color: #8696b1;
-}
+<script src="/js/jquery-3.4.1.min.js"></script>
 
-.v .vlist .vcard .vhead .vnick:hover {
-    color: #669bfc;
-}
-</style>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
 </body>
-
 </html>
