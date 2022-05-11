@@ -1,517 +1,97 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="zh">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="x5-fullscreen" content="true">
-<meta name="full-screen" content="yes">
-<meta name="theme-color" content="#317EFB" />
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="keywords" content="">
-<meta name="description" content="xss攻击定义XSS（Cross Site Scripting）：跨域脚本攻击。XSS的攻击原理XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。导致的问题盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。攻击方式1、反射型发出请求时，XSS代码出现在url中，作为输">
-<meta property="og:type" content="article">
-<meta property="og:title" content="xss攻击和csrf攻击">
-<meta property="og:url" content="http://example.com/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/index.html">
-<meta property="og:site_name" content="刘晨曦的个人博客">
-<meta property="og:description" content="xss攻击定义XSS（Cross Site Scripting）：跨域脚本攻击。XSS的攻击原理XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。导致的问题盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。攻击方式1、反射型发出请求时，XSS代码出现在url中，作为输">
-<meta property="og:locale">
-<meta property="article:published_time" content="2018-02-14T11:18:48.000Z">
-<meta property="article:modified_time" content="2021-03-10T00:02:02.265Z">
-<meta property="article:author" content="刘晨曦的个人博客">
-<meta property="article:tag" content="安全问题">
-<meta name="twitter:card" content="summary">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        刘晨曦的个人博客
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
 
-    <meta name="description" content="写字楼里写字间，写字间中程序员; 程序人员写程序，又将程序换酒钱，酒醒只在屏前坐，酒醉还来屏下眠: 酒醉酒醒 日复日，屏前屏下年复年; 但愿老死电脑间，不愿鞠躬老板前; 奔驰宝马贵者趣，公交自行程序员; 别人笑我太疯癫，我笑自己命太贱; 但见满街漂亮妹，哪个归得程序员">
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
 
-<title>
-    xss攻击和csrf攻击
-</title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
-
-
-
-<link rel="preload" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.css">
-
-
-<link rel="stylesheet" href="/css/plugins/bootstrap.min.css">
-<link rel="stylesheet" href="/css/plugins/locomotive-scroll.css">
-<link rel="stylesheet" href="/css/plugins/swiper.min.css">
-<link rel="stylesheet" href="/css/plugins/fancybox.min.css">
-<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
-
-
-<!-- variable -->
-<script>window.TYPED_TEXT=[
-  "Web Developer"
-]</script>
-<script>window.FAVICON={
-  "icon16": null,
-  "icon32": null,
-  "appleTouchIcon": null,
-  "webmanifest": null,
-  "visibilitychange": false,
-  "hidden": null,
-  "showText": "(/≧▽≦/)咦！又好了！",
-  "hideText": "(●—●)喔哟，崩溃啦！"
-}</script>
-<script>window.HTMEM_VERSION='1.0.2'</script>
-<link data-theme-type="style-light" rel="stylesheet" href="/css/style-light.css?v=1.0.2" id="trm-switch-style">
-<link data-theme-type="style-dark" rel="stylesheet" href="/css/style-dark.css?v=1.0.2" id="trm-switch-style">
-
-<!-- theme css -->
-<script>
-    let themeMode = localStorage.getItem('theme-mode') === 'style-dark' ? 'style-light' : 'style-dark';
-    let linkdom = document.querySelector('[data-theme-type='+themeMode+']');
-    if(linkdom) linkdom.remove();
-</script>
-
-<!-- Site Analytics -->
- 
 <meta name="generator" content="Hexo 5.3.0"></head>
 
-<body>
-
-  <!-- app wrapper -->
-  <div class="trm-app-frame">
-
-    <!-- page preloader -->
-    <div class="trm-preloader">
-    <div class="trm-holder">
-        <div class="preloader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            xss攻击和csrf攻击
+        </p>
+        <hr>
     </div>
-</div>
-    <!-- page preloader end -->
-
-    <!-- change mode preloader -->
-    <div class="trm-mode-swich-animation-frame">
-    <div class="trm-mode-swich-animation"><i class="far fa-sun"></i>
-        <div class="trm-horizon"></div>
-        <i class="far fa-moon"></i>
-    </div>
-</div>
-    <!-- change mode preloader end -->
-
-      <!-- scroll container -->
-      <div id="trm-dynamic-content" class="trm-swup-animation">
-        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
-          <div data-scroll-section id="content" class="trm-scroll-section">
-            <!-- top bar -->
-            <div class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target="#content" data-scroll-offset="-10">
-	<div class="container">
-		<div class="trm-left-side">
-			<!-- logo -->
-			<a href="/" class="trm-logo-frame trm-anima-link">
-				<img src="/logo.png" alt="logo">
-				<div class="trm-logo-text">
-					Theme
-					<span>Async</span>
-				</div>
-			</a>
-			<!-- logo end -->
-		</div>
-		<div class="trm-right-side">
-
-			<!-- menu -->
-			<div class="trm-menu">
-				<nav>
-					<ul>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/">
-								首页
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/archives/">
-								归档
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/links/">
-								友链
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/about/">
-								关于
-							</a>
-							
-						</li>
-						
-					</ul>
-				</nav>
-			</div>
-			<!-- menu end -->
-
-			<!-- mode switcher place -->
-			<div class="trm-mode-switcher-place"></div>
-			<!-- mode switcher place end -->
-
-		</div>
-		<div class="trm-menu-btn">
-			<span></span>
-		</div>
-	</div>
-</div>
-            <!-- top bar end -->
-
-            <!-- body -->
-            <div class="trm-content-start">
-
-    <!-- banner -->
-    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
-    <!-- banner cover -->
-    <img src="https://pic1.zhimg.com/v2-b3c2c6745b9421a13a3c4706b19223b3_r.jpg?source=1940ef5c" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3">
-    <!-- banner cover end -->
-
-    <!-- banner slideshow cover-->
-    <!-- <div class="swiper-container trm-slideshow" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="/img/blog/b1.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-            <div class="swiper-slide"><img src="/img/blog/b2.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-            <div class="swiper-slide"><img src="/img/blog/b3.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-        </div>
-    </div> -->
-    <!-- banner slideshow cover end -->
-
-    <!-- banner video cover -->
-    <!-- <video autoplay="autoplay" loop muted playsinline webkit-playinginline class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
-        <source src="img/banner.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-        <source src="img/banner.webm" type='video/webm; codecs="vp8, vorbis"'>
-        <source src="img/banner.ogg" type='video/ogg; codecs="theora, vorbis"'>
-        Your browser does not support HTML5 video.
-    </video> -->
-    <!-- banner video cover end -->
-
-    <!-- banner cover end -->
-
-    <!-- banner content -->
-    <div class="trm-banner-content trm-overlay">
-        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
-            <div class="row">
-                <div class="col-lg-4"></div>
-                <div class="col-lg-8">
-
-                    <!-- banner title -->
-                    <div class="trm-banner-text">
-                        <div class="trm-label trm-mb-20">
-                            NEWS LETTER
-                        </div>
-                        <h1 class="trm-mb-30 trm-hsmb-font">
-                            xss攻击和csrf攻击
-                        </h1>
-
-                        
-                            <ul class="trm-breadcrumbs trm-label">
-                                <li>
-                                    <a href="/" class="trm-anima-link">Home</a>
-                                </li>
-                                <li>
-                                    <span>
-                                        2018
-                                    </span
-                                ></li>
-                            </ul>
-                        
-                    </div>
-                    <!-- banner title end -->
-
-                    <!-- scroll hint -->
-                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
-                        <div class="trm-scroll-hint"></div>
-                        <span class="trm-label">Scroll down</span>
-                    </a>
-                    <!-- scroll hint end -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- banner content end -->
-</div>
-    <!-- banner end -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <!-- main card -->
-                <div class="trm-main-card-frame trm-sidebar">
-    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target="#content" data-scroll-offset="60">
-        <!-- card header -->
-        <div class="trm-mc-header">
-            <div class="trm-avatar-frame trm-mb-20"><img class="trm-avatar" src="博主头像信息" alt="Avatar"> </div>
-            <h5 class="trm-name trm-mb-15">
-                ThemeAsync
-            </h5>
-            <div class="trm-label">
-                I`m
-                <span class="trm-typed-text">
-                    <!-- Words for theme.user.typedText -->
-                </span>
-            </div>
-        </div>
-        <!-- card header end -->
-        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
-        <!-- sidebar social -->
-        <div class="trm-social">
-            
-                <a href="https://github.com" rel="nofollow" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            
-                <a href="https://gitee.com" rel="nofollow" target="_blank">
-                    <i class="iconfont cg-gitee"></i>
-                </a>
-            
-                <a href="https://weibo.com/" rel="nofollow" target="_blank">
-                    <i class="iconfont cg-weibo"></i>
-                </a>
-            
-        </div>
-        <!-- sidebar social end -->
-        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
-        <!-- info -->
-        <ul class="trm-table trm-mb-20">
-            
-                <li>
-                    <div class="trm-label">
-                        Residence:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        Mars
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="trm-label">
-                        City:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        WuHan
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="trm-label">
-                        Age:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        18
-                    </div>
-                </li>
-            
-        </ul>
-        
-    </div>
-</div>
-                <!-- main card end -->
-            </div>
-            <div class="col-lg-8">
-                <!-- content -->
-                <div class="trm-content" id="trm-content">
-                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
-                    
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-calendar-alt trm-icon"></i><br>
-                                02/14
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-clock trm-icon"></i><br>
-                                07:18
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-user trm-icon"></i><br>
-                                ThemeAsync
-                            </div>
-                        </div>
-                    </div>
-
-                    <article class="trm-card trm-publication">
-                        <h2 id="xss攻击"><a href="#xss攻击" class="headerlink" title="xss攻击"></a>xss攻击</h2><p><strong>定义</strong><br>XSS（Cross Site Scripting）：跨域脚本攻击。<br><strong>XSS的攻击原理</strong><br>XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。<br><strong>导致的问题</strong><br>盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。<br><strong>攻击方式</strong><br>1、反射型<br>发出请求时，XSS代码出现在url中，作为输入提交到服务器端，服务器端解析后响应，XSS代码随响应内容一起传回给浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，所以叫反射型XSS。<br>2、存储型存<br>存储型XSS和反射型XSS的差别在于，提交的代码会存储在服务器端（数据库、内存、文件系统等），下次请求时目标页面时不用再提交XSS代码。<br><strong>XSS的主要防范措施</strong><br>1、编码<br>对用户输入的数据进行HTML Entity编码。把字符转换成 转义字符。<br>Encode的作用是将$var等一些字符进行转化，使得浏览器在最终输出结果上是一样的。</p>
+    <div class="post-content">
+        <h2 id="xss攻击"><a href="#xss攻击" class="headerlink" title="xss攻击"></a>xss攻击</h2><p><strong>定义</strong><br>XSS（Cross Site Scripting）：跨域脚本攻击。<br><strong>XSS的攻击原理</strong><br>XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。<br><strong>导致的问题</strong><br>盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。<br><strong>攻击方式</strong><br>1、反射型<br>发出请求时，XSS代码出现在url中，作为输入提交到服务器端，服务器端解析后响应，XSS代码随响应内容一起传回给浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，所以叫反射型XSS。<br>2、存储型存<br>存储型XSS和反射型XSS的差别在于，提交的代码会存储在服务器端（数据库、内存、文件系统等），下次请求时目标页面时不用再提交XSS代码。<br><strong>XSS的主要防范措施</strong><br>1、编码<br>对用户输入的数据进行HTML Entity编码。把字符转换成 转义字符。<br>Encode的作用是将$var等一些字符进行转化，使得浏览器在最终输出结果上是一样的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(1)&lt;&#x2F;script&gt; &#x2F;&#x2F;若不进行任何处理，则浏览器会执行alert的js操作，实现XSS注入。</span><br></pre></td></tr></table></figure>
 <p><code>进行编码处理之后，L在浏览器中的显示结果就是&lt;script&gt;alert(1)&lt;/script&gt;，实现了将$var作为纯文本进行输出，且不引起JavaScript的执行。</code><br>2、过滤<br>移除用户输入的和事件相关的属性。如onerror可以自动触发攻击，还有onclick等。（总而言是，过滤掉一些不安全的内容）移除用户输入的Style节点、Script节点、Iframe节点。（尤其是Script节点，它可是支持跨域的呀，一定要移除）。<br>3、校正<br>避免直接对HTML Entity进行解码。使用DOM Parse转换，校正不配对的DOM标签。<br><code>DOM Parse这个概念，它的作用是把文本解析成DOM结构。</code><br><strong>比较常用的做法是，通过第一步的编码转成文本，然后第三步转成DOM对象，然后经过第二步的过滤。</strong><br>**还有一种简洁的答案:**首先是encode，如果是富文本，就白名单。</p>
 <h2 id="CSRF攻击"><a href="#CSRF攻击" class="headerlink" title="CSRF攻击"></a>CSRF攻击</h2><p><strong>定义</strong><br>CSRF（Cross-site request forgery）：跨站请求伪造。<br><strong>CSRF的攻击原理</strong><br>用户是网站A的注册用户，且登录进去，于是网站A就给用户下发cookie。<br>要完成一次CSRF攻击，受害者必须满足两个必要的条件：<br>（1）登录受信任网站A，并在本地生成Cookie。（如果用户没有登录网站A，那么网站B在诱导的时候，请求网站A的api接口时，会提示你登录）<br>（2）在不登出A的情况下，访问危险网站B（其实是利用了网站A的漏洞）。<br><code>我们在讲CSRF时，一定要把上面的两点说清楚。</code><br><strong>CSRF的主要防范措施</strong><br>1、Token验证(最常用)<br>（1）服务器发送给客户端一个token；<br>（2）客户端提交的表单中带着这个token。<br>（3）如果这个token不合法，那么服务器拒绝这个请求。<br>2、隐藏令牌<br>把token隐藏在http的head头中。<br>3、Referer验证<br>Referer指的是页面请求来源。意思是，只接受本站的请求，服务器才做响应；如果不是，就拦截。</p>
 <h2 id="CSRF和XSS的区别"><a href="#CSRF和XSS的区别" class="headerlink" title="CSRF和XSS的区别"></a>CSRF和XSS的区别</h2><p>1、CSRF：需要用户先登录网站A，获取 cookie。XSS：不需要登录。<br>2、CSRF：是利用网站A本身的漏洞，去请求网站A的api。XSS：是向网站 A 注入 JS代码，然后执行 JS 里的代码，篡改网站A的内容。</p>
 
-                    </article>
-
-                    <!-- blog -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- title -->
-                            <h5 class="trm-mb-40 trm-title-with-divider">
-                                其他文章
-                                <span data-number="02"></span>
-                            </h5>
-                        </div>
-                        
-                            <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2018/03/10/BoxModel/" class="trm-cover-frame trm-anima-link">
-            <img src="/img/block.jpg" alt="cover">
-        </a>
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2018/03/10/BoxModel/" class="trm-anima-link">
-                    浏览器标准模式和怪异模式之间的区别
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>
-                    03/10
-                </li>
-                <li>
-                    09:36
-                </li>
-                <li>
-                    198
-                </li>
-            </ul>
-        </div>
     </div>
-</div>
-                        
-                        
-                            <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="trm-cover-frame trm-anima-link">
-            <img src="/img/block.jpg" alt="cover">
-        </a>
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="trm-anima-link">
-                    JavaScript中的宏任务和微任务
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>
-                    01/13
-                </li>
-                <li>
-                    08:49
-                </li>
-                <li>
-                    947
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-                        
-                    </div>
-                    <!-- blog end -->
-
-                    
-
-                    <div class="trm-divider trm-mb-40"></div>
-
-                    <!-- footer -->
-                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
-    <div class="trm-label">
-        ©  2022- 2022 ·
-        <span class="trm-accent-color">
-            ThemeAsync
-        </span>
-    </div>
-    <div class="trm-label">
-        博客已萌萌哒运行:
-        <span id="since" class="trm-accent-color"></span>
-        天
-    </div>
-</footer>
-<script>
-    function show_date_time () {
-        BirthDay = new Date("04/10/2022 17:00:00");
-        today = new Date();
-        timeold = (today.getTime() - BirthDay.getTime());
-        msPerDay = 24 * 60 * 60 * 1000
-        day = Math.floor(timeold / msPerDay)
-        since.innerHTML = day
-    }
-    show_date_time()
-</script>
-                    <!-- footer end -->
-                </div>
-                <!-- content end -->
-            </div>
-        </div>
-    </div>
-</div>
-
 
     
-  
-  
-            <!-- body end -->
-          </div>
-        </div>
-      </div>
-      <!-- scroll container end -->
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="CmCti21ooOOIzFOhEyFkFvR0-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="FqiyUqbg7McKN2eG0MCewupf">
 
-      <!-- mode switcher -->
-      <div class="trm-hidden-switcher">
-        <div class="trm-mode-switcher"><i class="far fa-sun"></i>
-          <input class="tgl tgl-light" id="trm-swich" type="checkbox">
-          <label class="trm-swich" for="trm-swich"></label>
-          <i class="far fa-moon"></i>
-        </div>
-      </div>
-      <!-- mode switcher end -->
-
-  </div>
-  <!-- app wrapper end -->
-
-  
-<script src="/js/plugins/jquery.min.js"></script>
-<script src="/js/plugins/swup.min.js"></script>
-<script src="/js/plugins/locomotive-scroll.js"></script>
-<script src="/js/plugins/typing.js"></script>
-<script src="/js/plugins/fancybox.min.js"></script>
-<script src="/js/plugins/swiper.min.js"></script>
+<script src="/libs/jquery.min.js"></script>
 
 
-<!-- 评论插件 -->
+<script src="/libs/highlight/highlight.pack.js"></script>
 
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
 
-<!-- Service Worker -->
+<script src="/js/js.js"></script>
 
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
 
-<script src="/js/main.js?v=1.0.2"></script>
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
 
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
 
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
 </body>
 
 </html>

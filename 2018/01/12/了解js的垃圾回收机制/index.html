@@ -1,354 +1,35 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="zh">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="x5-fullscreen" content="true">
-<meta name="full-screen" content="yes">
-<meta name="theme-color" content="#317EFB" />
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="keywords" content="">
-<meta name="description" content="垃圾回收JavaScript引擎中有一个后台进程称为垃圾回收器，它监视所有对象，并删除那些不可访问的对象。 垃圾回收机制的原理：找出那些不再继续使用的变量，然后释放其占用的内存。为此，垃圾收集器会按照固定的时间间隔（或代码执行中预定的收集时间），周期性的执行这一操作； 两种内存回收算法1、标记-清除算法javaScript中最常用的垃圾收集方式是标记清除（mark-and-sweep）。当变量进入">
-<meta property="og:type" content="article">
-<meta property="og:title" content="js的垃圾回收机制">
-<meta property="og:url" content="http://example.com/2018/01/12/%E4%BA%86%E8%A7%A3js%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/index.html">
-<meta property="og:site_name" content="刘晨曦的个人博客">
-<meta property="og:description" content="垃圾回收JavaScript引擎中有一个后台进程称为垃圾回收器，它监视所有对象，并删除那些不可访问的对象。 垃圾回收机制的原理：找出那些不再继续使用的变量，然后释放其占用的内存。为此，垃圾收集器会按照固定的时间间隔（或代码执行中预定的收集时间），周期性的执行这一操作； 两种内存回收算法1、标记-清除算法javaScript中最常用的垃圾收集方式是标记清除（mark-and-sweep）。当变量进入">
-<meta property="og:locale">
-<meta property="article:published_time" content="2018-01-12T10:11:02.000Z">
-<meta property="article:modified_time" content="2021-03-10T12:21:37.093Z">
-<meta property="article:author" content="刘晨曦的个人博客">
-<meta property="article:tag" content="JS">
-<meta name="twitter:card" content="summary">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        刘晨曦的个人博客
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
 
-    <meta name="description" content="写字楼里写字间，写字间中程序员; 程序人员写程序，又将程序换酒钱，酒醒只在屏前坐，酒醉还来屏下眠: 酒醉酒醒 日复日，屏前屏下年复年; 但愿老死电脑间，不愿鞠躬老板前; 奔驰宝马贵者趣，公交自行程序员; 别人笑我太疯癫，我笑自己命太贱; 但见满街漂亮妹，哪个归得程序员">
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
 
-<title>
-    js的垃圾回收机制
-</title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
-
-
-
-<link rel="preload" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.css">
-
-
-<link rel="stylesheet" href="/css/plugins/bootstrap.min.css">
-<link rel="stylesheet" href="/css/plugins/locomotive-scroll.css">
-<link rel="stylesheet" href="/css/plugins/swiper.min.css">
-<link rel="stylesheet" href="/css/plugins/fancybox.min.css">
-<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
-
-
-<!-- variable -->
-<script>window.TYPED_TEXT=[
-  "Web Developer"
-]</script>
-<script>window.FAVICON={
-  "icon16": null,
-  "icon32": null,
-  "appleTouchIcon": null,
-  "webmanifest": null,
-  "visibilitychange": false,
-  "hidden": null,
-  "showText": "(/≧▽≦/)咦！又好了！",
-  "hideText": "(●—●)喔哟，崩溃啦！"
-}</script>
-<script>window.HTMEM_VERSION='1.0.2'</script>
-<link data-theme-type="style-light" rel="stylesheet" href="/css/style-light.css?v=1.0.2" id="trm-switch-style">
-<link data-theme-type="style-dark" rel="stylesheet" href="/css/style-dark.css?v=1.0.2" id="trm-switch-style">
-
-<!-- theme css -->
-<script>
-    let themeMode = localStorage.getItem('theme-mode') === 'style-dark' ? 'style-light' : 'style-dark';
-    let linkdom = document.querySelector('[data-theme-type='+themeMode+']');
-    if(linkdom) linkdom.remove();
-</script>
-
-<!-- Site Analytics -->
- 
 <meta name="generator" content="Hexo 5.3.0"></head>
 
-<body>
-
-  <!-- app wrapper -->
-  <div class="trm-app-frame">
-
-    <!-- page preloader -->
-    <div class="trm-preloader">
-    <div class="trm-holder">
-        <div class="preloader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            js的垃圾回收机制
+        </p>
+        <hr>
     </div>
-</div>
-    <!-- page preloader end -->
-
-    <!-- change mode preloader -->
-    <div class="trm-mode-swich-animation-frame">
-    <div class="trm-mode-swich-animation"><i class="far fa-sun"></i>
-        <div class="trm-horizon"></div>
-        <i class="far fa-moon"></i>
-    </div>
-</div>
-    <!-- change mode preloader end -->
-
-      <!-- scroll container -->
-      <div id="trm-dynamic-content" class="trm-swup-animation">
-        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
-          <div data-scroll-section id="content" class="trm-scroll-section">
-            <!-- top bar -->
-            <div class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target="#content" data-scroll-offset="-10">
-	<div class="container">
-		<div class="trm-left-side">
-			<!-- logo -->
-			<a href="/" class="trm-logo-frame trm-anima-link">
-				<img src="/logo.png" alt="logo">
-				<div class="trm-logo-text">
-					Theme
-					<span>Async</span>
-				</div>
-			</a>
-			<!-- logo end -->
-		</div>
-		<div class="trm-right-side">
-
-			<!-- menu -->
-			<div class="trm-menu">
-				<nav>
-					<ul>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/">
-								首页
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/archives/">
-								归档
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/links/">
-								友链
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/about/">
-								关于
-							</a>
-							
-						</li>
-						
-					</ul>
-				</nav>
-			</div>
-			<!-- menu end -->
-
-			<!-- mode switcher place -->
-			<div class="trm-mode-switcher-place"></div>
-			<!-- mode switcher place end -->
-
-		</div>
-		<div class="trm-menu-btn">
-			<span></span>
-		</div>
-	</div>
-</div>
-            <!-- top bar end -->
-
-            <!-- body -->
-            <div class="trm-content-start">
-
-    <!-- banner -->
-    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
-    <!-- banner cover -->
-    <img src="https://pic1.zhimg.com/v2-b3c2c6745b9421a13a3c4706b19223b3_r.jpg?source=1940ef5c" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3">
-    <!-- banner cover end -->
-
-    <!-- banner slideshow cover-->
-    <!-- <div class="swiper-container trm-slideshow" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="/img/blog/b1.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-            <div class="swiper-slide"><img src="/img/blog/b2.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-            <div class="swiper-slide"><img src="/img/blog/b3.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-        </div>
-    </div> -->
-    <!-- banner slideshow cover end -->
-
-    <!-- banner video cover -->
-    <!-- <video autoplay="autoplay" loop muted playsinline webkit-playinginline class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
-        <source src="img/banner.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-        <source src="img/banner.webm" type='video/webm; codecs="vp8, vorbis"'>
-        <source src="img/banner.ogg" type='video/ogg; codecs="theora, vorbis"'>
-        Your browser does not support HTML5 video.
-    </video> -->
-    <!-- banner video cover end -->
-
-    <!-- banner cover end -->
-
-    <!-- banner content -->
-    <div class="trm-banner-content trm-overlay">
-        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
-            <div class="row">
-                <div class="col-lg-4"></div>
-                <div class="col-lg-8">
-
-                    <!-- banner title -->
-                    <div class="trm-banner-text">
-                        <div class="trm-label trm-mb-20">
-                            NEWS LETTER
-                        </div>
-                        <h1 class="trm-mb-30 trm-hsmb-font">
-                            js的垃圾回收机制
-                        </h1>
-
-                        
-                            <ul class="trm-breadcrumbs trm-label">
-                                <li>
-                                    <a href="/" class="trm-anima-link">Home</a>
-                                </li>
-                                <li>
-                                    <span>
-                                        2018
-                                    </span
-                                ></li>
-                            </ul>
-                        
-                    </div>
-                    <!-- banner title end -->
-
-                    <!-- scroll hint -->
-                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
-                        <div class="trm-scroll-hint"></div>
-                        <span class="trm-label">Scroll down</span>
-                    </a>
-                    <!-- scroll hint end -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- banner content end -->
-</div>
-    <!-- banner end -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <!-- main card -->
-                <div class="trm-main-card-frame trm-sidebar">
-    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target="#content" data-scroll-offset="60">
-        <!-- card header -->
-        <div class="trm-mc-header">
-            <div class="trm-avatar-frame trm-mb-20"><img class="trm-avatar" src="博主头像信息" alt="Avatar"> </div>
-            <h5 class="trm-name trm-mb-15">
-                ThemeAsync
-            </h5>
-            <div class="trm-label">
-                I`m
-                <span class="trm-typed-text">
-                    <!-- Words for theme.user.typedText -->
-                </span>
-            </div>
-        </div>
-        <!-- card header end -->
-        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
-        <!-- sidebar social -->
-        <div class="trm-social">
-            
-                <a href="https://github.com" rel="nofollow" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            
-                <a href="https://gitee.com" rel="nofollow" target="_blank">
-                    <i class="iconfont cg-gitee"></i>
-                </a>
-            
-                <a href="https://weibo.com/" rel="nofollow" target="_blank">
-                    <i class="iconfont cg-weibo"></i>
-                </a>
-            
-        </div>
-        <!-- sidebar social end -->
-        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
-        <!-- info -->
-        <ul class="trm-table trm-mb-20">
-            
-                <li>
-                    <div class="trm-label">
-                        Residence:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        Mars
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="trm-label">
-                        City:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        WuHan
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="trm-label">
-                        Age:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        18
-                    </div>
-                </li>
-            
-        </ul>
-        
-    </div>
-</div>
-                <!-- main card end -->
-            </div>
-            <div class="col-lg-8">
-                <!-- content -->
-                <div class="trm-content" id="trm-content">
-                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
-                    
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-calendar-alt trm-icon"></i><br>
-                                01/12
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-clock trm-icon"></i><br>
-                                06:11
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-user trm-icon"></i><br>
-                                ThemeAsync
-                            </div>
-                        </div>
-                    </div>
-
-                    <article class="trm-card trm-publication">
-                        <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><p><strong>JavaScript引擎中有一个后台进程称为垃圾回收器，它监视所有对象，并删除那些不可访问的对象。</strong></p>
+    <div class="post-content">
+        <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><p><strong>JavaScript引擎中有一个后台进程称为垃圾回收器，它监视所有对象，并删除那些不可访问的对象。</strong></p>
 <p><strong>垃圾回收机制的原理：</strong><br>找出那些不再继续使用的变量，然后释放其占用的内存。为此，垃圾收集器会按照固定的时间间隔（或代码执行中预定的收集时间），周期性的执行这一操作；</p>
 <h2 id="两种内存回收算法"><a href="#两种内存回收算法" class="headerlink" title="两种内存回收算法"></a>两种内存回收算法</h2><h3 id="1、标记-清除算法"><a href="#1、标记-清除算法" class="headerlink" title="1、标记-清除算法"></a>1、标记-清除算法</h3><p><strong>javaScript中最常用的垃圾收集方式是标记清除（mark-and-sweep）。</strong><br>当变量进入环境时，就将这个变量标记为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量所占用的内存，因为只要执行流进入相应的环境，就可能会用到它们。而当变量离开环境时，则将其标记为“离开环境”。</p>
 <p>垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记。然后，它会去掉环境中的变量以及被环境中的变量引用的变量标记。而在此之后再被加上标记的变量将被视为准备删除的变量，原因是环境中的变量已经无法访问到这些变量了。最后，垃圾收集器完成内存清除工作，销毁那些带标记的值并回收他们所占用的内存空间。</p>
@@ -359,164 +40,63 @@
 <h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><p>JavaScript中的内存管理是自动执行的，而且是不可见的。我们创建基本类型、对象、函数等等这些都需要内存。<br>JavaScript操作的数据在内存中是这样存储的，当某块内存中存储的数据无用时，那么就要遵守javaScript的内存回收机制将这些空闲内存回收，以供重新分配。<br>使用具备垃圾收集机制的语言编写程序，开发人员一般不必操心内存管理问题。但是，javaScript在进行内存管理及垃圾回收时面临的问题还是有点与众不同。<br><strong>最主要的一个问题</strong>：就是分配给web浏览器的可用内存数量通常比分配给桌面应用程序的少。<br><strong>这样做的目的</strong>：主要是出于安全方面的考虑，目的是防止运行javaScript的网页耗尽全部系统内存而导致系统崩溃。内存限制问题不仅会影响给变量分配内存，同时还会影响调用栈以及在一个线程中能够同时执行的语句数量。</p>
 <h2 id="总结与思考"><a href="#总结与思考" class="headerlink" title="总结与思考"></a>总结与思考</h2><p><strong>根据垃圾回收机制来思考</strong>:<br><strong>我们应确保占用最少的内存可以让页面获得更好的性能。而优化内存占用的最佳方式，就是为执行中的代码只保存必要的数据。</strong><br><strong>一旦数据不再有用，最好通过将其值设置为null来释放其引用，这个叫做接触引用。</strong><br><strong>这一做法适用于大多数全局变量和全局对象的属性。</strong><br><code>局部变量会在它们离开执行环境时自动被解除引用。</code></p>
 
-                    </article>
-
-                    <!-- blog -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- title -->
-                            <h5 class="trm-mb-40 trm-title-with-divider">
-                                其他文章
-                                <span data-number="02"></span>
-                            </h5>
-                        </div>
-                        
-                            <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="trm-cover-frame trm-anima-link">
-            <img src="/img/block.jpg" alt="cover">
-        </a>
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="trm-anima-link">
-                    JavaScript中的宏任务和微任务
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>
-                    01/13
-                </li>
-                <li>
-                    08:49
-                </li>
-                <li>
-                    947
-                </li>
-            </ul>
-        </div>
     </div>
-</div>
-                        
-                        
-                            <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2018/01/11/http%E3%80%81https%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8CTCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" class="trm-cover-frame trm-anima-link">
-            <img src="/img/block.jpg" alt="cover">
-        </a>
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2018/01/11/http%E3%80%81https%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8CTCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" class="trm-anima-link">
-                    HTTT和HTTPS协议，TCP的三次握手四次挥手
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>
-                    01/11
-                </li>
-                <li>
-                    04:35
-                </li>
-                <li>
-                    1.6k
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-                        
-                    </div>
-                    <!-- blog end -->
-
-                    
-
-                    <div class="trm-divider trm-mb-40"></div>
-
-                    <!-- footer -->
-                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
-    <div class="trm-label">
-        ©  2022- 2022 ·
-        <span class="trm-accent-color">
-            ThemeAsync
-        </span>
-    </div>
-    <div class="trm-label">
-        博客已萌萌哒运行:
-        <span id="since" class="trm-accent-color"></span>
-        天
-    </div>
-</footer>
-<script>
-    function show_date_time () {
-        BirthDay = new Date("04/10/2022 17:00:00");
-        today = new Date();
-        timeold = (today.getTime() - BirthDay.getTime());
-        msPerDay = 24 * 60 * 60 * 1000
-        day = Math.floor(timeold / msPerDay)
-        since.innerHTML = day
-    }
-    show_date_time()
-</script>
-                    <!-- footer end -->
-                </div>
-                <!-- content end -->
-            </div>
-        </div>
-    </div>
-</div>
-
 
     
-  
-  
-            <!-- body end -->
-          </div>
-        </div>
-      </div>
-      <!-- scroll container end -->
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="CmCti21ooOOIzFOhEyFkFvR0-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="FqiyUqbg7McKN2eG0MCewupf">
 
-      <!-- mode switcher -->
-      <div class="trm-hidden-switcher">
-        <div class="trm-mode-switcher"><i class="far fa-sun"></i>
-          <input class="tgl tgl-light" id="trm-swich" type="checkbox">
-          <label class="trm-swich" for="trm-swich"></label>
-          <i class="far fa-moon"></i>
-        </div>
-      </div>
-      <!-- mode switcher end -->
-
-  </div>
-  <!-- app wrapper end -->
-
-  
-<script src="/js/plugins/jquery.min.js"></script>
-<script src="/js/plugins/swup.min.js"></script>
-<script src="/js/plugins/locomotive-scroll.js"></script>
-<script src="/js/plugins/typing.js"></script>
-<script src="/js/plugins/fancybox.min.js"></script>
-<script src="/js/plugins/swiper.min.js"></script>
+<script src="/libs/jquery.min.js"></script>
 
 
-<!-- 评论插件 -->
+<script src="/libs/highlight/highlight.pack.js"></script>
 
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
 
-<!-- Service Worker -->
+<script src="/js/js.js"></script>
 
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
 
-<script src="/js/main.js?v=1.0.2"></script>
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
 
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
 
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
 </body>
 
 </html>
