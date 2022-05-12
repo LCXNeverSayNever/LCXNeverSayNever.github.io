@@ -1,713 +1,1519 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0'>
   <meta charset="utf-8">
+  <!-- SEO相关 -->
   
+    
+      
+        <meta name="robots" content="noindex,follow">
+      
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
   
   <title>刘晨曦的个人博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="写字楼里写字间，写字间中程序员; 程序人员写程序，又将程序换酒钱，酒醒只在屏前坐，酒醉还来屏下眠: 酒醉酒醒 日复日，屏前屏下年复年; 但愿老死电脑间，不愿鞠躬老板前; 奔驰宝马贵者趣，公交自行程序员; 别人笑我太疯癫，我笑自己命太贱; 但见满街漂亮妹，哪个归得程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="刘晨曦的个人博客">
-<meta property="og:url" content="http://example.com/page/2/index.html">
-<meta property="og:site_name" content="刘晨曦的个人博客">
-<meta property="og:description" content="写字楼里写字间，写字间中程序员; 程序人员写程序，又将程序换酒钱，酒醒只在屏前坐，酒醉还来屏下眠: 酒醉酒醒 日复日，屏前屏下年复年; 但愿老死电脑间，不愿鞠躬老板前; 奔驰宝马贵者趣，公交自行程序员; 别人笑我太疯癫，我笑自己命太贱; 但见满街漂亮妹，哪个归得程序员">
-<meta property="og:locale">
-<meta property="article:author" content="刘晨曦的个人博客">
-<meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="刘晨曦的个人博客" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
   
+
+  <!-- feed -->
   
-<link rel="stylesheet" href="/css/style.css">
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
 
   
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/first.css">
 
   
-<meta name="generator" content="Hexo 5.3.0"></head>
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+</head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">刘晨曦的个人博客</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  
+
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-async和await的理解与使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time class="dt-published" datetime="2019-01-21T08:04:53.000Z" itemprop="datePublished">2019-01-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/">async和await的理解与使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p><strong>如果想要理解和使用 async 和 await，就必须先要掌握 Promise 的用法，务必先看我整理的 Promise 再来看本篇文章。</strong></p>
-<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><p><strong>是什么</strong><br>async 是一个修饰符。<br><strong>用法</strong><br>它作为一个关键字放到函数前面。<br><strong>作用</strong><br>async 定义的函数会默认的返回一个 Promise 对象 resolve 的值，因此对 async 函数可以直接进行 then 操作,返回的值即为 then 方法的传入函数。<br><strong>基础用法</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">async function fn1()&#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">    return 2</span><br><span class="line">&#125;</span><br><span class="line">fn1().then(res &#x3D;&gt;&#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;输出结果为1，2</span><br><span class="line"></span><br><span class="line">async function fn2()&#123;</span><br><span class="line">    console.log(&quot;Promise1&quot;)</span><br><span class="line">    return new Promise(function(resolve,reject)&#x3D;&gt;&#123;</span><br><span class="line">        resolve(&quot;Promise2&quot;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">fn2().then(res &#x3D;&gt;&#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;输出结果为Promise1，Promise2</span><br></pre></td></tr></table></figure>
-<h2 id="await"><a href="#await" class="headerlink" title="await"></a>await</h2><p><strong>是什么</strong><br>await 也是一个修饰符。<br><strong>用法</strong><br>await 关键字，只能放在 async 函数内部，<br><strong>作用</strong><br>获取 Promise 中返回的内容， 获取的是 Promise 函数中 resolve 或者 reject 的值<br><strong>基础用法</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.如果await 后面并不是一个Promise的返回值，则会按照同步程序返回值处理。</span><br><span class="line">async function fn3() &#123;</span><br><span class="line">   const a &#x3D; await 1</span><br><span class="line">   const b &#x3D; await new Promise((resolve, reject)&#x3D;&gt;&#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">           resolve(2)</span><br><span class="line">        &#125;, 3000)</span><br><span class="line">   &#125;)</span><br><span class="line">   const c &#x3D; await 3</span><br><span class="line">   console.log(a, b, c)</span><br><span class="line">&#125;</span><br><span class="line">fn3()</span><br><span class="line">&#x2F;&#x2F;运行结果是：3秒钟之后 ，输出 1， 2 , 3。</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 2.如果不使用promise的方法的话</span><br><span class="line">function timer(time) &#123;</span><br><span class="line">   setTimeout(function()&#123;</span><br><span class="line">       console.log(time)</span><br><span class="line">       return 1</span><br><span class="line">    &#125;, time)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function fn4() &#123;</span><br><span class="line">    const a &#x3D; await timer(5000)</span><br><span class="line">    const b &#x3D; await timer(10000)</span><br><span class="line">    const c &#x3D; timer(2000)</span><br><span class="line">    console.log(a)</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn4()</span><br><span class="line">&#x2F;&#x2F;运行结果为：立刻输出undefined ，立刻输出1  2秒后输出2000  5秒后输出5000  10秒后输出10000</span><br></pre></td></tr></table></figure>
-<h2 id="async-await-综合用法"><a href="#async-await-综合用法" class="headerlink" title="async/await 综合用法"></a>async/await 综合用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 定义一个或多个普通函数，函数必须返回Promise对象，如果返回其他类型的数据，将按照普通同步程序处理</span><br><span class="line">function timer2(time) &#123;</span><br><span class="line">    return new Promise((resolve, reject)&#x3D;&gt; &#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">           console.log(time)</span><br><span class="line">           resolve()</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function fn5() &#123;</span><br><span class="line">    await timer2(5000)</span><br><span class="line">    await timer2(10000)</span><br><span class="line">    timer2(1000)</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;</span><br><span class="line">fn5()</span><br><span class="line">&#x2F;&#x2F;运行结果为，5s之后输出5000，10s之后输出10000，10000输出完之后立刻输出1，1s之后输出1000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>async 函数的执行会返回一个 promise 对象，并且把内部的值进行 promise 的封装。</li>
-<li>如果 promise 对象通过 then 或 catch 方法又注册了回调函数，async 函数执行完以后，注册的回调函数就会放到异步队列中，等待执行。</li>
-<li><code>如果只是 async, 和 promise 差不多，但有了 await 就不一样了， await 关键字只能放到 async 函数里面，await 是等待的意思，它后面可以放任何表达式，不过我们更多的是放一个返回 promise 对象的表达式，它等待的是 promise 对象的执行完毕，并返回结果。</code></li>
-<li>如果await 后面并不是一个Promise的返回值，则会按照同步程序返回值处理。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" data-id="cl32gzik0000ghwvqdlzs0j41" data-title="async和await的理解与使用" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-简述Javascript中的this指向" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/01/15/%E7%AE%80%E8%BF%B0Javascript%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/" class="article-date">
-  <time class="dt-published" datetime="2019-01-15T13:41:37.000Z" itemprop="datePublished">2019-01-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/01/15/%E7%AE%80%E8%BF%B0Javascript%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/">简述Javascript中的this指向</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p>JS 中的this是一个相对复杂的概念，不是简单几句能解释清楚的。<br>粗略地讲，函数的调用方式决定了this的值。</p>
-<p><strong>this取值符合以下规则：</strong><br>1、在调用函数时使用new关键字，函数内的this是一个全新的对象。<br>2、如果apply、call或bind方法用于调用、创建一个函数，函数内的 this 就是作为参数传入这些方法的对象。<br>3、当函数作为对象里的方法被调用时，函数内的this是调用该函数的对象。比如当obj.method()被调用时，函数内的 this 将绑定到obj对象。<br>4、如果调用函数不符合上述规则，那么this的值指向全局对象（global object）。浏览器环境下this的值指向window对象，但是在严格模式下(‘use strict’)，this的值为undefined。<br>5、如果符合上述多个规则，则较高的规则（1 号最高，4 号最低）将决定this的值。<br>6、如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，this被设置为它被创建时的上下文。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/15/%E7%AE%80%E8%BF%B0Javascript%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/" data-id="cl32gzikd001ghwvq7o2rdhj5" data-title="简述Javascript中的this指向" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-HOCK知识点梳理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/01/10/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2019-01-10T11:00:23.000Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/01/10/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/">HOCK知识点梳理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="对React-Hook-的整理"><a href="#对React-Hook-的整理" class="headerlink" title="对React Hook 的整理"></a>对React Hook 的整理</h1><h2 id="hook简介"><a href="#hook简介" class="headerlink" title="hook简介"></a>hook简介</h2><p><strong>Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</strong></p>
-<p><strong>useState使用</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState &#125; from &#39;react&#39;;</span><br><span class="line">function Example() &#123;</span><br><span class="line">  &#x2F;&#x2F; 声明一个新的叫做 “count” 的 state 变量</span><br><span class="line">  const [count, setCount] &#x3D; useState(0);</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;&#x2F;p&gt;</span><br><span class="line">      &lt;button onClick&#x3D;&#123;() &#x3D;&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">        Click me</span><br><span class="line">      &lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br><span class="line">useState</span><br><span class="line">可以实现在函数组件中使用 state count是值,setCount是修改的方法</span><br></pre></td></tr></table></figure>
-<p><strong>useEffect</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState, useEffect &#125; from &#39;react&#39;;</span><br><span class="line">function Example() &#123;</span><br><span class="line">  const [count, setCount] &#x3D; useState(0);</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; Similar to componentDidMount and componentDidUpdate:</span><br><span class="line">  useEffect(() &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; Update the document title using the browser API</span><br><span class="line">    document.title &#x3D; &#96;You clicked $&#123;count&#125; times&#96;;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;&#x2F;p&gt;</span><br><span class="line">      &lt;button onClick&#x3D;&#123;() &#x3D;&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">        Click me</span><br><span class="line">      &lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br><span class="line">&lt;font color&#x3D;&#x3D;#00000 &gt;很多情况下，我们希望在组件加载和更新时执行同样的操作。从概念上说，我们希望它在每次渲染之后执行 —— 但 React 的 class 组件没有提供这样的方法。即使我们提取出一个方法，我们还是要在两个地方调用它。</span><br></pre></td></tr></table></figure>
-<p>useEffect是在加载前或更新时都会使用 替代了componentDidMount()和componentDidUpdate() 集合起来<br>不要在循环，条件或嵌套函数中调用 Hook， 确保总是在你的 React 函数的最顶层调用他们。遵守这条规则，你就能确保 Hook 在每一次渲染中都按照同样的顺序被调用。这让 React 能够在多次的 useState 和 useEffect 调用之间保持 hook 状态的正确.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/10/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/" data-id="cl32gzijq0002hwvq8zfxd583" data-title="HOCK知识点梳理" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-数据描述符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/" class="article-date">
-  <time class="dt-published" datetime="2019-01-05T10:44:51.000Z" itemprop="datePublished">2019-01-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/">数据描述符详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><p><span style="font-size:18px;font-weight:800;">Obeject.assgin()(数据描述符)是Object构造函数的方法</span><br><span style="font-size:18px;font-weight:800;"><br>它是一个浅拷贝，针对深拷贝，需要使用JSON.parse(JSON.stringfy(obj))深拷贝，因为 Object.assign()拷贝的是（可枚举）属性值。假如源值是一个对象的引用，它仅仅会复制其引用值。<br></span></p>
-<h2 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.assgin(target,...sources)</span><br></pre></td></tr></table></figure>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>target</code><br><strong>目标对象</strong><br><code>source</code><br><strong>源对象</strong></p>
-<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p><strong>目标对象</strong></p>
-<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p><span style="font-size:18px;font-weight:800;">用于将所有可枚举属性的值从一个或多个源对象分配到目标对象。</span><br><span style="color:red;font-size:18px;">它将返回目标对象</span></p>
-<h3 id="详细描述"><a href="#详细描述" class="headerlink" title="详细描述"></a>详细描述</h3><p><strong>如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性。</strong><br>以下代码是证明这句话的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const target &#x3D; &#123; a: 1, b: 2 &#125;;</span><br><span class="line">const source &#x3D; &#123; b: 4, c: 5 &#125;;</span><br><span class="line">const returnedTarget &#x3D; Object.assign(target, source);</span><br><span class="line">console.log(target);</span><br><span class="line">&#x2F;&#x2F; expected output: Object &#123; a: 1, b: 4, c: 5 &#125;</span><br><span class="line">console.log(returnedTarget);</span><br><span class="line">&#x2F;&#x2F; expected output: Object &#123; a: 1, b: 4, c: 5 &#125;</span><br></pre></td></tr></table></figure>
-<p>Object.assign 方法只会拷贝源对象自身的并且可枚举的属性到目标对象。该方法使用源对象的[[Get]]和目标对象的[[Set]]，所以它会调用相关 getter 和 setter。因此，它分配属性，而不仅仅是复制或定义新的属性。如果合并源包含getter，这可能使其不适合将新属性合并到原型中。为了将属性定义（包括其可枚举性）复制到原型，应使用<code>Object.getOwnPropertyDescriptor()</code>和<code>Object.defineProperty()</code>。<br><strong>String类型和 Symbol 类型的属性都会被拷贝。</strong><br><span style="color:red;font-size:18px;">在出现错误的情况下，例如，如果属性不可写，会引发TypeError，如果在引发错误之前添加了任何属性，则可以更改target对象。</span></p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="合并对象"><a href="#合并对象" class="headerlink" title="合并对象"></a>合并对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const o1 &#x3D; &#123; a: 1 &#125;;</span><br><span class="line">const o2 &#x3D; &#123; b: 2 &#125;;</span><br><span class="line">const o3 &#x3D; &#123; c: 3 &#125;;</span><br><span class="line"></span><br><span class="line">const obj &#x3D; Object.assign(o1, o2, o3);</span><br><span class="line">console.log(obj); &#x2F;&#x2F; &#123; a: 1, b: 2, c: 3 &#125;</span><br><span class="line">console.log(o1);  &#x2F;&#x2F; &#123; a: 1, b: 2, c: 3 &#125;, 注意目标对象自身也会改变。</span><br></pre></td></tr></table></figure>
-<h3 id="合并具有相同属性的对象"><a href="#合并具有相同属性的对象" class="headerlink" title="合并具有相同属性的对象"></a>合并具有相同属性的对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const o1 &#x3D; &#123; a: 1, b: 1, c: 1 &#125;;</span><br><span class="line">const o2 &#x3D; &#123; b: 2, c: 2 &#125;;</span><br><span class="line">const o3 &#x3D; &#123; c: 3 &#125;;</span><br><span class="line"></span><br><span class="line">const obj &#x3D; Object.assign(&#123;&#125;, o1, o2, o3);</span><br><span class="line">console.log(obj); &#x2F;&#x2F; &#123; a: 1, b: 2, c: 3 &#125;</span><br></pre></td></tr></table></figure>
-<p><span style="color:red;">属性被后续参数中具有相同属性的其他对象覆盖。</span></p>
-<h3 id="继承属性和不可枚举属性是不能拷贝的"><a href="#继承属性和不可枚举属性是不能拷贝的" class="headerlink" title="继承属性和不可枚举属性是不能拷贝的"></a>继承属性和不可枚举属性是不能拷贝的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; Object.create(&#123;foo: 1&#125;, &#123; &#x2F;&#x2F; foo 是个继承属性。</span><br><span class="line">    bar: &#123;</span><br><span class="line">        value: 2  &#x2F;&#x2F; bar 是个不可枚举属性。</span><br><span class="line">    &#125;,</span><br><span class="line">    baz: &#123;</span><br><span class="line">        value: 3,</span><br><span class="line">        enumerable: true  &#x2F;&#x2F; baz 是个自身可枚举属性。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const copy &#x3D; Object.assign(&#123;&#125;, obj);</span><br><span class="line">console.log(copy); &#x2F;&#x2F; &#123; baz: 3 &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="原始类型会包装为对象"><a href="#原始类型会包装为对象" class="headerlink" title="原始类型会包装为对象"></a>原始类型会包装为对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const v1 &#x3D; &quot;abc&quot;;</span><br><span class="line">const v2 &#x3D; true;</span><br><span class="line">const v3 &#x3D; 10;</span><br><span class="line">const v4 &#x3D; Symbol(&quot;foo&quot;)</span><br><span class="line">const obj &#x3D; Object.assign(&#123;&#125;, v1, null, v2, undefined, v3, v4);</span><br><span class="line">&#x2F;&#x2F; 原始类型会被包装，null 和 undefined 会被忽略。</span><br><span class="line">&#x2F;&#x2F; 注意，只有字符串的包装对象才可能有自身可枚举属性。</span><br><span class="line">console.log(obj); &#x2F;&#x2F; &#123; &quot;0&quot;: &quot;a&quot;, &quot;1&quot;: &quot;b&quot;, &quot;2&quot;: &quot;c&quot; &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="异常会打断后续拷贝任务"><a href="#异常会打断后续拷贝任务" class="headerlink" title="异常会打断后续拷贝任务"></a>异常会打断后续拷贝任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const target &#x3D; Object.defineProperty(&#123;&#125;, &quot;foo&quot;, &#123;</span><br><span class="line">    value: 1,</span><br><span class="line">    writable: false</span><br><span class="line">&#125;); &#x2F;&#x2F; target 的 foo 属性是个只读属性。</span><br><span class="line">Object.assign(target, &#123;bar: 2&#125;, &#123;foo2: 3, foo: 3, foo3: 3&#125;, &#123;baz: 4&#125;);</span><br><span class="line">&#x2F;&#x2F; TypeError: &quot;foo&quot; is read-only</span><br><span class="line">&#x2F;&#x2F; 注意这个异常是在拷贝第二个源对象的第二个属性时发生的。</span><br><span class="line"></span><br><span class="line">console.log(target.bar);  &#x2F;&#x2F; 2，说明第一个源对象拷贝成功了。</span><br><span class="line">console.log(target.foo2); &#x2F;&#x2F; 3，说明第二个源对象的第一个属性也拷贝成功了。</span><br><span class="line">console.log(target.foo);  &#x2F;&#x2F; 1，只读属性不能被覆盖，所以第二个源对象的第二个属性拷贝失败了。</span><br><span class="line">console.log(target.foo3); &#x2F;&#x2F; undefined，异常之后 assign 方法就退出了，第三个属性是不会被拷贝到的。</span><br><span class="line">console.log(target.baz);  &#x2F;&#x2F; undefined，第三个源对象更是不会被拷贝到的。</span><br></pre></td></tr></table></figure>
-<h3 id="拷贝访问器"><a href="#拷贝访问器" class="headerlink" title="拷贝访问器"></a>拷贝访问器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123;</span><br><span class="line">  foo: 1,</span><br><span class="line">  get bar() &#123;</span><br><span class="line">    return 2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let copy &#x3D; Object.assign(&#123;&#125;, obj);</span><br><span class="line">console.log(copy); &#x2F;&#x2F; &#123; foo: 1, bar: 2 &#125; copy.bar的值来自obj.bar的getter函数的返回值</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 下面这个函数会拷贝所有自有属性的属性描述符</span><br><span class="line">function completeAssign(target, ...sources) &#123;</span><br><span class="line">  sources.forEach(source &#x3D;&gt; &#123;</span><br><span class="line">    let descriptors &#x3D; Object.keys(source).reduce((descriptors, key) &#x3D;&gt; &#123;</span><br><span class="line">      descriptors[key] &#x3D; Object.getOwnPropertyDescriptor(source, key);</span><br><span class="line">      return descriptors;</span><br><span class="line">    &#125;, &#123;&#125;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; Object.assign 默认也会拷贝可枚举的Symbols</span><br><span class="line">    Object.getOwnPropertySymbols(source).forEach(sym &#x3D;&gt; &#123;</span><br><span class="line">      let descriptor &#x3D; Object.getOwnPropertyDescriptor(source, sym);</span><br><span class="line">      if (descriptor.enumerable) &#123;</span><br><span class="line">        descriptors[sym] &#x3D; descriptor;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    Object.defineProperties(target, descriptors);</span><br><span class="line">  &#125;);</span><br><span class="line">  return target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">copy &#x3D; completeAssign(&#123;&#125;, obj);</span><br><span class="line">console.log(copy);</span><br><span class="line">&#x2F;&#x2F; &#123; foo:1, get bar() &#123; return 2 &#125; &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/" data-id="cl32gzik5000shwvqhetwa88l" data-title="数据描述符详解" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-深入了解class类并使用类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/01/03/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3class%E7%B1%BB%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%B1%BB/" class="article-date">
-  <time class="dt-published" datetime="2019-01-03T13:16:21.000Z" itemprop="datePublished">2019-01-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/01/03/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3class%E7%B1%BB%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%B1%BB/">深入了解class类并使用类</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要:"></a>前情提要:</h1><p>JavaScript 语言中，在使用类之前，生成实例对象的传统方法是通过使用构造函数。</p>
-<h2 id="一、构造函数："><a href="#一、构造函数：" class="headerlink" title="一、构造函数："></a>一、构造函数：</h2><p>定义：通过  new 函数名  来实例化对象的函数叫构造函数。<br>主要功能：为初始化对象，特点是和new 一起使用。new就是在创建对象，从无到有，构造函数就是在为初始化的对象添加属性和方法。<br>注意：任何的函数都可以作为构造函数存在，构造函数定义时首字母大写（规范）。<br>对new的理解：new 申请内存, 创建对象,当调用new时，后台会隐式执行new Object()创建对象。所以，通过new创建的字符串、数字是引用类型，而是非值类型。</p>
-<h3 id="1、原生构造函数的继承"><a href="#1、原生构造函数的继承" class="headerlink" title="1、原生构造函数的继承"></a>1、原生构造函数的继承</h3><p><strong>原生构造函数是指语言内置的构造函数，通常用来生成数据结构。</strong><br>大致有：<br>    Boolean()<br>    Number()<br>    String()<br>    Array()<br>    Date()<br>    Function()<br>    RegExp()<br>    Error()<br>    Object()</p>
-<p>在之前，这些原生构造函数是无法继承的，比如，不能自己定义一个Array的子类。</p>
-<p>例子:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function MyArray() &#123;</span><br><span class="line">  Array.apply(this, arguments);</span><br><span class="line">&#125;</span><br><span class="line">MyArray.prototype &#x3D; Object.create(Array.prototype, &#123;</span><br><span class="line">  constructor: &#123;</span><br><span class="line">    value: MyArray,</span><br><span class="line">    writable: true,</span><br><span class="line">    configurable: true,</span><br><span class="line">    enumerable: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">var colors &#x3D; new MyArray();</span><br><span class="line">colors[0] &#x3D; &quot;red&quot;;</span><br><span class="line">colors.length  &#x2F;&#x2F; 0</span><br><span class="line"></span><br><span class="line">colors.length &#x3D; 0;</span><br><span class="line">colors[0]  &#x2F;&#x2F; &quot;red&quot;</span><br></pre></td></tr></table></figure>
-<p>之所以会发生这种情况，是因为子类无法获得原生构造函数的内部属性，通过Array.apply()或者分配给原型对象都不行。<br><strong>这就说明了原生构造函数的this无法绑定，导致拿不到内部属性。</strong></p>
-<h3 id="2、执行一个构造函数："><a href="#2、执行一个构造函数：" class="headerlink" title="2、执行一个构造函数："></a>2、执行一个构造函数：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function A(name,age)&#123; 　　this.name &#x3D; name; 　　this.age &#x3D; age; &#125;</span><br><span class="line">A.prototype.info &#x3D; function()&#123;</span><br><span class="line">　　return &quot;姓名&quot;+ &quot;&quot; + this.name + &quot;年龄&quot; + this.age </span><br><span class="line">&#125;</span><br><span class="line">let a &#x3D; new A(&quot;张三&quot;,22)&#x2F;&#x2F;实例化a</span><br><span class="line">&#x2F;&#x2F;打印 a结果 </span><br><span class="line">A&#123;</span><br><span class="line">　　name:&quot;张三&quot;,</span><br><span class="line">　　age:22</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;打印 a.info() 结果为 &quot;姓名张三年龄22&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="二、class-类"><a href="#二、class-类" class="headerlink" title="二、class 类"></a>二、class 类</h2><p><strong>由来：</strong>因为上面构造函数的写法跟传统的面向对象语言差异很大，给很多程序员造成很多困惑，所以ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概念，作为对象的模板。<br>通过class关键字，可以定义类。</p>
-<h3 id="1、class类基本语法的使用"><a href="#1、class类基本语法的使用" class="headerlink" title="1、class类基本语法的使用"></a>1、class类基本语法的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">　　constructor()&#123;</span><br><span class="line">　　　　&#x2F;&#x2F;成员属性</span><br><span class="line">　　　　this.name &#x3D; name</span><br><span class="line">　　　　this.age &#x3D; age</span><br><span class="line">　　&#125;</span><br><span class="line">　　&#x2F;&#x2F;静态方法 如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。A.nihao()</span><br><span class="line">　　static nihao()&#123;</span><br><span class="line">　　　　console.log(&quot;你好&quot;)</span><br><span class="line">　　&#125;</span><br><span class="line">　　&#x2F;&#x2F;成员方法</span><br><span class="line">　　info()&#123;</span><br><span class="line">　　　　return &quot;姓名&quot;+ &quot;&quot; + this.name + &quot;年龄&quot; + this.age </span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line">与上面的构造函数相比之言，新的class写法让对象原型的写法更加清晰、更像面向对象编程的语法。</span><br><span class="line">注意：定义info()方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了，方法与方法之间不需要逗号分隔，加了会报错。</span><br><span class="line"></span><br><span class="line">添加静态属性：静态属性指的是 Class 本身的属性，即Class.propName，而不是定义在实例对象（this）上的属性。</span><br><span class="line">**老式写法：**</span><br><span class="line">class A&#123;&#125;</span><br><span class="line">A.props&#x3D;1 &#x2F;&#x2F;A.props&#x3D; 1   props就是A的静态属性 </span><br><span class="line"></span><br><span class="line">**新式写法：**</span><br><span class="line">class A&#123;</span><br><span class="line">   static props &#x3D; 1</span><br><span class="line">&#125;</span><br><span class="line">新写法是显式声明（declarative），而不是赋值处理，语义更好。</span><br><span class="line"></span><br><span class="line">**私有方法和私有属性：**</span><br><span class="line">私有方法两种写法：　　　　</span><br><span class="line">function bar(name)&#123;</span><br><span class="line">    return　this.name &#x3D; name</span><br><span class="line">&#125;</span><br><span class="line">class A&#123;</span><br><span class="line"></span><br><span class="line">    foo(name)&#123;</span><br><span class="line"></span><br><span class="line">        bar.call(this,name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">这样写的原因是类内部的所有方法都是对外可见的。foo是公开方法，内部调用了bar.call(this, baz)。这使得bar()实际上成为了当前类的私有方法。</span><br><span class="line"></span><br><span class="line">**还有一种方法是利用Symbol值的唯一性，将私有方法的名字命名为一个Symbol值。**</span><br><span class="line">const bar &#x3D; Symbol(&#39;bar&#39;)</span><br><span class="line">const  name &#x3D; Symbol(&#39;name&#39;)</span><br><span class="line">class A&#123;</span><br><span class="line">    &#x2F;&#x2F;公有方法</span><br><span class="line">    foo()&#123;</span><br><span class="line">　　　　this[bra](name)</span><br><span class="line">　　&#125;</span><br><span class="line">　　&#x2F;&#x2F;私有方法</span><br><span class="line">    [bar](name)&#123;</span><br><span class="line">        return this[name] &#x3D; name</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">**私有属性**</span><br><span class="line">第一种方法是在属性名之前，使用#表示。</span><br><span class="line">class A&#123;</span><br><span class="line">　　#count &#x3D; 0</span><br><span class="line">&#125;</span><br><span class="line">注意：#count就是私有属性，只能在类的内部使用（this.#count）。如果在类的外部使用，就会报错。</span><br><span class="line"></span><br><span class="line">这种写法不仅可以写私有属性，还可以用来写私有方法。</span><br><span class="line">私有属性也可以设置 getter 和 setter 方法。</span><br><span class="line"></span><br><span class="line">class Foo &#123; </span><br><span class="line">    #a; </span><br><span class="line">    #b;</span><br><span class="line">    #xVal &#x3D; 0; constructor(a, b) &#123; this.#a &#x3D; a; this.#b &#x3D; b; &#125; #sum() &#123; return this.#a + this.#b; &#125; printSum() &#123; console.log(this.#sum()); &#125;</span><br><span class="line">    get #x() &#123; return #xValue; &#125;</span><br><span class="line">    set #x(value) &#123;</span><br><span class="line">        this.#xValue &#x3D; value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">私有属性不限于从this引用，只要是在类的内部，实例也可以引用私有属性。</span><br><span class="line">私有属性和私有方法前面，也可以加上static关键字，表示这是一个静态的私有属性或私有方法。</span><br></pre></td></tr></table></figure>
-<h3 id="2、深入介绍class类"><a href="#2、深入介绍class类" class="headerlink" title="2、深入介绍class类"></a>2、深入介绍class类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;1&gt;</span><br><span class="line">ES6 的类，完全可以看作构造函数的另一种写法。</span><br><span class="line">class A&#123;&#125;  typeof A &#x2F;&#x2F;function  A &#x3D;&#x3D;&#x3D; A.prototype.constructor &#x2F;&#x2F; ture 可以看出，类的数据类型就是函数，类本身就指向构造函数。</span><br><span class="line">使用的时候，也是直接对类使用new命令，跟构造函数的用法完全一致。</span><br><span class="line">&lt;2&gt;</span><br><span class="line">class A&#123;</span><br><span class="line">　　constructor()&#123;&#125;</span><br><span class="line">　　info()&#123;&#125;</span><br><span class="line">　　toString()&#123;&#125;</span><br><span class="line">　　toVal()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">等同于</span><br><span class="line">A.prototype&#x3D;&#123;</span><br><span class="line">    info()&#123;&#125;,</span><br><span class="line">    toString()&#123;&#125;,</span><br><span class="line">    toVal()&#123;&#125;,</span><br><span class="line">&#125;;</span><br><span class="line">构造函数的prototype属性，在类里面也存在，类的所有方法都定义在类的prototype属性上面.</span><br><span class="line">因此，在类的实例上面调用方法，其实就是调用原型上的方法。</span><br><span class="line">&lt;3&gt;</span><br><span class="line">Object.assign()  方法可以很方便地一次向类添加多个方法。如下：</span><br><span class="line">Object.assign(A.prototype,&#123;</span><br><span class="line">    toString()&#123;&#125;,</span><br><span class="line">    toVal()&#123;&#125;,</span><br><span class="line">&#125;)</span><br><span class="line">&lt;4&gt;</span><br><span class="line">类的内部所有定义的方法，都是不可枚举的，如下：</span><br><span class="line">class A&#123; constructor(x, y) &#123; &#x2F;&#x2F; ... &#125; toString() &#123; &#x2F;&#x2F; ... &#125; &#125; Object.keys(A.prototype) &#x2F;&#x2F; []</span><br><span class="line">&lt;5&gt;</span><br><span class="line">类内部可以忽略不写constructor，因为JavaScript 引擎会自动为它添加一个空的constructor()方法。如下：</span><br><span class="line">class A&#123;&#125; &#x3D;&#x3D;&#x3D; class A&#123;constructor()&#123;&#125;&#125; &#x2F;&#x2F;true</span><br><span class="line">&lt;6&gt;</span><br><span class="line">constructor()方法默认返回实例对象（即this），完全可以指定返回另外一个对象。</span><br><span class="line">&lt;7&gt;</span><br><span class="line">类必须使用new调用，否则会报错。这是它跟普通构造函数的一个主要区别，后者不用new也可以执行。</span><br></pre></td></tr></table></figure>
-<h2 id="三、class继承"><a href="#三、class继承" class="headerlink" title="三、class继承"></a>三、class继承</h2><h3 id="1、extends-关键字"><a href="#1、extends-关键字" class="headerlink" title="1、extends 关键字"></a>1、extends 关键字</h3><p>class 通过extends关键字实现继承，如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.p &#x3D; 1</span><br><span class="line">    &#125;</span><br><span class="line">    static hello()&#123;</span><br><span class="line">        console.log(&quot;Hello World&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    p()&#123;</span><br><span class="line">        return 2</span><br><span class="line">    &#125;</span><br><span class="line">    getP()&#123;</span><br><span class="line">        console.log(this.p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">A.prototype.num &#x3D; 2</span><br><span class="line">class B extends A&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        super() &#x2F;&#x2F;关键字，super作为函数调用时，代表父类的构造函数</span><br><span class="line">        this.p &#x3D; 2</span><br><span class="line">        super.p &#x3D; 3</span><br><span class="line">        console.log(super.num) &#x2F;&#x2F;2</span><br><span class="line">        console.log(super.p()) &#x2F;&#x2F;2</span><br><span class="line"></span><br><span class="line">        console.log(super.p) &#x2F;&#x2F;undefined</span><br><span class="line">        console.log(this.p) &#x2F;&#x2F;3</span><br><span class="line">        &#x2F;&#x2F;super.p赋值为3，这时等同于对this.p赋值为3。而当读取super.p的时候，读的是A.prototype.p，所以返回undefined。</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    get n()&#123;</span><br><span class="line">        return super.p</span><br><span class="line">    &#125;</span><br><span class="line">    m()&#123;</span><br><span class="line">        super.getP()</span><br><span class="line">        &#x2F;&#x2F;super()写在这里报错</span><br><span class="line">    &#125;</span><br><span class="line">&#125; &#x2F;&#x2F;B类继承了A类的所有属性和方法</span><br><span class="line"></span><br><span class="line">let b &#x3D; new B() &#x2F;&#x2F;实列化</span><br><span class="line">B.hello() &#x2F;&#x2F;Hello World &#x2F;&#x2F;这就反映出，父类的静态方法，也会被子类继承。</span><br><span class="line">b.n &#x2F;&#x2F;undefined</span><br><span class="line">b.m() &#x2F;&#x2F;2 这说明实际上执行的是super.getP.call(this)。</span><br></pre></td></tr></table></figure>
-<p>优点：<code>这样的继承方式非常清晰和方便</code><br><strong>实质：</strong>先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this。<br><strong>注意：</strong><br>    &lt;1&gt;<span style="color:red;">构造函数如果没有调用super方法，就会导致新建实例时报错。</span><br>    &lt;2&gt;<span style="color:green;">在子类A的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例。</span></p>
-<h3 id="2、Object-getPrototypeof"><a href="#2、Object-getPrototypeof" class="headerlink" title="2、Object.getPrototypeof()"></a>2、Object.getPrototypeof()</h3><p><strong>作用：</strong>从子类上获取父类.<br><strong>例子:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(B) &#x3D;&#x3D;&#x3D; A </span><br><span class="line">&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-<p><strong>因此从上面的例子看出，可以使用这个方法判断，一个类是否继承了另一个类。</strong></p>
-<h3 id="3、super-关键字"><a href="#3、super-关键字" class="headerlink" title="3、super 关键字"></a>3、super 关键字</h3><p><strong>作用：</strong> 可以当作函数使用，也可以当作对象使用<br><strong>注意：</strong><span style="color:red;">在这两种不同的情况下，它的用法也完全不相同。</span></p>
-<h4 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h4><p><strong>super作为函数调用时，代表父类的构造函数。</strong><br><code>ES6 要求，子类的构造函数必须执行一次super函数</code><br><strong>注意:</strong><br><span style="color:red;">super虽然代表了父类A的构造函数，但是返回的是子类B的实例，即super内部的this指的是B的实例，因此super()在这里相当于A.prototype.constructor.call(this)。</span><br><span style="color:red;">作为函数时，super()只能用在子类的构造函数之中，用在其他地方就会报错。</span><br><strong>代码可以看上面对extends的介绍</strong></p>
-<h4 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h4><p><strong>super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类。</strong><br><strong>普通方法中</strong><br>子类B当中的super.p()，就是将super当作一个对象使用。<br>super在普通方法之中，指向A.prototype，所以super.p()就相当于A.prototype.p()。<br>因为由于super指向父类的原型对象，所以定义在父类的原型对象上，super是可以取到。<br>注意：<span style="color:red;">定义在父类实例上的方法或属性，是无法通过super调用的。</span><br>在子类普通方法中通过super调用父类的方法时，方法内部的this指向当前的子类实例。<br><strong>代码可以看上面对extends的介绍</strong><br><strong>静态方法中</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Parent &#123;</span><br><span class="line">  static myMethod(msg) &#123;</span><br><span class="line">    console.log(&#39;static&#39;, msg);</span><br><span class="line">  &#125;</span><br><span class="line">  myMethod(msg) &#123;</span><br><span class="line">    console.log(&#39;instance&#39;, msg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Child extends Parent &#123;</span><br><span class="line">  static myMethod(msg) &#123;</span><br><span class="line">    super.myMethod(msg);</span><br><span class="line">  &#125;</span><br><span class="line">  myMethod(msg) &#123;</span><br><span class="line">    super.myMethod(msg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Child.myMethod(1); &#x2F;&#x2F; static 1</span><br><span class="line">var child &#x3D; new Child();</span><br><span class="line">child.myMethod(2); &#x2F;&#x2F; instance 2</span><br></pre></td></tr></table></figure>
-<p><strong>super在静态方法之中指向父类，在普通方法之中指向父类的原型对象。</strong><br>在子类的静态方法中通过super调用父类的方法时，方法内部的this指向当前的子类，而不是子类的实例。<br>注意：<span style="color:red;">我们使用super时，一定要表明他的使用类型是作为函数使用还是作为对象使用，不能直接打印super会报错</span>　<br><strong>最后，由于对象总是继承其他对象的，所以可以在任意一个对象中，使用super关键字。</strong></p>
-<h3 id="4、类的prototype属性和-proto-属性"><a href="#4、类的prototype属性和-proto-属性" class="headerlink" title="4、类的prototype属性和__proto__属性"></a>4、类的prototype属性和__proto__属性</h3><p><strong>Class 作为构造函数的语法糖，同时有prototype属性和__proto__属性，因此同时存在两条继承链。</strong><br>接下来上代码解释：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">&#125;</span><br><span class="line">class B extends A &#123;</span><br><span class="line">&#125;</span><br><span class="line">B.__proto__ &#x3D;&#x3D;&#x3D; A &#x2F;&#x2F; true</span><br><span class="line">B.prototype.__proto__ &#x3D;&#x3D;&#x3D; A.prototype &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;由此看出，子类的__proto__属性，表示构造函数的继承，总是指向父类;</span><br><span class="line">&#x2F;&#x2F;子类prototype属性的__proto__属性，表示方法的继承，总是指向父类的prototype属性。</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; B 的实例继承 A 的实例</span><br><span class="line">Object.setPrototypeOf(B.prototype, A.prototype);</span><br><span class="line">&#x2F;&#x2F; 等同于</span><br><span class="line">B.prototype.__proto__ &#x3D; A.prototype;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; B 继承 A 的静态属性</span><br><span class="line">Object.setPrototypeOf(B, A);</span><br><span class="line">&#x2F;&#x2F; 等同于</span><br><span class="line">B.__proto__ &#x3D; A;</span><br><span class="line"></span><br><span class="line">const b &#x3D; new B();</span><br></pre></td></tr></table></figure>
-<p>这两条继承链，可以这样理解：<strong>作为一个对象，子类（B）的原型（__proto__属性）是父类（A）；作为一个构造函数，子类（B）的原型对象（prototype属性）是父类的原型对象（prototype属性）的实例。</strong></p>
-<p><strong>实例的__proto__属性</strong><br>子类实例的<strong>proto__属性的__proto__属性，指向父类实例的__proto__属性。也就是说，子类的原型的原型，是父类的原型。<br>const a1 = new A()<br>const a2 = new B()<br>a2.__proto</strong>.<strong>proto</strong> = a1.<strong>proto</strong> //true<br>因为B继承了A,所以说B的原型的原型是A的原型<br>因此，通过子类实例的<strong>proto</strong>.<strong>proto__属性，可以修改父类实例的行为。<br>a2.__proto</strong>.<strong>proto</strong>.name = function(){<br>    console.log(“张三”)<br>}<br>a1.name()//“张三”<br>上面代码在B的实例a2上向A类添加方法，结果影响到了A的实例a1。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/03/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3class%E7%B1%BB%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%B1%BB/" data-id="cl32gzik70010hwvq8k4g6v59" data-title="深入了解class类并使用类" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-ScopeScopeChain" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/05/10/ScopeScopeChain/" class="article-date">
-  <time class="dt-published" datetime="2018-05-10T12:24:41.000Z" itemprop="datePublished">2018-05-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/05/10/ScopeScopeChain/">JS的作用域及作用域链</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>在 Javascript 中，作用域分为 <strong>全局作用域</strong> 和 <strong>函数作用域</strong>.</p>
-<ul>
-<li>全局作用域:代码在程序的任何地方都能被访问，window 对象的内置属性都拥有全局作用域。</li>
-<li>函数作用域:在固定的代码片段才能被访问</li>
-</ul>
-<p>例如下图：</p>
-<p><img src="/2018/05/10/ScopeScopeChain/01.png" alt="&quot;作用域&quot;"></p>
-<p>作用域有上下级关系，上下级关系的确定就看函数是在哪个作用域下创建的。如上，fn 作用域下创建了 bar 函数，那么“fn 作用域”就是“bar 作用域”的上级。</p>
-<blockquote>
-<p>作用域最大的用处就是隔离变量，不同作用域下同名变量不会有冲突。</p>
-</blockquote>
-<p><strong>变量取值：到创建这个变量的函数的作用域中取值.</strong></p>
-<h2 id="作用链"><a href="#作用链" class="headerlink" title="作用链"></a>作用链</h2><blockquote>
-<p>一般情况下，变量取值到创建这个变量的函数的作用域中取值。但是如果在当前作用域中没有查到值，就会向上级作用域去查，直到查到全局作用域，这么一个查找过程形成的链条就叫做作用域链。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; 0;</span><br><span class="line">function fn()&#123;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">function show(f)&#123;</span><br><span class="line">    var a &#x3D; 6;</span><br><span class="line">    (function()&#123;</span><br><span class="line">        f()</span><br><span class="line">    &#125;)()</span><br><span class="line">&#125;</span><br><span class="line">show(fn);</span><br></pre></td></tr></table></figure>
-<p>下图所示：<br><img src="/2018/05/10/ScopeScopeChain/02.png" alt="&quot;作用域链&quot;"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/05/10/ScopeScopeChain/" data-id="cl32gzijw0009hwvqhtmd9kfq" data-title="JS的作用域及作用域链" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-JS面向对象" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/03/31/JS%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="article-date">
-  <time class="dt-published" datetime="2018-03-31T02:33:53.000Z" itemprop="datePublished">2018-03-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/03/31/JS%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">JS面向对象</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是对象？"><a href="#什么是对象？" class="headerlink" title="什么是对象？"></a>什么是对象？</h2><ol>
-<li>对象是单个事物的抽象。</li>
-<li>对象是一个容器，封装了属性和方法</li>
-</ol>
-<p>用一句话来描述，万物皆对象。</p>
-<h2 id="什么是面向对象？"><a href="#什么是面向对象？" class="headerlink" title="什么是面向对象？"></a>什么是面向对象？</h2><blockquote>
-<p>面向对象只是过程式代码的一种高度封装，目的在于提高代码的开发效率和可维护性。</p>
-</blockquote>
-<h3 id="面向过程编程"><a href="#面向过程编程" class="headerlink" title="面向过程编程"></a>面向过程编程</h3><p>概念：简称 POP 编程，面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的依次调用。</p>
-<blockquote>
-<p>其实就是按照我们分析好了的步骤，按照步骤解决问题。</p>
-</blockquote>
-<p>优点：性能比面向对象高，适合跟硬件联系很紧密的东西，例如单片机就采用面向过程的编程。<br>缺点：没有面向对象易维护、易复用、易扩展。</p>
-<h3 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h3><p>概念：简称 OOP 编程，面向对象就是把事务分解成一个个对象，然后由对象之间分工与合作。</p>
-<blockquote>
-<p>在面向对象程序开发思想中，每一个对象都是功能中心，具有明确分工。<br>它跟面向过程的区别：面向对象是以对象功能来划分问题，而不是步骤。</p>
-</blockquote>
-<p>优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统更加灵活、更加易于维护。<br>缺点：性能比面向过程低。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/31/JS%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" data-id="cl32gzijt0004hwvqf88sbzjg" data-title="JS面向对象" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-BoxModel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/03/10/BoxModel/" class="article-date">
-  <time class="dt-published" datetime="2018-03-10T01:36:29.000Z" itemprop="datePublished">2018-03-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/03/10/BoxModel/">浏览器标准模式和怪异模式之间的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>标准模式：在标准模式下页面按照 HTML,CSS 的定义渲染；</strong><br><strong>怪异模式：是浏览器为了兼容很早之前针对旧版本浏览器设计，浏览器基于页面中文件类型描述的存在以决定采用哪种渲染模式，如果存在一个完整的 DOCTYPE 则浏览器将会采用标准模式，如果缺失就会采用怪异模式。</strong></p>
-<p>由此，引发下文的盒模型！</p>
-<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>在 W3C 标准模式下，盒模型被称为标准盒模型。</p>
-<p><img src="/2018/03/10/BoxModel/01.jpg" alt="&quot;标准盒模型&quot;"></p>
-<blockquote>
-<p>在标准的盒子模型中，width 表示 content 部分的宽度。</p>
-</blockquote>
-<p>在怪异模式下，盒模型又称 IE 盒模型。</p>
-<p><img src="/2018/03/10/BoxModel/02.jpg" alt="&quot;怪异盒模型&quot;"></p>
-<blockquote>
-<p>在怪异的盒子模型中，width 表示 content + padding + border 这三个部分的宽度。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/10/BoxModel/" data-id="cl32gzijo0001hwvq6hz97ghl" data-title="浏览器标准模式和怪异模式之间的区别" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/" rel="tag">html</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-xss攻击和csrf攻击" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/" class="article-date">
-  <time class="dt-published" datetime="2018-02-14T11:18:48.000Z" itemprop="datePublished">2018-02-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/">xss攻击和csrf攻击</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="xss攻击"><a href="#xss攻击" class="headerlink" title="xss攻击"></a>xss攻击</h2><p><strong>定义</strong><br>XSS（Cross Site Scripting）：跨域脚本攻击。<br><strong>XSS的攻击原理</strong><br>XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。<br><strong>导致的问题</strong><br>盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。<br><strong>攻击方式</strong><br>1、反射型<br>发出请求时，XSS代码出现在url中，作为输入提交到服务器端，服务器端解析后响应，XSS代码随响应内容一起传回给浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，所以叫反射型XSS。<br>2、存储型存<br>存储型XSS和反射型XSS的差别在于，提交的代码会存储在服务器端（数据库、内存、文件系统等），下次请求时目标页面时不用再提交XSS代码。<br><strong>XSS的主要防范措施</strong><br>1、编码<br>对用户输入的数据进行HTML Entity编码。把字符转换成 转义字符。<br>Encode的作用是将$var等一些字符进行转化，使得浏览器在最终输出结果上是一样的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(1)&lt;&#x2F;script&gt; &#x2F;&#x2F;若不进行任何处理，则浏览器会执行alert的js操作，实现XSS注入。</span><br></pre></td></tr></table></figure>
-<p><code>进行编码处理之后，L在浏览器中的显示结果就是&lt;script&gt;alert(1)&lt;/script&gt;，实现了将$var作为纯文本进行输出，且不引起JavaScript的执行。</code><br>2、过滤<br>移除用户输入的和事件相关的属性。如onerror可以自动触发攻击，还有onclick等。（总而言是，过滤掉一些不安全的内容）移除用户输入的Style节点、Script节点、Iframe节点。（尤其是Script节点，它可是支持跨域的呀，一定要移除）。<br>3、校正<br>避免直接对HTML Entity进行解码。使用DOM Parse转换，校正不配对的DOM标签。<br><code>DOM Parse这个概念，它的作用是把文本解析成DOM结构。</code><br><strong>比较常用的做法是，通过第一步的编码转成文本，然后第三步转成DOM对象，然后经过第二步的过滤。</strong><br>**还有一种简洁的答案:**首先是encode，如果是富文本，就白名单。</p>
-<h2 id="CSRF攻击"><a href="#CSRF攻击" class="headerlink" title="CSRF攻击"></a>CSRF攻击</h2><p><strong>定义</strong><br>CSRF（Cross-site request forgery）：跨站请求伪造。<br><strong>CSRF的攻击原理</strong><br>用户是网站A的注册用户，且登录进去，于是网站A就给用户下发cookie。<br>要完成一次CSRF攻击，受害者必须满足两个必要的条件：<br>（1）登录受信任网站A，并在本地生成Cookie。（如果用户没有登录网站A，那么网站B在诱导的时候，请求网站A的api接口时，会提示你登录）<br>（2）在不登出A的情况下，访问危险网站B（其实是利用了网站A的漏洞）。<br><code>我们在讲CSRF时，一定要把上面的两点说清楚。</code><br><strong>CSRF的主要防范措施</strong><br>1、Token验证(最常用)<br>（1）服务器发送给客户端一个token；<br>（2）客户端提交的表单中带着这个token。<br>（3）如果这个token不合法，那么服务器拒绝这个请求。<br>2、隐藏令牌<br>把token隐藏在http的head头中。<br>3、Referer验证<br>Referer指的是页面请求来源。意思是，只接受本站的请求，服务器才做响应；如果不是，就拦截。</p>
-<h2 id="CSRF和XSS的区别"><a href="#CSRF和XSS的区别" class="headerlink" title="CSRF和XSS的区别"></a>CSRF和XSS的区别</h2><p>1、CSRF：需要用户先登录网站A，获取 cookie。XSS：不需要登录。<br>2、CSRF：是利用网站A本身的漏洞，去请求网站A的api。XSS：是向网站 A 注入 JS代码，然后执行 JS 里的代码，篡改网站A的内容。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/" data-id="cl32gzik4000qhwvq0rym4hoy" data-title="xss攻击和csrf攻击" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" rel="tag">安全问题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-JavaScript中的宏任务和微任务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="article-date">
-  <time class="dt-published" datetime="2018-01-13T12:49:29.000Z" itemprop="datePublished">2018-01-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/">JavaScript中的宏任务和微任务</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p>首先，我们必须明确一个概念：JS是单线程的<br>其次，JS是有异步的，JS的异步分 微任务、宏任务<br>主线任务执行完，JS会到微任务列表找任务，找不到了再到宏任务里面找<br>其中Promise的任务是微任务</p>
-<h2 id="宏任务与微任务"><a href="#宏任务与微任务" class="headerlink" title="宏任务与微任务"></a>宏任务与微任务</h2><p><strong>概念</strong><br>在一个事件循环中，异步事件返回结果后会被放到一个任务队列中。然而，根据这个异步事件的类型，这个事件实际上会被对应的宏任务队列或者微任务队列中去。并且在当前执行栈为空的时候，主线程会 查看微任务队列是否有事件存在。如果不存在，那么再去宏任务队列中取出一个事件并把对应的回到加入当前执行栈；如果存在，则会依次执行队列中事件对应的回调，直到微任务队列为空，然后去宏任务队列中取出最前面的一个事件，把对应的回调加入当前执行栈…如此反复，进入循环。</p>
-<p>我们只需记住当当前执行栈执行完毕时会立刻先处理所有微任务队列中的事件，然后再去宏任务队列中取出一个事件。同一次事件循环中，微任务永远在宏任务之前执行。</p>
-<p>在当前的微任务没有执行完成时，是不会执行下一个宏任务的。<br>例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(_ &#x3D;&gt; console.log(4))</span><br><span class="line">new Promise(resolve &#x3D;&gt; &#123;</span><br><span class="line">  resolve()</span><br><span class="line">  console.log(1)</span><br><span class="line">&#125;).then(_ &#x3D;&gt; &#123;</span><br><span class="line">  console.log(3)</span><br><span class="line">&#125;)</span><br><span class="line">console.log(2)</span><br></pre></td></tr></table></figure>
-<p>setTimeout就是作为宏任务来存在的，而Promise.then则是具有代表性的微任务，上述代码的执行顺序就是按照序号来输出的。<br>所有会进入的异步都是指的事件回调中的那部分代码<br>也就是说new Promise在实例化的过程中所执行的代码都是同步进行的，而then中注册的回调才是异步执行的。<br>在同步代码执行完成后才回去检查是否有异步任务完成，并执行对应的回调，而微任务又会在宏任务之前执行。<br>所以就得到了上述的输出结论1、2、3、4。</p>
-<h3 id="宏任务"><a href="#宏任务" class="headerlink" title="宏任务"></a>宏任务</h3><p><strong>特性：</strong><br>1、宏任务所处的队列就是宏任务队列<br>2、第一个宏任务队列中只有一个任务：执行主线程上的JS代码；如果遇到上方表格中的异步任务，会创建出一个新的宏任务队列，存放这些异步函数执行完成后的回调函数。<br>3、宏任务队列可以有多个<br>4、宏任务中可以创建微任务，但是在宏任务中创建的微任务不会影响当前宏任务的执行。<br>5、当一个宏任务队列中的任务全部执行完后，会查看是否有微任务队列，如果有就会优先执行微任务队列中的所有任务，如果没有就查看是否有宏任务队列</p>
-<h3 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h3><p><strong>特性：</strong><br>1、微任务所处的队列就是微任务队列<br>2、在上一个宏任务队列执行完毕后，如果有微任务队列就会执行微任务队列中的所有任务<br>3、new promise((resolve)=&gt;{ 这里的函数在当前队列直接执行 }).then( 这里的函数放在微任务队列中执行 )<br>4、微任务队列上创建的微任务，仍会阻碍后方将要执行的宏任务队列<br>5、由微任务创建的宏任务，会被丢在异步宏任务队列中执行</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/" data-id="cl32gziju0006hwvq7f1dc0o2" data-title="JavaScript中的宏任务和微任务" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TS/" rel="tag">TS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" rel="tag">安全问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/TS/" style="font-size: 15px;">TS</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 10px;">原理</a> <a href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" style="font-size: 10px;">安全问题</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/03/25/TypeScript-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/">TypeScript-基础类型和变量声明</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/28/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/">Vue面试题整理</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/27/css%E5%B8%B8%E8%80%83%E9%9D%A2%E8%AF%95%E9%A2%98/">常考面试题1</a>
-          </li>
-        
-          <li>
-            <a href="/2020/01/26/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">深入了解观察者模式</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/19/Vue%E4%B8%AD%E7%9A%84computed%E4%B8%8Ewatch%E7%9A%84%E5%8C%BA%E5%88%AB/">Vue中的computed与watch的区别</a>
-          </li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
       </ul>
     </div>
-  </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+          
+          
+          
+        </a>
+      
 
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜你想搜的" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
   
-</aside>
+    
+        <div id="full" class='cover-wrapper  dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">小刘先生</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg'><p>博客</p>
+            </a>
+          
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 刘晨曦的个人博客<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
-</footer>
+</div>
 
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  
+  <section class="post-list">
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+        async和await的理解与使用
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        前情提要如果想要理解和使用 async 和 await，就必须先要掌握 Promise 的用法，务必先看我整理的 Promise 再来看本篇文章。
+async是什么async 是一个修饰符。用法它作为一个关键字放到函数前面。作用async 定义的函数会默认的返回一个 Promise 对象 resolve 的值，因此对 async 函数可以直接进行 then 操作,返回的值即为 then 方法...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2019-01-21</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2019/01/21/async%E5%92%8Cawait%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/'>
+            Read More
+          </a>
+        </div>
+      
     </div>
-    <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-</nav>
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2019/01/15/%E7%AE%80%E8%BF%B0Javascript%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/">
+        简述Javascript中的this指向
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        前情提要JS 中的this是一个相对复杂的概念，不是简单几句能解释清楚的。粗略地讲，函数的调用方式决定了this的值。
+this取值符合以下规则：1、在调用函数时使用new关键字，函数内的this是一个全新的对象。2、如果apply、call或bind方法用于调用、创建一个函数，函数内的 this 就是作为参数传入这些方法的对象。3、当函数作为对象里的方法被调用时，函数内的this是调用该函...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2019-01-15</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2019/01/15/%E7%AE%80%E8%BF%B0Javascript%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2019/01/10/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/">
+        HOCK知识点梳理
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        对React Hook 的整理hook简介Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
+useState使用
+12345678910111213141516import React, &#123; useState &#125; from &#39;react&#39;;function Exampl...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2019-01-10</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2019/01/10/HOCK%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/">
+        数据描述符详解
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        是什么？Obeject.assgin()(数据描述符)是Object构造函数的方法它是一个浅拷贝，针对深拷贝，需要使用JSON.parse(JSON.stringfy(obj))深拷贝，因为 Object.assign()拷贝的是（可枚举）属性值。假如源值是一个对象的引用，它仅仅会复制其引用值。
+如何使用？语法1Object.assgin(target,...sources)
+参数targe...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2019-01-05</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2019/01/05/%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%AC%A6/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2019/01/03/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3class%E7%B1%BB%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%B1%BB/">
+        深入了解class类并使用类
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        前情提要:JavaScript 语言中，在使用类之前，生成实例对象的传统方法是通过使用构造函数。
+一、构造函数：定义：通过  new 函数名  来实例化对象的函数叫构造函数。主要功能：为初始化对象，特点是和new 一起使用。new就是在创建对象，从无到有，构造函数就是在为初始化的对象添加属性和方法。注意：任何的函数都可以作为构造函数存在，构造函数定义时首字母大写（规范）。对new的理解：ne...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2019-01-03</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2019/01/03/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3class%E7%B1%BB%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%B1%BB/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2018/05/10/ScopeScopeChain/">
+        JS的作用域及作用域链
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        作用域在 Javascript 中，作用域分为 全局作用域 和 函数作用域.
+
+全局作用域:代码在程序的任何地方都能被访问，window 对象的内置属性都拥有全局作用域。
+函数作用域:在固定的代码片段才能被访问
+
+例如下图：
+
+作用域有上下级关系，上下级关系的确定就看函数是在哪个作用域下创建的。如上，fn 作用域下创建了 bar 函数，那么“fn 作用域”就是“bar 作用域”的上级。
+
+作...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2018-05-10</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2018/05/10/ScopeScopeChain/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2018/03/31/JS%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+        JS面向对象
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        什么是对象？
+对象是单个事物的抽象。
+对象是一个容器，封装了属性和方法
+
+用一句话来描述，万物皆对象。
+什么是面向对象？
+面向对象只是过程式代码的一种高度封装，目的在于提高代码的开发效率和可维护性。
+
+面向过程编程概念：简称 POP 编程，面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的依次调用。
+
+其实就是按照我们分析好了的步骤，按照步骤解决...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2018-03-31</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2018/03/31/JS%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2018/03/10/BoxModel/">
+        浏览器标准模式和怪异模式之间的区别
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        前言标准模式：在标准模式下页面按照 HTML,CSS 的定义渲染；怪异模式：是浏览器为了兼容很早之前针对旧版本浏览器设计，浏览器基于页面中文件类型描述的存在以决定采用哪种渲染模式，如果存在一个完整的 DOCTYPE 则浏览器将会采用标准模式，如果缺失就会采用怪异模式。
+由此，引发下文的盒模型！
+盒模型在 W3C 标准模式下，盒模型被称为标准盒模型。
+
+
+在标准的盒子模型中，width 表示 ...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2018-03-10</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2018/03/10/BoxModel/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/">
+        xss攻击和csrf攻击
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        xss攻击定义XSS（Cross Site Scripting）：跨域脚本攻击。XSS的攻击原理XSS攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。导致的问题盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击。攻击方式1、反射型发出请求时，XSS代码出现在url中，...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2018-02-14</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2018/02/14/xss%E6%94%BB%E5%87%BB%E5%92%8Ccsrf%E6%94%BB%E5%87%BB/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/">
+        JavaScript中的宏任务和微任务
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        前情提要首先，我们必须明确一个概念：JS是单线程的其次，JS是有异步的，JS的异步分 微任务、宏任务主线任务执行完，JS会到微任务列表找任务，找不到了再到宏任务里面找其中Promise的任务是微任务
+宏任务与微任务概念在一个事件循环中，异步事件返回结果后会被放到一个任务队列中。然而，根据这个异步事件的类型，这个事件实际上会被对应的宏任务队列或者微任务队列中去。并且在当前执行栈为空的时候，主线...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2018-01-13</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2018/01/13/JavaScript%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/">
+            <section class="post prev white-box shadow" >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          2 / 3
+        </p>
+        
+          <a class="next" rel="next" href="/page/3/">
+            <section class="post next white-box shadow">
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </section>
+          </a>
+        
+      </div>
+    
+  
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
     
 
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">刘晨曦的个人博客</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/volantis-x/"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="/"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+  
+
+  
+    
+    
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/ES6/" style="font-size: 14px; color: #999">ES6</a> <a href="/tags/JS/" style="font-size: 24px; color: #555">JS</a> <a href="/tags/React/" style="font-size: 14px; color: #999">React</a> <a href="/tags/TS/" style="font-size: 19px; color: #777">TS</a> <a href="/tags/Vue/" style="font-size: 14px; color: #999">Vue</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">原理</a> <a href="/tags/%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" style="font-size: 14px; color: #999">安全问题</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 19px; color: #777">面试题</a>
+    </div>
+  </section>
+
+
+  
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=false;
+  pdata.postTitle="";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        Use
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2018-2020 小刘先生</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
 
 
 
 
-<script src="/js/script.js"></script>
 
 
 
 
 
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://example.com' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://example.com' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://example.com' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
   </div>
 </body>
 </html>
